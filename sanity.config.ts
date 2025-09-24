@@ -25,4 +25,15 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  cors: {
+    credentials: true,
+    origin: [
+      'http://localhost:3000',
+      'https://localhost:3000',
+      'http://ayoubouarain.com',
+      'https://ayoubouarain.com',
+      'https://www.ayoubouarain.com',
+      /^https:\/\/.*\.vercel\.app$/
+    ]
+  }
 })
