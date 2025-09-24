@@ -195,7 +195,7 @@ function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: strin
   const slugParts = post.slug.current.split('/')
   
   if (slugParts.length > 1) {
-    // Add parent category breadcrumb
+    // Add parent article breadcrumb (not category)
     const parentSlug = slugParts[0]
     const parentTitle = parentSlug
       .split('-')
@@ -204,7 +204,7 @@ function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: strin
     
     breadcrumbs.push({
       title: parentTitle,
-      href: `/blog/category/${parentSlug}`
+      href: `/blog/${parentSlug}`
     })
   }
   
