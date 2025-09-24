@@ -73,7 +73,7 @@ export default function ContentMarketingPage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
-                <Link href="/about">Learn About Me</Link>
+                <Link href="/blog">Read Our Blog</Link>
               </Button>
             </div>
           </div>

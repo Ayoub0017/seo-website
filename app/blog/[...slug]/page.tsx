@@ -191,8 +191,26 @@ function formatDate(dateString: string): string {
 function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: string }> {
   const breadcrumbs = [{ title: 'Blog', href: '/blog' }]
   
+  // Handle parent/child slug structure
+  const slugParts = post.slug.current.split('/')
+  
+  if (slugParts.length > 1) {
+    // Add parent category breadcrumb
+    const parentSlug = slugParts[0]
+    const parentTitle = parentSlug
+      .split('-')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ')
+    
+    breadcrumbs.push({
+      title: parentTitle,
+      href: `/blog/category/${parentSlug}`
+    })
+  }
+  
+  // Add current post
   breadcrumbs.push({
-    title: post.slug.current,
+    title: post.title,
     href: '#'
   })
   
@@ -219,6 +237,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     },
   }
 }
+
+export const revalidate = 0 // Disable caching for immediate updates
 
 export default async function BlogPostPage({ params }: PageProps) {
   const path = params.slug.join('/')

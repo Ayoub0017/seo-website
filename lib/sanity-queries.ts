@@ -10,12 +10,14 @@ export const blogPostsQuery = groq`
     excerpt,
     mainImage,
     publishedAt,
+    featured,
     author->{
       _id,
       name,
       slug,
       image
-    }
+    },
+    "categories": categories[]->title
   }
 `
 
@@ -28,6 +30,7 @@ export const blogPostQuery = groq`
     excerpt,
     mainImage,
     publishedAt,
+    featured,
     body[]{
       ...,
       _type == "image" => {
@@ -44,7 +47,8 @@ export const blogPostQuery = groq`
       email,
       website,
       socialMedia
-    }
+    },
+    "categories": categories[]->title
   }
 `
 
@@ -58,6 +62,7 @@ export async function getBlogPostByPath(path: string) {
       excerpt,
       mainImage,
       publishedAt,
+      featured,
       body[]{
         ...,
         _type == "image" => {
@@ -74,7 +79,8 @@ export async function getBlogPostByPath(path: string) {
         email,
         website,
         socialMedia
-      }
+      },
+      "categories": categories[]->title
     }
   `
   return await client.fetch(query, { path })
@@ -90,12 +96,14 @@ export async function getRelatedPosts(postId: string, limit: number = 3) {
       excerpt,
       mainImage,
       publishedAt,
+      featured,
       author->{
         _id,
         name,
         slug,
         image
-      }
+      },
+      "categories": categories[]->title
     }`,
     { postId, limit }
   )

@@ -75,7 +75,7 @@ export default function NextJSWebDevelopmentPage() {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
-                <Link href="/contact">Get In Touch</Link>
+                <Link href="/blog">Read Our Blog</Link>
               </Button>
             </div>
           </div>

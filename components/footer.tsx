@@ -16,9 +16,9 @@ export function Footer() {
       { href: "/contact", label: "Contact" },
     ],
     contact: [
-      { href: "mailto:hello@seospecialist.com", label: "hello@seospecialist.com", icon: Mail },
-      { href: "tel:+15551234567", label: "+1 (555) 123-4567", icon: Phone },
-      { href: "https://linkedin.com/in/your-profile", label: "LinkedIn Profile", icon: Linkedin },
+      { href: "mailto:contact@ayoubouarain.com", label: "contact@ayoubouarain.com", icon: Mail },
+      { href: "tel:+212669705440", label: "+212669705440", icon: Phone },
+      { href: "https://www.linkedin.com/in/ayoub-ouarain/", label: "LinkedIn Profile", icon: Linkedin },
     ],
   }
 
@@ -37,7 +37,7 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://linkedin.com/in/your-profile"
+                href="https://www.linkedin.com/in/ayoub-ouarain/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
@@ -45,7 +45,7 @@ export function Footer() {
                 <Linkedin className="h-5 w-5" />
               </Link>
               <Link
-                href="mailto:hello@seospecialist.com"
+                href="mailto:contact@ayoubouarain.com"
                 className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-300 hover:bg-gray-700 hover:text-white transition-colors"
               >
                 <Mail className="h-5 w-5" />

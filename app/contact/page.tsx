@@ -39,23 +39,23 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: "Email",
-      value: "hello@seospecialist.com",
+      value: "contact@ayoubouarain.com",
       description: "Send me a message anytime",
-      href: "mailto:hello@seospecialist.com",
+      href: "mailto:contact@ayoubouarain.com",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+212669705440",
       description: "Call for immediate assistance",
-      href: "tel:+15551234567",
+      href: "tel:+212669705440",
     },
     {
       icon: Linkedin,
       title: "LinkedIn",
       value: "Connect with me",
       description: "Professional networking",
-      href: "https://linkedin.com/in/your-profile",
+      href: "https://www.linkedin.com/in/ayoub-ouarain/",
     },
     {
       icon: Clock,
@@ -246,7 +246,7 @@ export default function ContactPage() {
                 <CardContent className="space-y-3">
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-sm">5+ years of proven experience</span>
+                    <span className="text-sm">6+ years of proven experience</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-primary rounded-full" />
@@ -274,7 +274,7 @@ export default function ContactPage() {
                     Book a free 30-minute consultation to discuss your project.
                   </p>
                   <Button asChild className="w-full">
-                    <Link href="mailto:hello@seospecialist.com?subject=Free Consultation Request">
+                    <Link href="mailto:contact@ayoubouarain.com?subject=Free Consultation Request">
                       Book Free Consultation
                     </Link>
                   </Button>

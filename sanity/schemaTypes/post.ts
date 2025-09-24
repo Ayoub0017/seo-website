@@ -49,6 +49,24 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'category' }],
+        },
+      ],
+    }),
+    defineField({
+      name: 'featured',
+      title: 'Featured Article',
+      type: 'boolean',
+      description: 'Mark this article as featured to display it in the featured section',
+      initialValue: false,
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'array',

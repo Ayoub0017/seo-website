@@ -48,17 +48,17 @@ export default function AboutPage() {
   const achievements = [
     {
       icon: TrendingUp,
-      title: "500% Traffic Growth",
-      description: "Average organic traffic increase for clients within 6 months",
+      title: "Traffic Growth",
+      description: "Substantial organic traffic increase for clients within months",
     },
     {
       icon: Users,
-      title: "50+ Happy Clients",
+      title: "Happy Clients",
       description: "Businesses transformed through strategic digital marketing",
     },
     {
       icon: Award,
-      title: "7+ Years Experience",
+      title: "6+ Years Experience",
       description: "Proven expertise in SEO and content marketing",
     },
     {
@@ -131,7 +131,7 @@ export default function AboutPage() {
                   <Link href="/contact">Work With Me</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
-                  <Link href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://www.linkedin.com/in/ayoub-ouarain/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-5 w-5" />
                     Connect on LinkedIn
                   </Link>
@@ -262,7 +262,7 @@ export default function AboutPage() {
               <Link href="/contact">Start a Project</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
-              <Link href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/ayoub-ouarain/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="mr-2 h-5 w-5" />
                 View LinkedIn Profile
               </Link>
