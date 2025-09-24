@@ -438,9 +438,9 @@ export default async function BlogPostPage({ params }: PageProps) {
                     <CardContent>
                       <p className="text-muted-foreground mb-4">{relatedPost.excerpt}</p>
                       <Link href={`/blog/${relatedPost.slug.current}`}>
-                        <Button variant="outline" size="sm" className="border-2" style={{ borderColor: 'oklch(0.55 0.18 280)', color: 'oklch(0.55 0.18 280)' }}>
+                        <Button variant="ghost" size="sm" className="group-hover:text-primary">
                           Read More
-                          <ArrowRight className="h-4 w-4 ml-2" />
+                          <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </Link>
                     </CardContent>

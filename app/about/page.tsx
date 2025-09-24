@@ -119,7 +119,7 @@ export default function AboutPage() {
                 Hi, I'm <span className="text-primary">Ayoub Ouraian</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                With over 7 years of experience in digital marketing, I specialize in helping businesses grow their
+                With over 6 years of experience in digital marketing, I specialize in helping businesses grow their
                 online presence through strategic SEO, compelling content marketing, and modern web development.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
