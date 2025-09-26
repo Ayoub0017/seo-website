@@ -13,7 +13,6 @@ import { PortableText } from '@portabletext/react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { BlogSidebar } from '@/components/blog-sidebar'
-import { ReadingProgress } from '@/components/reading-progress'
 
 interface BlogPost {
   _id: string
@@ -260,7 +259,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export const revalidate = 0 // Disable caching for immediate updates
 
-export default async function BlogPostPage({ params }: PageProps) {
+export default async function BlogPost({ params }: PageProps) {
   const path = params.slug.join('/')
   const post = await getBlogPostByPath(path)
   
@@ -273,7 +272,6 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <ReadingProgress />
       <Navigation />
       
       {/* Hero Section */}
@@ -352,9 +350,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       {/* Content */}
       <section className="pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-3">
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Main Content - Centered */}
+            <div className="flex-1 max-w-4xl mx-auto lg:mx-0">
               <div className="prose prose-lg max-w-none">
                 {post.body && Array.isArray(post.body) && post.body.length > 0 ? (
                   <PortableText
@@ -475,8 +473,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1 hidden lg:block">
+            {/* Sidebar - Right Side */}
+            <div className="lg:w-80 lg:flex-shrink-0 hidden lg:block">
               <BlogSidebar content={post.body} />
             </div>
           </div>
