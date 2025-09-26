@@ -12,6 +12,8 @@ import { getBlogPostByPath, getRelatedPosts, getBlogPostPath } from '@/lib/sanit
 import { PortableText } from '@portabletext/react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { BlogSidebar } from '@/components/blog-sidebar'
+import { ReadingProgress } from '@/components/reading-progress'
 
 interface BlogPost {
   _id: string
@@ -87,16 +89,34 @@ const portableTextComponents = {
     },
     h2: ({ children }: any) => {
       if (!children || children.length === 0) return null;
+      const text = children.map((child: any) => 
+        typeof child === 'string' ? child : child.props?.children || ''
+      ).join('').trim();
+      
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+      
       return (
-        <h2 className="text-2xl font-bold mt-8 mb-4" style={{ color: 'oklch(0.55 0.18 280)' }}>
+        <h2 id={id} className="text-2xl font-bold mt-8 mb-4" style={{ color: 'oklch(0.55 0.18 280)' }}>
           {children}
         </h2>
       );
     },
     h3: ({ children }: any) => {
       if (!children || children.length === 0) return null;
+      const text = children.map((child: any) => 
+        typeof child === 'string' ? child : child.props?.children || ''
+      ).join('').trim();
+      
+      const id = text
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/(^-|-$)/g, '');
+      
       return (
-        <h3 className="text-xl font-semibold mt-6 mb-3" style={{ color: 'oklch(0.55 0.18 280)' }}>
+        <h3 id={id} className="text-xl font-semibold mt-6 mb-3" style={{ color: 'oklch(0.55 0.18 280)' }}>
           {children}
         </h3>
       );
@@ -253,6 +273,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      <ReadingProgress />
       <Navigation />
       
       {/* Hero Section */}
@@ -330,125 +351,135 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Content */}
       <section className="pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="prose prose-lg max-w-none">
-            {post.body && Array.isArray(post.body) && post.body.length > 0 ? (
-              <PortableText
-                value={post.body}
-                components={portableTextComponents}
-              />
-            ) : (
-              <p className="text-muted-foreground">No content available.</p>
-            )}
-          </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            {/* Main Content */}
+            <div className="lg:col-span-3">
+              <div className="prose prose-lg max-w-none">
+                {post.body && Array.isArray(post.body) && post.body.length > 0 ? (
+                  <PortableText
+                    value={post.body}
+                    components={portableTextComponents}
+                  />
+                ) : (
+                  <p className="text-muted-foreground">No content available.</p>
+                )}
+              </div>
 
-          {/* Author Bio Card - Moved below content */}
-          {post.author && (
-            <Card className="mt-12 p-6">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg" style={{ color: 'oklch(0.55 0.18 280)' }}>About the Author</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-start gap-4">
-                  {post.author.image && (
-                    <Image
-                      src={urlFor(post.author.image).width(80).height(80).url()}
-                      alt={post.author.name}
-                      width={80}
-                      height={80}
-                      className="rounded-full flex-shrink-0"
-                    />
-                  )}
-                  <div className="flex-1">
-                    <h3 className="font-semibold text-foreground text-lg mb-2">{post.author.name}</h3>
-                    {post.author.bio && Array.isArray(post.author.bio) && post.author.bio.length > 0 && (
-                      <div className="text-muted-foreground mb-4 leading-relaxed prose prose-sm max-w-none">
-                        <PortableText
-                          value={post.author.bio}
-                          components={portableTextComponents}
+              {/* Author Bio Card - Moved below content */}
+              {post.author && (
+                <Card className="mt-12 p-6">
+                  <CardHeader className="pb-4">
+                    <CardTitle className="text-lg" style={{ color: 'oklch(0.55 0.18 280)' }}>About the Author</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex items-start gap-4">
+                      {post.author.image && (
+                        <Image
+                          src={urlFor(post.author.image).width(80).height(80).url()}
+                          alt={post.author.name}
+                          width={80}
+                          height={80}
+                          className="rounded-full flex-shrink-0"
                         />
+                      )}
+                      <div className="flex-1">
+                        <h3 className="font-semibold text-foreground text-lg mb-2">{post.author.name}</h3>
+                        {post.author.bio && Array.isArray(post.author.bio) && post.author.bio.length > 0 && (
+                          <div className="text-muted-foreground mb-4 leading-relaxed prose prose-sm max-w-none">
+                            <PortableText
+                              value={post.author.bio}
+                              components={portableTextComponents}
+                            />
+                          </div>
+                        )}
+                        <div className="flex gap-3">
+                          {post.author.website && (
+                            <Link 
+                              href={post.author.website} 
+                              target="_blank" 
+                              className="text-sm hover:underline font-medium"
+                      style={{ color: 'oklch(0.55 0.18 280)' }}
+                            >
+                              Website
+                            </Link>
+                          )}
+                          {post.author.socialMedia?.twitter && (
+                            <Link 
+                              href={`https://twitter.com/${post.author.socialMedia.twitter}`} 
+                              target="_blank" 
+                              className="text-sm hover:underline font-medium"
+                      style={{ color: 'oklch(0.55 0.18 280)' }}
+                            >
+                              Twitter
+                            </Link>
+                          )}
+                          {post.author.socialMedia?.linkedin && (
+                            <Link 
+                              href={post.author.socialMedia.linkedin} 
+                              target="_blank" 
+                              className="text-sm hover:underline font-medium"
+                      style={{ color: 'oklch(0.55 0.18 280)' }}
+                            >
+                              LinkedIn
+                            </Link>
+                          )}
+                        </div>
                       </div>
-                    )}
-                    <div className="flex gap-3">
-                      {post.author.website && (
-                        <Link 
-                          href={post.author.website} 
-                          target="_blank" 
-                          className="text-sm hover:underline font-medium"
-                style={{ color: 'oklch(0.55 0.18 280)' }}
-                        >
-                          Website
-                        </Link>
-                      )}
-                      {post.author.socialMedia?.twitter && (
-                        <Link 
-                          href={`https://twitter.com/${post.author.socialMedia.twitter}`} 
-                          target="_blank" 
-                          className="text-sm hover:underline font-medium"
-                style={{ color: 'oklch(0.55 0.18 280)' }}
-                        >
-                          Twitter
-                        </Link>
-                      )}
-                      {post.author.socialMedia?.linkedin && (
-                        <Link 
-                          href={post.author.socialMedia.linkedin} 
-                          target="_blank" 
-                          className="text-sm hover:underline font-medium"
-                style={{ color: 'oklch(0.55 0.18 280)' }}
-                        >
-                          LinkedIn
-                        </Link>
-                      )}
                     </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Related Posts */}
+              {relatedPosts.length > 0 && (
+                <div className="mt-12">
+                  <Separator className="mb-8" />
+                  <h2 className="text-2xl font-bold mb-6" style={{ color: 'oklch(0.55 0.18 280)' }}>Related Articles</h2>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {relatedPosts.slice(0, 3).map((relatedPost) => (
+                      <Card key={relatedPost._id} className="hover:shadow-lg transition-shadow">
+                        {relatedPost.mainImage && (
+                          <div className="relative h-32 overflow-hidden rounded-t-lg">
+                            <Image
+                              src={urlFor(relatedPost.mainImage).width(400).height(200).url()}
+                              alt={relatedPost.title}
+                              fill
+                              className="object-cover"
+                            />
+                          </div>
+                        )}
+                        <CardHeader>
+                          <CardTitle className="text-lg">
+                            <Link href={`/blog/${relatedPost.slug.current}`} className="hover:underline" style={{ color: 'oklch(0.55 0.18 280)' }}>
+                              {relatedPost.title}
+                            </Link>
+                          </CardTitle>
+                          <p className="text-sm text-muted-foreground">
+                            {formatDate(relatedPost.publishedAt)}
+                          </p>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-muted-foreground mb-4">{relatedPost.excerpt}</p>
+                          <Link href={`/blog/${relatedPost.slug.current}`}>
+                            <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                              Read More
+                              <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                          </Link>
+                        </CardContent>
+                      </Card>
+                    ))}
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* Related Posts */}
-          {relatedPosts.length > 0 && (
-            <div className="mt-12">
-              <Separator className="mb-8" />
-              <h2 className="text-2xl font-bold mb-6" style={{ color: 'oklch(0.55 0.18 280)' }}>Related Articles</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {relatedPosts.slice(0, 3).map((relatedPost) => (
-                  <Card key={relatedPost._id} className="hover:shadow-lg transition-shadow">
-                    {relatedPost.mainImage && (
-                      <div className="relative h-32 overflow-hidden rounded-t-lg">
-                        <Image
-                          src={urlFor(relatedPost.mainImage).width(400).height(200).url()}
-                          alt={relatedPost.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <CardTitle className="text-lg">
-                        <Link href={`/blog/${relatedPost.slug.current}`} className="hover:underline" style={{ color: 'oklch(0.55 0.18 280)' }}>
-                          {relatedPost.title}
-                        </Link>
-                      </CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        {formatDate(relatedPost.publishedAt)}
-                      </p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">{relatedPost.excerpt}</p>
-                      <Link href={`/blog/${relatedPost.slug.current}`}>
-                        <Button variant="ghost" size="sm" className="group-hover:text-primary">
-                          Read More
-                          <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                      </Link>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+              )}
             </div>
-          )}
+
+            {/* Sidebar */}
+            <div className="lg:col-span-1 hidden lg:block">
+              <BlogSidebar content={post.body} />
+            </div>
+          </div>
         </div>
       </section>
       
