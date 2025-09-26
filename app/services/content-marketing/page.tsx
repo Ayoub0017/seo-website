@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { PenTool, Users, Megaphone, BookOpen, CheckCircle, ArrowRight, Target, TrendingUp } from "lucide-react"
 import Link from "next/link"
+import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -60,11 +61,27 @@ export default function ContentMarketingPage() {
   ]
 
   return (
-    <main className="min-h-screen">
-      <Navigation />
+    <>
+      {/* Schema Markup for Content Marketing Service */}
+      <SchemaMarkup 
+        type="service" 
+        data={{
+          name: "Content Marketing Services",
+          description: "Engage your audience with strategic, high-quality content that builds trust, drives traffic, and converts visitors into loyal customers.",
+          provider: ayoubPersonData,
+          areaServed: "Worldwide",
+          serviceType: "Content Marketing",
+          offers: {
+            description: "Professional content marketing services including content strategy, blog writing, social media content, and email marketing campaigns"
+          }
+        }} 
+      />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent/5 to-primary/5">
+      <main className="min-h-screen">
+        <Navigation />
+        
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent/5 to-primary/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-4" variant="secondary">
@@ -236,5 +253,6 @@ export default function ContentMarketingPage() {
 
       <Footer />
     </main>
+    </>
   )
 }

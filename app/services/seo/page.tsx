@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Search, TrendingUp, Target, BarChart3, CheckCircle, ArrowRight, Brain, Network, BookOpen } from "lucide-react"
 import Link from "next/link"
+import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -63,11 +64,27 @@ export default function SEOServicesPage() {
   ]
 
   return (
-    <main className="min-h-screen">
-      <Navigation />
+    <>
+      {/* Schema Markup for SEO Service */}
+      <SchemaMarkup 
+        type="service" 
+        data={{
+          name: "SEO Services",
+          description: "Comprehensive SEO services to boost your online visibility and drive targeted traffic. Build lasting search presence through strategic optimization and data-driven approaches.",
+          provider: ayoubPersonData,
+          areaServed: "Worldwide",
+          serviceType: "Search Engine Optimization",
+          offers: {
+            description: "Professional SEO services including technical audits, keyword research, on-page optimization, and content strategy"
+          }
+        }} 
+      />
       
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-accent/5">
+      <main className="min-h-screen">
+        <Navigation />
+        
+        {/* Hero Section */}
+        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-accent/5">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-4" variant="secondary">
@@ -213,5 +230,6 @@ export default function SEOServicesPage() {
 
       <Footer />
     </main>
+    </>
   )
 }

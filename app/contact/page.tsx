@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Mail, Phone, Clock, Send, Linkedin } from "lucide-react"
 import Link from "next/link"
+import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 
 // Note: Metadata export moved to layout or parent component due to "use client" directive
 
@@ -91,11 +92,31 @@ export default function ContactPage() {
   ]
 
   return (
-    <main className="min-h-screen">
-      <Navigation />
+    <>
+      {/* ContactPage Schema Markup */}
+      <SchemaMarkup 
+        type="contactPage" 
+        data={{
+          name: "Contact Ayoub Ouraian - SEO & Digital Marketing Consultant",
+          description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Ready to grow your business online.",
+          url: "https://ayoubouraian.com/contact",
+          mainEntity: ayoubPersonData,
+          contactPoint: {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-0123",
+            "contactType": "customer service",
+            "email": "contact@ayoubouarain.com",
+            "availableLanguage": ["English", "French"],
+            "areaServed": "Worldwide"
+          }
+        }} 
+      />
+      
+      <main className="min-h-screen">
+        <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Let's Start Your <span className="text-primary">Success Story</span>
@@ -338,5 +359,6 @@ export default function ContactPage() {
 
       <Footer />
     </main>
+    </>
   )
 }

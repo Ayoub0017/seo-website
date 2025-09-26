@@ -13,6 +13,7 @@ import { PortableText } from '@portabletext/react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { BlogSidebar } from '@/components/blog-sidebar'
+import { SchemaMarkup, ayoubPersonData } from '@/components/schema-markup'
 
 interface BlogPost {
   _id: string
@@ -282,8 +283,37 @@ export default async function BlogPost({ params }: PageProps) {
   const breadcrumbs = generateBreadcrumbs(post)
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
+    <>
+      {/* BlogPosting Schema Markup */}
+      <SchemaMarkup 
+        type="blogPosting" 
+        data={{
+          headline: post.title,
+          description: post.excerpt,
+          image: post.mainImage ? urlFor(post.mainImage).url() : "https://ayoubouraian.com/placeholder.jpg",
+          datePublished: post.publishedAt,
+          author: post.author ? {
+            "@type": "Person",
+            "name": post.author.name,
+            "url": `https://ayoubouraian.com/author/${post.author.slug?.current || ''}`
+          } : ayoubPersonData,
+          publisher: {
+            "@type": "Organization",
+            "name": "Ayoub Ouraian Digital Marketing",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://ayoubouraian.com/ayoub-ouarain-logo.png"
+            }
+          },
+          mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": `https://ayoubouraian.com/blog/${path}`
+          }
+        }} 
+      />
+      
+      <div className="min-h-screen bg-background">
+        <Navigation />
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
@@ -463,5 +493,6 @@ export default async function BlogPost({ params }: PageProps) {
 
       <Footer />
     </div>
+    </>
   )
 }

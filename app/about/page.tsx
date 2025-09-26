@@ -7,6 +7,7 @@ import { Linkedin, Award, Users, TrendingUp, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
+import { SchemaMarkup } from "@/components/schema-markup"
 
 export const metadata: Metadata = {
   title: "Hi, I'm Ayoub Ouraian",
@@ -120,11 +121,50 @@ export default function AboutPage() {
   ]
 
   return (
-    <main className="min-h-screen">
-      <Navigation />
+    <>
+      {/* Detailed Person Schema Markup for About Page */}
+      <SchemaMarkup 
+        type="person" 
+        data={{
+          name: "Ayoub Ouraian",
+          jobTitle: "SEO Specialist & Digital Marketing Consultant",
+          description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
+          url: "https://ayoubouraian.com",
+          image: "https://ayoubouraian.com/ayoub-ouarain-profile.png",
+          sameAs: [
+            "https://www.linkedin.com/in/ayoub-ouraian/",
+            "https://ayoubouraian.com"
+          ],
+          worksFor: {
+            "@type": "Organization",
+            "name": "Freelance Digital Marketing Consultant"
+          },
+          knowsAbout: [
+            "Search Engine Optimization",
+            "Content Marketing",
+            "Web Development",
+            "Digital Marketing Strategy",
+            "Technical SEO",
+            "Semantic SEO",
+            "Next.js Development",
+            "Headless CMS"
+          ],
+          hasOccupation: {
+            "@type": "Occupation",
+            "name": "Digital Marketing Consultant",
+            "occupationLocation": {
+              "@type": "Place",
+              "name": "Worldwide"
+            }
+          }
+        }} 
+      />
+      
+      <main className="min-h-screen">
+        <Navigation />
 
-      {/* Hero Section with Image */}
-      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        {/* Hero Section with Image */}
+        <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -287,5 +327,6 @@ export default function AboutPage() {
       {/* Footer Section */}
       <Footer />
     </main>
+    </>
   )
 }

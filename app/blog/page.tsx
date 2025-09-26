@@ -8,6 +8,7 @@ import { client, urlFor } from "@/lib/sanity"
 import Link from "next/link"
 import Image from "next/image"
 import type { Metadata } from "next"
+import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 
 export const metadata: Metadata = {
   title: "SEO & Marketing Insights",
@@ -132,9 +133,29 @@ export default async function BlogPage() {
   const { featured, latest } = await getBlogPosts()
 
   return (
-    <main className="min-h-screen">
-      {/* Navigation component */}
-      <Navigation />
+    <>
+      {/* Blog Schema Markup */}
+      <SchemaMarkup 
+        type="blog" 
+        data={{
+          name: "SEO & Marketing Insights Blog",
+          description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
+          url: "https://ayoubouraian.com/blog",
+          author: ayoubPersonData,
+          publisher: {
+            "@type": "Organization",
+            "name": "Ayoub Ouraian Digital Marketing",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://ayoubouraian.com/ayoub-ouarain-logo.png"
+            }
+          }
+        }} 
+      />
+      
+      <main className="min-h-screen">
+        {/* Navigation component */}
+        <Navigation />
 
       {/* Hero Section */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
@@ -320,5 +341,6 @@ export default async function BlogPage() {
       {/* Footer component */}
       <Footer />
     </main>
+    </>
   )
 }
