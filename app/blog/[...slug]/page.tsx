@@ -447,52 +447,7 @@ export default async function BlogPost({ params }: PageProps) {
                 </div>
               )}
 
-              {/* Related Posts */}
-              {relatedPosts.length > 0 && (
-                <div className="max-w-4xl mx-auto">
-                  <div className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 md:p-12">
-                  <div className="mt-0">
-                    <Separator className="mb-8" />
-                    <h2 className="text-2xl font-bold mb-6" style={{ color: 'oklch(0.55 0.18 280)' }}>Related Articles</h2>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {relatedPosts.slice(0, 3).map((relatedPost) => (
-                        <Card key={relatedPost._id} className="hover:shadow-lg transition-shadow">
-                          {relatedPost.mainImage && (
-                            <div className="relative h-32 overflow-hidden rounded-t-lg">
-                              <Image
-                                src={urlFor(relatedPost.mainImage).width(400).height(200).url()}
-                                alt={relatedPost.title}
-                                fill
-                                className="object-cover"
-                              />
-                            </div>
-                          )}
-                          <CardHeader>
-                            <CardTitle className="text-lg">
-                              <Link href={`/blog/${relatedPost.slug.current}`} className="hover:underline" style={{ color: 'oklch(0.55 0.18 280)' }}>
-                                {relatedPost.title}
-                              </Link>
-                            </CardTitle>
-                            <p className="text-sm text-muted-foreground">
-                              {formatDate(relatedPost.publishedAt)}
-                            </p>
-                          </CardHeader>
-                          <CardContent>
-                            <p className="text-muted-foreground mb-4">{relatedPost.excerpt}</p>
-                            <Link href={`/blog/${relatedPost.slug.current}`}>
-                              <Button variant="ghost" size="sm" className="group-hover:text-primary">
-                                Read More
-                                <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                              </Button>
-                            </Link>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-                  </div>
-                </div>
-              )}
+
               </div>
             </div>
 

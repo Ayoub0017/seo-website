@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 interface Heading {
   id: string
   text: string
-  level: 2 | 3
+  level: 2
 }
 
 interface TableOfContentsProps {
@@ -25,7 +25,7 @@ export function TableOfContents({ content, className }: TableOfContentsProps) {
     
     const extractHeadings = (blocks: any[]) => {
       blocks.forEach((block) => {
-        if (block._type === 'block' && (block.style === 'h2' || block.style === 'h3')) {
+        if (block._type === 'block' && block.style === 'h2') {
           const text = block.children
             ?.map((child: any) => child.text)
             .join('') || ''
@@ -39,7 +39,7 @@ export function TableOfContents({ content, className }: TableOfContentsProps) {
             extractedHeadings.push({
               id,
               text: text.trim(),
-              level: block.style === 'h2' ? 2 : 3
+              level: 2
             })
           }
         }
@@ -102,8 +102,7 @@ export function TableOfContents({ content, className }: TableOfContentsProps) {
             <button
               onClick={() => scrollToHeading(heading.id)}
               className={cn(
-                "text-left w-full text-sm transition-colors duration-200 hover:text-foreground",
-                heading.level === 2 ? "font-medium" : "font-normal ml-4",
+                "text-left w-full text-sm transition-colors duration-200 hover:text-foreground font-medium",
                 activeId === heading.id 
                   ? "font-semibold" 
                   : "text-muted-foreground"
