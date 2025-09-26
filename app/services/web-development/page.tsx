@@ -40,7 +40,7 @@ export default function NextJSWebDevelopmentPage() {
   ]
 
   const benefits = [
-    "Lightning-fast loading speeds (under 2 seconds)",
+    "Lightning-fast loading speeds",
     "SEO-optimized from the ground up",
     "Secure and scalable architecture",
     "Easy content management with headless CMS",
@@ -104,7 +104,7 @@ export default function NextJSWebDevelopmentPage() {
                 <CardTitle className="text-xl">Lightning Fast</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">Optimized for speed with loading times under 3 seconds</p>
+                <p className="text-muted-foreground">Optimized for speed with fast loading times</p>
               </CardContent>
             </Card>
 
@@ -242,22 +242,22 @@ export default function NextJSWebDevelopmentPage() {
             <div className="grid grid-cols-2 gap-6">
               <Card className="text-center p-6">
                 <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">99.9%</h3>
-                <p className="text-muted-foreground">Uptime Guarantee</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Maximum</h3>
+                <p className="text-muted-foreground">Uptime Reliability</p>
               </Card>
               <Card className="text-center p-6">
                 <Monitor className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">100+</h3>
-                <p className="text-muted-foreground">Websites Built</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Extensive</h3>
+                <p className="text-muted-foreground">Portfolio</p>
               </Card>
               <Card className="text-center p-6">
                 <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">&lt;3s</h3>
-                <p className="text-muted-foreground">Average Load Time</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Fast</h3>
+                <p className="text-muted-foreground">Loading Speed</p>
               </Card>
               <Card className="text-center p-6">
                 <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">24/7</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Continuous</h3>
                 <p className="text-muted-foreground">Security Monitoring</p>
               </Card>
             </div>

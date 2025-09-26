@@ -6,27 +6,37 @@ import { Badge } from "@/components/ui/badge"
 import { Search, TrendingUp, Target, BarChart3, CheckCircle, ArrowRight, Brain, Network, BookOpen } from "lucide-react"
 import Link from "next/link"
 
-export default function SemanticSEOPage() {
-  const semanticSEOServices = [
+export default function SEOServicesPage() {
+  const seoServices = [
     {
-      title: "Entity-Based Optimization",
+      title: "Semantic SEO",
       description: "Optimize your content around entities and their relationships for better semantic understanding",
       features: ["Entity identification", "Entity relationships mapping", "Knowledge panel optimization", "Entity-based content strategy"]
     },
     {
-      title: "Topical Authority Building",
-      description: "Establish your website as the go-to authority in your niche through comprehensive topic coverage",
-      features: ["Topic cluster creation", "Content gap analysis", "Authority mapping", "Expertise demonstration"]
+      title: "Ecommerce SEO",
+      description: "Specialized SEO strategies for online stores to increase visibility and drive more sales",
+      features: ["Product page optimization", "Category structure improvement", "Shopping feed optimization", "Conversion rate enhancement"]
     },
     {
-      title: "Semantic Keyword Research",
-      description: "Advanced keyword research focusing on semantic relationships and user intent",
-      features: ["Intent-based clustering", "Semantic keyword mapping", "Related entity discovery", "Context-aware optimization"]
+      title: "Local SEO",
+      description: "Boost your local business visibility in local search results and Google Maps",
+      features: ["Google Business Profile optimization", "Local citation building", "Review management", "Local content strategy"]
     },
     {
-      title: "Knowledge Graph Optimization",
-      description: "Optimize your content to appear in Google's Knowledge Graph and featured snippets",
-      features: ["Structured data implementation", "FAQ optimization", "Featured snippet targeting", "Knowledge panel enhancement"]
+      title: "International SEO",
+      description: "Expand your global reach with multilingual and multi-regional SEO strategies",
+      features: ["hreflang implementation", "Geo-targeting setup", "International content strategy", "Localized keyword research"]
+    },
+    {
+      title: "Technical SEO",
+      description: "Ensure your website's technical foundation supports optimal search performance",
+      features: ["Site speed optimization", "Mobile-friendliness", "Crawlability improvements", "Indexation management"]
+    },
+    {
+      title: "SEO Audits",
+      description: "Comprehensive analysis of your website to identify and fix SEO issues",
+      features: ["Technical audit", "Content quality assessment", "Competitor analysis", "Actionable recommendations"]
     }
   ]
 
@@ -49,19 +59,19 @@ export default function SemanticSEOPage() {
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-4" variant="secondary">
               <Brain className="w-4 h-4 mr-2" />
-              Semantic SEO Services
+              SEO Services
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Semantic <span className="text-primary">SEO</span> Mastery
+              <span className="text-primary">SEO</span> Services
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Advanced semantic SEO focusing on entities and topical authority to dominate search results. 
-              Build lasting search visibility through strategic content optimization and semantic understanding.
+              Comprehensive SEO services to boost your online visibility and drive targeted traffic.
+              Build lasting search presence through strategic optimization and data-driven approaches.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="text-lg px-8 py-6">
                 <Link href="/contact">
-                  Get Semantic SEO Audit
+                  Get SEO Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -78,18 +88,18 @@ export default function SemanticSEOPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Semantic SEO Services
+              SEO Services
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Advanced semantic optimization strategies that focus on entities, topical authority, 
-              and semantic relationships to dominate search results.
+              Comprehensive SEO strategies that focus on improving visibility, driving targeted traffic,
+              and boosting your online presence across all search platforms.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {semanticSEOServices.map((service, index) => {
-              const icons = [Brain, Network, Target, BookOpen];
-              const IconComponent = icons[index];
+            {seoServices.map((service, index) => {
+              const icons = [Brain, Network, Target, BookOpen, BarChart3, Search];
+              const IconComponent = icons[index % icons.length];
               
               return (
                 <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
@@ -147,23 +157,23 @@ export default function SemanticSEOPage() {
             <div className="grid grid-cols-2 gap-6">
               <Card className="text-center p-6">
                 <BarChart3 className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">300%</h3>
-                <p className="text-muted-foreground">Average Traffic Increase</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Increased Traffic</h3>
+                <p className="text-muted-foreground">Drive more visitors to your website</p>
               </Card>
               <Card className="text-center p-6">
                 <Target className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">90%</h3>
-                <p className="text-muted-foreground">Client Satisfaction Rate</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Client Satisfaction</h3>
+                <p className="text-muted-foreground">Proven results for businesses</p>
               </Card>
               <Card className="text-center p-6">
                 <TrendingUp className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">6 Months</h3>
-                <p className="text-muted-foreground">Average Time to Results</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Sustainable Growth</h3>
+                <p className="text-muted-foreground">Long-term SEO strategies</p>
               </Card>
               <Card className="text-center p-6">
                 <Search className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">50+</h3>
-                <p className="text-muted-foreground">Keywords Ranked</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Keyword Ranking</h3>
+                <p className="text-muted-foreground">Improved search visibility</p>
               </Card>
             </div>
           </div>

@@ -29,36 +29,36 @@ export function HeroSection() {
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-12">My Services</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Semantic SEO Card */}
+            {/* SEO Services Card */}
             <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50">
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                 <Search className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold mb-6">Semantic SEO</h3>
+              <h3 className="text-2xl font-bold mb-6">SEO Services</h3>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Entity-Based Optimization
+                  Semantic SEO
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Topical Authority Building
+                  Ecommerce SEO
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Semantic Keyword Research
+                  Local SEO
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Knowledge Graph Optimization
+                  International SEO
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Content Cluster Strategy
+                  Technical SEO
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Schema Markup
+                  SEO Audits
                 </li>
               </ul>
               <Button asChild className="w-full">

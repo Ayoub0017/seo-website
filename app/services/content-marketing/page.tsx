@@ -32,7 +32,7 @@ export default function ContentMarketingPage() {
 
   const benefits = [
     "Increase brand awareness and authority",
-    "Generate 3x more leads than traditional marketing",
+    "Generate more leads than traditional marketing",
     "Build trust and credibility with your audience",
     "Improve customer retention and loyalty",
     "Cost-effective long-term marketing strategy",
@@ -163,7 +163,7 @@ export default function ContentMarketingPage() {
                 The Power of Strategic Content
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Content marketing generates 3x more leads than traditional marketing while costing 62% less. 
+                Content marketing generates more leads than traditional marketing while being more cost-effective. 
                 Let me help you harness this power for your business growth.
               </p>
               <ul className="space-y-4">
@@ -180,23 +180,23 @@ export default function ContentMarketingPage() {
             <div className="grid grid-cols-2 gap-6">
               <Card className="text-center p-6">
                 <TrendingUp className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">3x</h3>
-                <p className="text-muted-foreground">More Leads Generated</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Increased</h3>
+                <p className="text-muted-foreground">Lead Generation</p>
               </Card>
               <Card className="text-center p-6">
                 <Users className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">85%</h3>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Higher</h3>
                 <p className="text-muted-foreground">Audience Engagement</p>
               </Card>
               <Card className="text-center p-6">
                 <BookOpen className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">200+</h3>
-                <p className="text-muted-foreground">Content Pieces Created</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Extensive</h3>
+                <p className="text-muted-foreground">Content Portfolio</p>
               </Card>
               <Card className="text-center p-6">
                 <Target className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">95%</h3>
-                <p className="text-muted-foreground">Client Retention Rate</p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">Strong</h3>
+                <p className="text-muted-foreground">Client Relationships</p>
               </Card>
             </div>
           </div>
