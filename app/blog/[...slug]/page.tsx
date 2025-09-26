@@ -237,7 +237,8 @@ function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: strin
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const path = params.slug.join('/')
+  const resolvedParams = await params
+  const path = resolvedParams.slug.join('/')
   const post = await getBlogPostByPath(path)
   
   if (!post) {
@@ -246,9 +247,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
+  const currentUrl = `https://ayoubouraian.com/blog/${path}`
+
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: post.title, // This will be customized per article as requested
+    description: post.excerpt, // This will be customized per article as requested
+    robots: "index, follow",
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        "en-US": currentUrl,
+      },
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -260,7 +270,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export const revalidate = 0 // Disable caching for immediate updates
 
 export default async function BlogPost({ params }: PageProps) {
-  const path = params.slug.join('/')
+  const resolvedParams = await params
+  const path = resolvedParams.slug.join('/')
   const post = await getBlogPostByPath(path)
   
   if (!post) {
@@ -276,7 +287,7 @@ export default async function BlogPost({ params }: PageProps) {
       
       {/* Hero Section */}
       <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 md:p-12">
+        <div className="max-w-7xl mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 md:p-12">
           {/* Modern Breadcrumbs */}
           <nav className="mb-8">
             <ol className="flex items-center space-x-2 text-sm">
@@ -350,137 +361,151 @@ export default async function BlogPost({ params }: PageProps) {
       {/* Content */}
       <section className="pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Main Content - Centered */}
-            <div className="flex-1 max-w-4xl mx-auto lg:mx-0">
-              <div className="prose prose-lg max-w-none">
-                {post.body && Array.isArray(post.body) && post.body.length > 0 ? (
-                  <PortableText
-                    value={post.body}
-                    components={portableTextComponents}
-                  />
-                ) : (
-                  <p className="text-muted-foreground">No content available.</p>
-                )}
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            {/* Main Content - Centered under header */}
+            <div className="flex-1">
+              <div className="max-w-4xl mx-auto">
+                <div className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 md:p-12">
+                <div className="prose prose-lg max-w-none">
+                  {post.body && Array.isArray(post.body) && post.body.length > 0 ? (
+                    <PortableText
+                      value={post.body}
+                      components={portableTextComponents}
+                    />
+                  ) : (
+                    <p className="text-muted-foreground">No content available.</p>
+                  )}
+                </div>
               </div>
 
               {/* Author Bio Card - Moved below content */}
               {post.author && (
-                <Card className="mt-12 p-6">
-                  <CardHeader className="pb-4">
-                    <CardTitle className="text-lg" style={{ color: 'oklch(0.55 0.18 280)' }}>About the Author</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-start gap-4">
-                      {post.author.image && (
-                        <Image
-                          src={urlFor(post.author.image).width(80).height(80).url()}
-                          alt={post.author.name}
-                          width={80}
-                          height={80}
-                          className="rounded-full flex-shrink-0"
-                        />
-                      )}
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-foreground text-lg mb-2">{post.author.name}</h3>
-                        {post.author.bio && Array.isArray(post.author.bio) && post.author.bio.length > 0 && (
-                          <div className="text-muted-foreground mb-4 leading-relaxed prose prose-sm max-w-none">
-                            <PortableText
-                              value={post.author.bio}
-                              components={portableTextComponents}
-                            />
-                          </div>
+                <div className="max-w-4xl mx-auto">
+                  <div className="w-full">
+                    <Card className="mt-12 p-6 bg-white dark:bg-gray-900 shadow-lg">
+                    <CardHeader className="pb-4">
+                      <CardTitle className="text-lg" style={{ color: 'oklch(0.55 0.18 280)' }}>About the Author</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex items-start gap-4">
+                        {post.author.image && (
+                          <Image
+                            src={urlFor(post.author.image).width(80).height(80).url()}
+                            alt={post.author.name}
+                            width={80}
+                            height={80}
+                            className="rounded-full flex-shrink-0"
+                          />
                         )}
-                        <div className="flex gap-3">
-                          {post.author.website && (
-                            <Link 
-                              href={post.author.website} 
-                              target="_blank" 
-                              className="text-sm hover:underline font-medium"
-                      style={{ color: 'oklch(0.55 0.18 280)' }}
-                            >
-                              Website
-                            </Link>
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-foreground text-lg mb-2">{post.author.name}</h3>
+                          {post.author.bio && Array.isArray(post.author.bio) && post.author.bio.length > 0 && (
+                            <div className="text-muted-foreground mb-4 leading-relaxed prose prose-sm max-w-none">
+                              <PortableText
+                                value={post.author.bio}
+                                components={portableTextComponents}
+                              />
+                            </div>
                           )}
-                          {post.author.socialMedia?.twitter && (
-                            <Link 
-                              href={`https://twitter.com/${post.author.socialMedia.twitter}`} 
-                              target="_blank" 
-                              className="text-sm hover:underline font-medium"
-                      style={{ color: 'oklch(0.55 0.18 280)' }}
-                            >
-                              Twitter
-                            </Link>
-                          )}
-                          {post.author.socialMedia?.linkedin && (
-                            <Link 
-                              href={post.author.socialMedia.linkedin} 
-                              target="_blank" 
-                              className="text-sm hover:underline font-medium"
-                      style={{ color: 'oklch(0.55 0.18 280)' }}
-                            >
-                              LinkedIn
-                            </Link>
-                          )}
+                          <div className="flex gap-3">
+                            {post.author.website && (
+                              <Link 
+                                href={post.author.website} 
+                                target="_blank" 
+                                className="text-sm hover:underline font-medium"
+                                style={{ color: 'oklch(0.55 0.18 280)' }}
+                              >
+                                Website
+                              </Link>
+                            )}
+                            {post.author.socialMedia?.twitter && (
+                              <Link 
+                                href={`https://twitter.com/${post.author.socialMedia.twitter}`} 
+                                target="_blank" 
+                                className="text-sm hover:underline font-medium"
+                                style={{ color: 'oklch(0.55 0.18 280)' }}
+                              >
+                                Twitter
+                              </Link>
+                            )}
+                            {post.author.socialMedia?.linkedin && (
+                              <Link 
+                                href={post.author.socialMedia.linkedin} 
+                                target="_blank" 
+                                className="text-sm hover:underline font-medium"
+                                style={{ color: 'oklch(0.55 0.18 280)' }}
+                              >
+                                LinkedIn
+                              </Link>
+                            )}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                  </div>
+                </div>
               )}
 
               {/* Related Posts */}
               {relatedPosts.length > 0 && (
-                <div className="mt-12">
-                  <Separator className="mb-8" />
-                  <h2 className="text-2xl font-bold mb-6" style={{ color: 'oklch(0.55 0.18 280)' }}>Related Articles</h2>
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {relatedPosts.slice(0, 3).map((relatedPost) => (
-                      <Card key={relatedPost._id} className="hover:shadow-lg transition-shadow">
-                        {relatedPost.mainImage && (
-                          <div className="relative h-32 overflow-hidden rounded-t-lg">
-                            <Image
-                              src={urlFor(relatedPost.mainImage).width(400).height(200).url()}
-                              alt={relatedPost.title}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        )}
-                        <CardHeader>
-                          <CardTitle className="text-lg">
-                            <Link href={`/blog/${relatedPost.slug.current}`} className="hover:underline" style={{ color: 'oklch(0.55 0.18 280)' }}>
-                              {relatedPost.title}
+                <div className="max-w-4xl mx-auto">
+                  <div className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 md:p-12">
+                  <div className="mt-0">
+                    <Separator className="mb-8" />
+                    <h2 className="text-2xl font-bold mb-6" style={{ color: 'oklch(0.55 0.18 280)' }}>Related Articles</h2>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {relatedPosts.slice(0, 3).map((relatedPost) => (
+                        <Card key={relatedPost._id} className="hover:shadow-lg transition-shadow">
+                          {relatedPost.mainImage && (
+                            <div className="relative h-32 overflow-hidden rounded-t-lg">
+                              <Image
+                                src={urlFor(relatedPost.mainImage).width(400).height(200).url()}
+                                alt={relatedPost.title}
+                                fill
+                                className="object-cover"
+                              />
+                            </div>
+                          )}
+                          <CardHeader>
+                            <CardTitle className="text-lg">
+                              <Link href={`/blog/${relatedPost.slug.current}`} className="hover:underline" style={{ color: 'oklch(0.55 0.18 280)' }}>
+                                {relatedPost.title}
+                              </Link>
+                            </CardTitle>
+                            <p className="text-sm text-muted-foreground">
+                              {formatDate(relatedPost.publishedAt)}
+                            </p>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-muted-foreground mb-4">{relatedPost.excerpt}</p>
+                            <Link href={`/blog/${relatedPost.slug.current}`}>
+                              <Button variant="ghost" size="sm" className="group-hover:text-primary">
+                                Read More
+                                <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                              </Button>
                             </Link>
-                          </CardTitle>
-                          <p className="text-sm text-muted-foreground">
-                            {formatDate(relatedPost.publishedAt)}
-                          </p>
-                        </CardHeader>
-                        <CardContent>
-                          <p className="text-muted-foreground mb-4">{relatedPost.excerpt}</p>
-                          <Link href={`/blog/${relatedPost.slug.current}`}>
-                            <Button variant="ghost" size="sm" className="group-hover:text-primary">
-                              Read More
-                              <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                          </Link>
-                        </CardContent>
-                      </Card>
-                    ))}
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
                   </div>
                 </div>
               )}
+              </div>
             </div>
 
-            {/* Sidebar - Right Side */}
+            {/* Sidebar - Right Side - Fixed Position */}
             <div className="lg:w-80 lg:flex-shrink-0 hidden lg:block">
-              <BlogSidebar content={post.body} />
+              <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
+                <BlogSidebar content={post.body} />
+              </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   )

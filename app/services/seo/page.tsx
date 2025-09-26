@@ -5,6 +5,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Search, TrendingUp, Target, BarChart3, CheckCircle, ArrowRight, Brain, Network, BookOpen } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "SEO Services",
+  description: "Comprehensive SEO services to boost your online visibility and drive targeted traffic. Build lasting search presence through strategic optimization and data-driven approaches.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://ayoubouraian.com/services/seo",
+    languages: {
+      "en-US": "https://ayoubouraian.com/services/seo",
+    },
+  },
+}
 
 export default function SEOServicesPage() {
   const seoServices = [

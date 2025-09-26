@@ -7,6 +7,19 @@ import { Footer } from "@/components/footer"
 import { client, urlFor } from "@/lib/sanity"
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "SEO & Marketing Insights",
+  description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://ayoubouraian.com/blog",
+    languages: {
+      "en-US": "https://ayoubouraian.com/blog",
+    },
+  },
+}
 
 interface BlogPost {
   _id: string

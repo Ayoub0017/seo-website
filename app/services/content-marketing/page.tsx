@@ -5,6 +5,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { PenTool, Users, Megaphone, BookOpen, CheckCircle, ArrowRight, Target, TrendingUp } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Content That Converts",
+  description: "Engage your audience with strategic, high-quality content that builds trust, drives traffic, and converts visitors into loyal customers.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://ayoubouraian.com/services/content-marketing",
+    languages: {
+      "en-US": "https://ayoubouraian.com/services/content-marketing",
+    },
+  },
+}
 
 export default function ContentMarketingPage() {
   const contentServices = [

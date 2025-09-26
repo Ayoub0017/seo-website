@@ -95,37 +95,28 @@ export function TableOfContents({ content, className }: TableOfContentsProps) {
   }
 
   return (
-    <Card className={cn("sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto", className)}>
-      <CardHeader className="pb-3">
-        <CardTitle className="text-lg font-semibold" style={{ color: 'oklch(0.55 0.18 280)' }}>
-          Table of Contents
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="pt-0">
-        <nav>
-          <ul className="space-y-2">
-            {headings.map((heading) => (
-              <li key={heading.id}>
-                <button
-                  onClick={() => scrollToHeading(heading.id)}
-                  className={cn(
-                    "text-left w-full text-sm transition-colors duration-200 hover:text-foreground",
-                    heading.level === 2 ? "font-medium" : "font-normal ml-4",
-                    activeId === heading.id 
-                      ? "font-semibold" 
-                      : "text-muted-foreground"
-                  )}
-                  style={{
-                    color: activeId === heading.id ? 'oklch(0.55 0.18 280)' : undefined
-                  }}
-                >
-                  {heading.text}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </CardContent>
-    </Card>
+    <nav className={className}>
+      <ul className="space-y-2">
+        {headings.map((heading) => (
+          <li key={heading.id}>
+            <button
+              onClick={() => scrollToHeading(heading.id)}
+              className={cn(
+                "text-left w-full text-sm transition-colors duration-200 hover:text-foreground",
+                heading.level === 2 ? "font-medium" : "font-normal ml-4",
+                activeId === heading.id 
+                  ? "font-semibold" 
+                  : "text-muted-foreground"
+              )}
+              style={{
+                color: activeId === heading.id ? 'oklch(0.55 0.18 280)' : undefined
+              }}
+            >
+              {heading.text}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }

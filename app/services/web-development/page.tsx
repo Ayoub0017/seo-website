@@ -5,6 +5,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Code, Smartphone, Zap, Shield, CheckCircle, ArrowRight, Monitor, Rocket, Globe, Database, Layers } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Next.js & Headless CMS",
+  description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://ayoubouraian.com/services/web-development",
+    languages: {
+      "en-US": "https://ayoubouraian.com/services/web-development",
+    },
+  },
+}
 
 export default function NextJSWebDevelopmentPage() {
   const developmentServices = [

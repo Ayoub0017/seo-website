@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import type { Metadata } from "next"
 
 import { useState } from "react"
 import { Navigation } from "@/components/navigation"
@@ -13,6 +14,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Mail, Phone, Clock, Send, Linkedin } from "lucide-react"
 import Link from "next/link"
+
+// Note: Metadata export moved to layout or parent component due to "use client" directive
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

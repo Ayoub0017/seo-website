@@ -6,6 +6,19 @@ import { Badge } from "@/components/ui/badge"
 import { Linkedin, Award, Users, TrendingUp, Clock } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Hi, I'm Ayoub Ouraian",
+  description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
+  robots: "index, follow",
+  alternates: {
+    canonical: "https://ayoubouraian.com/about",
+    languages: {
+      "en-US": "https://ayoubouraian.com/about",
+    },
+  },
+}
 
 export default function AboutPage() {
   const skillCategories = [
