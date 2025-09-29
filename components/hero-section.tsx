@@ -8,7 +8,7 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
-            Semantic SEO and Content Marketing <span className="text-primary">Specialist</span>
+            Semantic SEO & Content Marketing <span className="text-primary">Consultant</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
@@ -34,31 +34,31 @@ export function HeroSection() {
               <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
                 <Search className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-bold mb-6">Semantic SEO Services</h3>
+              <h3 className="text-2xl font-bold mb-6">Semantic SEO</h3>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Semantic SEO
+                  Topic research
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Ecommerce SEO
+                  Topic clustering
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Local SEO
+                  Entities & n-grams
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  International SEO
+                  Topical maps
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  Technical SEO
+                  Content briefs
                 </li>
                 <li className="flex items-center text-sm">
                   <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                  SEO Audits
+                  Schema markup
                 </li>
               </ul>
               <Button asChild className="w-full">

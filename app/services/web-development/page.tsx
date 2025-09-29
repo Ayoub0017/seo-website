@@ -91,7 +91,7 @@ export default function NextJSWebDevelopmentPage() {
               Next.js Development
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Next.js & Headless <span className="text-primary">CMS</span>
+              Web Development <span className="text-primary">Services</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Lightning-fast, secure, and semantic SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. 

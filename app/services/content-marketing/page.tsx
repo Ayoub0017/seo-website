@@ -89,7 +89,7 @@ export default function ContentMarketingPage() {
               Content Marketing
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Content That <span className="text-primary">Converts</span>
+              Content Marketing <span className="text-primary">Services</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Engage your audience with strategic, high-quality content that builds trust, 
