@@ -6,8 +6,8 @@ import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "SEO and Content Marketing Specialist",
-  description: "Professional SEO specialist helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions.",
+  title: "Semantic SEO and Content Marketing Specialist",
+  description: "Professional semantic SEO specialist helping businesses grow their online presence through strategic semantic SEO, compelling content marketing, and modern web development solutions.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/",
@@ -27,9 +27,9 @@ export default function HomePage() {
       <SchemaMarkup 
         type="website" 
         data={{
-          name: "Ayoub Ouraian - SEO and Content Marketing Specialist",
+          name: "Ayoub Ouraian - Semantic SEO and Content Marketing Specialist",
           url: "https://ayoubouarain.com/",
-          description: "Professional SEO specialist helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions."
+          description: "Professional semantic SEO specialist helping businesses grow their online presence through strategic semantic SEO, compelling content marketing, and modern web development solutions."
         }} 
       />
       

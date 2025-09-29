@@ -11,7 +11,7 @@ import { SchemaMarkup } from "@/components/schema-markup"
 
 export const metadata: Metadata = {
   title: "Hi, I'm Ayoub Ouraian",
-  description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
+  description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic semantic SEO, compelling content marketing, and modern web development.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/about",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const skillCategories = [
     {
-      title: "SEO & Search Marketing",
+      title: "Semantic SEO & Search Marketing",
       skills: [
         "Semantic SEO",
         "Technical SEO", 
@@ -127,8 +127,8 @@ export default function AboutPage() {
         type="person" 
         data={{
           name: "Ayoub Ouraian",
-          jobTitle: "SEO Specialist & Digital Marketing Consultant",
-          description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
+          jobTitle: "Semantic SEO Specialist & Digital Marketing Consultant",
+          description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic semantic SEO, compelling content marketing, and modern web development.",
           url: "https://ayoubouarain.com/",
           image: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
           sameAs: [
@@ -173,7 +173,7 @@ export default function AboutPage() {
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                 With over 6 years of experience in digital marketing, I specialize in helping businesses grow their
-                online presence through strategic SEO, compelling content marketing, and modern web development.
+                online presence through strategic semantic SEO, compelling content marketing, and modern web development.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
                 I believe in data-driven strategies that deliver measurable results. My approach combines technical
@@ -197,7 +197,7 @@ export default function AboutPage() {
                 <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 p-8">
                   <Image
                     src="/ayoub-ouarain-profile.png"
-                    alt="Ayoub Ouraian - SEO and Content Marketing Specialist"
+                    alt="Ayoub Ouraian - Semantic SEO and Content Marketing Specialist"
                     width={400}
                     height={400}
                     className="w-full h-full object-cover rounded-2xl"

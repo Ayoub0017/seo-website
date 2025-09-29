@@ -17,7 +17,7 @@ export function Navigation() {
     { 
       label: "Services",
       subItems: [
-        { href: "/services/seo", label: "SEO Services" },
+        { href: "/services/semantic-seo", label: "Semantic SEO Services" },
         { href: "/services/content-marketing", label: "Content Marketing" },
         { href: "/services/web-development", label: "Web Development" }
       ]

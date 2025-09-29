@@ -28,8 +28,8 @@ export default function ContentMarketingPage() {
       features: ["Content audit & analysis", "Competitor research", "Editorial calendar", "Content pillars"]
     },
     {
-      title: "Blog Writing & SEO Content",
-      description: "High-quality, SEO-optimized content that drives traffic and engagement",
+      title: "Blog Writing & Semantic SEO Content",
+      description: "High-quality, semantic SEO-optimized content that drives traffic and engagement",
       features: ["Keyword-optimized articles", "Long-form content", "Technical writing", "Industry expertise"]
     },
     {

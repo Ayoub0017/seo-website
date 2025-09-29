@@ -6,7 +6,7 @@ export function Footer() {
 
   const footerLinks = {
     services: [
-      { href: "/services/seo", label: "Semantic SEO" },
+      { href: "/services/semantic-seo", label: "Semantic SEO" },
       { href: "/services/content-marketing", label: "Content Marketing" },
       { href: "/services/web-development", label: "Web Development" },
     ],

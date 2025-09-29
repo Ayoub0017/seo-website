@@ -71,12 +71,12 @@ export default function ContactPage() {
   ]
 
   const services = [
-    "SEO Optimization",
+    "Semantic SEO Optimization",
     "Content Marketing",
     "Web Development",
-    "Technical SEO Audit",
-    "Local SEO",
-    "E-commerce SEO",
+    "Technical Semantic SEO Audit",
+    "Local Semantic SEO",
+    "E-commerce Semantic SEO",
     "Content Strategy",
     "Website Redesign",
     "Other",
@@ -97,8 +97,8 @@ export default function ContactPage() {
       <SchemaMarkup 
         type="contactPage" 
         data={{
-          name: "Contact Ayoub Ouraian - SEO & Digital Marketing Consultant",
-          description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Ready to grow your business online.",
+          name: "Contact Ayoub Ouraian - Semantic SEO & Digital Marketing Consultant",
+          description: "Get in touch with Ayoub Ouraian for professional semantic SEO, content marketing, and web development services. Ready to grow your business online.",
           url: "https://ayoubouarain.com/contact",
           mainEntity: ayoubPersonData,
           contactPoint: {
