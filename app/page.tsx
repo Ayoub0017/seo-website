@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   description: "Professional SEO specialist helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com",
+    canonical: "https://ayoubouarain.com/",
     languages: {
-      "en-US": "https://ayoubouraian.com",
+      "en-US": "https://ayoubouarain.com/",
     },
   },
 }
@@ -28,7 +28,7 @@ export default function HomePage() {
         type="website" 
         data={{
           name: "Ayoub Ouraian - SEO and Content Marketing Specialist",
-          url: "https://ayoubouraian.com",
+          url: "https://ayoubouarain.com/",
           description: "Professional SEO specialist helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions."
         }} 
       />

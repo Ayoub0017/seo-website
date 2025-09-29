@@ -220,9 +220,9 @@ export const ayoubPersonData: PersonSchema = {
   name: "Ayoub Ouraian",
   jobTitle: "SEO and Content Marketing Specialist",
   description: "Professional SEO specialist helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions.",
-  image: "https://ayoubouraian.com/images/ayoub-ouraian.jpg",
-  email: "ayoub@ayoubouraian.com",
-  url: "https://ayoubouraian.com",
+  image: "https://ayoubouarain.com/images/ayoub-ouraian.jpg",
+  email: "ayoub@ayoubouarain.com",
+  url: "https://ayoubouarain.com/",
   sameAs: [
     "https://www.linkedin.com/in/ayoub-ouarain/",
     "https://twitter.com/ayoubouraian",
@@ -233,6 +233,6 @@ export const ayoubPersonData: PersonSchema = {
   },
   worksFor: {
     name: "Ayoub Ouraian Digital Marketing",
-    url: "https://ayoubouraian.com"
+    url: "https://ayoubouarain.com/"
   }
 }

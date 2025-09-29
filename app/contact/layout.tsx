@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   description: "Ready to grow your business online? Contact Ayoub Ouraian for professional SEO, content marketing, and web development services. Get a free consultation today.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com/contact",
+    canonical: "https://ayoubouarain.com/contact",
     languages: {
-      "en-US": "https://ayoubouraian.com/contact",
+      "en-US": "https://ayoubouarain.com/contact",
     },
   },
 }

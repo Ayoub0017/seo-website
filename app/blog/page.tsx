@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com/blog",
+    canonical: "https://ayoubouarain.com/blog",
     languages: {
-      "en-US": "https://ayoubouraian.com/blog",
+      "en-US": "https://ayoubouarain.com/blog",
     },
   },
 }
@@ -140,14 +140,14 @@ export default async function BlogPage() {
         data={{
           name: "SEO & Marketing Insights Blog",
           description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
-          url: "https://ayoubouraian.com/blog",
+          url: "https://ayoubouarain.com/blog",
           author: ayoubPersonData,
           publisher: {
             "@type": "Organization",
             "name": "Ayoub Ouraian Digital Marketing",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://ayoubouraian.com/ayoub-ouarain-logo.png"
+              "url": "https://ayoubouarain.com/ayoub-ouarain-logo.png"
             }
           }
         }} 

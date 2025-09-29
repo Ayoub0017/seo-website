@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   description: "Comprehensive SEO services to boost your online visibility and drive targeted traffic. Build lasting search presence through strategic optimization and data-driven approaches.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com/services/seo",
+    canonical: "https://ayoubouarain.com/services/seo",
     languages: {
-      "en-US": "https://ayoubouraian.com/services/seo",
+      "en-US": "https://ayoubouarain.com/services/seo",
     },
   },
 }

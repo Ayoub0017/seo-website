@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com/about",
+    canonical: "https://ayoubouarain.com/about",
     languages: {
-      "en-US": "https://ayoubouraian.com/about",
+      "en-US": "https://ayoubouarain.com/about",
     },
   },
 }
@@ -129,11 +129,11 @@ export default function AboutPage() {
           name: "Ayoub Ouraian",
           jobTitle: "SEO Specialist & Digital Marketing Consultant",
           description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
-          url: "https://ayoubouraian.com",
-          image: "https://ayoubouraian.com/ayoub-ouarain-profile.png",
+          url: "https://ayoubouarain.com/",
+          image: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
           sameAs: [
             "https://www.linkedin.com/in/ayoub-ouraian/",
-            "https://ayoubouraian.com"
+            "https://ayoubouarain.com/"
           ],
           worksFor: {
             "@type": "Organization",

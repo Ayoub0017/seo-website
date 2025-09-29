@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com/services/web-development",
+    canonical: "https://ayoubouarain.com/services/web-development",
     languages: {
-      "en-US": "https://ayoubouraian.com/services/web-development",
+      "en-US": "https://ayoubouarain.com/services/web-development",
     },
   },
 }

@@ -248,7 +248,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  const currentUrl = `https://ayoubouraian.com/blog/${path}`
+  const currentUrl = `https://ayoubouarain.com/blog/${path}`
 
   return {
     title: post.title, // This will be customized per article as requested
@@ -290,24 +290,24 @@ export default async function BlogPost({ params }: PageProps) {
         data={{
           headline: post.title,
           description: post.excerpt,
-          image: post.mainImage ? urlFor(post.mainImage).url() : "https://ayoubouraian.com/placeholder.jpg",
+          image: post.mainImage ? urlFor(post.mainImage).url() : "https://ayoubouarain.com/placeholder.jpg",
           datePublished: post.publishedAt,
           author: post.author ? {
             "@type": "Person",
             "name": post.author.name,
-            "url": `https://ayoubouraian.com/author/${post.author.slug?.current || ''}`
+            "url": `https://ayoubouarain.com/author/${post.author.slug?.current || ''}`
           } : ayoubPersonData,
           publisher: {
             "@type": "Organization",
             "name": "Ayoub Ouraian Digital Marketing",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://ayoubouraian.com/ayoub-ouarain-logo.png"
+              "url": "https://ayoubouarain.com/ayoub-ouarain-logo.png"
             }
           },
           mainEntityOfPage: {
             "@type": "WebPage",
-            "@id": `https://ayoubouraian.com/blog/${path}`
+            "@id": `https://ayoubouarain.com/blog/${path}`
           }
         }} 
       />

@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   description: "Engage your audience with strategic, high-quality content that builds trust, drives traffic, and converts visitors into loyal customers.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouraian.com/services/content-marketing",
+    canonical: "https://ayoubouarain.com/services/content-marketing",
     languages: {
-      "en-US": "https://ayoubouraian.com/services/content-marketing",
+      "en-US": "https://ayoubouarain.com/services/content-marketing",
     },
   },
 }

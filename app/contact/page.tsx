@@ -99,7 +99,7 @@ export default function ContactPage() {
         data={{
           name: "Contact Ayoub Ouraian - SEO & Digital Marketing Consultant",
           description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Ready to grow your business online.",
-          url: "https://ayoubouraian.com/contact",
+          url: "https://ayoubouarain.com/contact",
           mainEntity: ayoubPersonData,
           contactPoint: {
             "@type": "ContactPoint",
