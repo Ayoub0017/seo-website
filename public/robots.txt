@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ayoubouarain.com/sitemap.xml
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /studio/
+
+# Allow all search engines to crawl the site
+# This robots.txt allows full access to the website for SEO purposes
