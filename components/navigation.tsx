@@ -12,8 +12,7 @@ export function Navigation() {
       subItems: [
         { label: "SEO Optimization", href: "/services/seo" },
         { label: "Content Marketing", href: "/services/content-marketing" },
-        { label: "Social Media", href: "/services/social-media" },
-        { label: "PPC Advertising", href: "/services/ppc" },
+        { label: "Web Dev with Next.js", href: "/services/web-development" },
       ]
     },
     { label: "Blog", href: "/blog" },

@@ -55,11 +55,6 @@ export default function ContentMarketingPage() {
       features: ["Keyword-optimized articles", "Long-form content", "Technical writing", "Industry expertise"]
     },
     {
-      title: "Social Media Content",
-      description: "Engaging content tailored for different social media platforms",
-      features: ["Platform-specific content", "Visual content strategy", "Community engagement", "Brand voice development"]
-    },
-    {
       title: "Email Marketing Content",
       description: "Compelling email campaigns that nurture leads and drive conversions",
       features: ["Newsletter content", "Drip campaigns", "Product announcements", "Customer retention emails"]
@@ -77,7 +72,6 @@ export default function ContentMarketingPage() {
 
   const contentTypes = [
     { icon: BookOpen, title: "Blog Posts", description: "In-depth articles that educate and engage" },
-    { icon: Users, title: "Social Content", description: "Platform-optimized posts for maximum reach" },
     { icon: Megaphone, title: "Email Campaigns", description: "Personalized messages that convert" },
     { icon: Target, title: "Landing Pages", description: "Conversion-focused copy that sells" }
   ]

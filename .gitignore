@@ -25,3 +25,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+blog-ssr-new.html
+blog-ssr.html
+test-getblogposts.js

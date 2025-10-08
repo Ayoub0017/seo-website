@@ -663,3 +663,133 @@ export async function getRelatedPosts(postId: string, limit: number = 3) {
 export function getBlogPostPath(post: { slug: { current: string } }) {
   return `/blog/${post.slug.current}`
 }
+
+// Function to get all blog posts for the blog page
+export async function getBlogPosts() {
+  // Check if Sanity is properly configured
+  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  
+  const fallbackPosts = {
+    featured: [
+      {
+        _id: 'fallback-1',
+        title: 'The Complete Guide to Technical SEO in 2024',
+        slug: { current: 'complete-guide-technical-seo-2024' },
+        excerpt: 'Master the technical aspects of SEO with our comprehensive guide covering Core Web Vitals, structured data, and more.',
+        mainImage: null,
+        publishedAt: '2024-01-15',
+        author: 'Ayoub Ouraian',
+        categories: ['SEO', 'Technical']
+      },
+      {
+        _id: 'fallback-2',
+        title: 'Advanced Content Marketing Strategies for 2024',
+        slug: { current: 'advanced-content-marketing-strategies-2024' },
+        excerpt: 'Discover cutting-edge content marketing techniques that drive engagement and convert visitors into loyal customers.',
+        mainImage: null,
+        publishedAt: '2024-01-12',
+        author: 'Ayoub Ouraian',
+        categories: ['Content Marketing', 'Strategy']
+      }
+    ],
+    latest: [
+      {
+        _id: 'fallback-3',
+        title: 'How to Optimize Your Website for Local Search',
+        slug: { current: 'optimize-website-local-search' },
+        excerpt: 'Learn the essential strategies for dominating local search results and attracting more customers to your business.',
+        mainImage: null,
+        publishedAt: '2024-01-10',
+        author: 'Ayoub Ouraian',
+        categories: ['SEO', 'Local']
+      },
+      {
+        _id: 'fallback-4',
+        title: 'Web Development Best Practices for SEO',
+        slug: { current: 'web-development-best-practices-seo' },
+        excerpt: 'Build SEO-friendly websites from the ground up with these essential web development practices and techniques.',
+        mainImage: null,
+        publishedAt: '2024-01-08',
+        author: 'Ayoub Ouraian',
+        categories: ['Web Development', 'SEO']
+      },
+      {
+        _id: 'fallback-5',
+        title: 'Measuring SEO Success: Key Metrics That Matter',
+        slug: { current: 'measuring-seo-success-key-metrics' },
+        excerpt: 'Track your SEO performance with the right metrics and KPIs to ensure your optimization efforts are paying off.',
+        mainImage: null,
+        publishedAt: '2024-01-05',
+        author: 'Ayoub Ouraian',
+        categories: ['SEO', 'Analytics']
+      },
+      {
+        _id: 'fallback-6',
+        title: 'The Future of Search: AI and SEO in 2024',
+        slug: { current: 'future-search-ai-seo-2024' },
+        excerpt: 'Explore how artificial intelligence is reshaping search and what it means for your SEO strategy going forward.',
+        mainImage: null,
+        publishedAt: '2024-01-03',
+        author: 'Ayoub Ouraian',
+        categories: ['SEO', 'AI', 'Future Trends']
+      }
+    ]
+  }
+
+  // Return fallback data if Sanity is not configured
+  if (!projectId || projectId === 'demo-project') {
+    console.log('Using fallback blog posts - Sanity not configured')
+    return fallbackPosts
+  }
+
+  try {
+    console.log('Fetching blog posts from Sanity...')
+    
+    const [featuredPosts, latestPosts] = await Promise.all([
+      // Fetch featured posts
+      client.fetch(`
+        *[_type == "post" && featured == true] | order(publishedAt desc)[0...2] {
+          _id,
+          title,
+          slug,
+          excerpt,
+          mainImage,
+          publishedAt,
+          "author": author->name,
+          "categories": categories[]->title
+        }
+      `),
+      // Fetch latest posts (excluding featured ones)
+      client.fetch(`
+        *[_type == "post" && featured != true] | order(publishedAt desc)[0...6] {
+          _id,
+          title,
+          slug,
+          excerpt,
+          mainImage,
+          publishedAt,
+          "author": author->name,
+          "categories": categories[]->title
+        }
+      `)
+    ])
+
+    console.log(`Fetched ${featuredPosts.length} featured posts and ${latestPosts.length} latest posts`)
+
+    // If no posts are fetched, return the fallback data
+    if (featuredPosts.length === 0 && latestPosts.length === 0) {
+      console.log('No posts found in Sanity, using fallback data.')
+      return fallbackPosts
+    }
+
+    return {
+      featured: featuredPosts.length > 0 ? featuredPosts : fallbackPosts.featured,
+      latest: latestPosts.length > 0 ? latestPosts : fallbackPosts.latest
+    }
+  } catch (error) {
+    console.error('Error fetching blog posts from Sanity:', error)
+    
+    // Return fallback data on error
+    return fallbackPosts
+  }
+}
