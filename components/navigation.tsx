@@ -1,17 +1,9 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { NavigationClient } from "@/components/navigation-client"
 import Image from "next/image"
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const pathname = usePathname()
-
   const navItems = [
     { href: "/", label: "Home" },
     { 
@@ -27,77 +19,46 @@ export function Navigation() {
     { href: "/contact", label: "Contact" },
   ]
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  useEffect(() => {
-    setIsOpen(false)
-  }, [pathname])
-
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-background/80 backdrop-blur-md border-b border-border/50"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="hover:opacity-80 transition-opacity">
-            <Image
-              src="/ayoub-ouarain-logo.png"
-              alt="Ayoub Ouraian - SEO Specialist"
-              width={60}
-              height={60}
-              className="w-15 h-15"
-            />
-          </Link>
+    <NavigationClient navItems={navItems}>
+      {/* Logo */}
+      <div className="flex items-center">
+        <Link href="/" className="flex items-center space-x-2">
+          <Image
+            src="/ayoub-ouarain-logo.png"
+            alt="Ayoub Ouraian Logo"
+            width={40}
+            height={40}
+            className="rounded-lg"
+          />
+          <span className="font-bold text-xl text-foreground">Ayoub Ouraian</span>
+        </Link>
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <div key={item.href || index} className="relative group">
-                {item.href ? (
-                  <Link
-                    href={item.href}
-                    className={`transition-colors duration-200 ${
-                      pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href))
-                        ? "text-primary font-medium" 
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span
-                    className={`cursor-pointer transition-colors duration-200 ${
-                      item.subItems && item.subItems.some(sub => pathname === sub.href)
-                        ? "text-primary font-medium" 
-                        : "text-muted-foreground hover:text-foreground"
-                    }`}
-                  >
-                    {item.label}
-                  </span>
-                )}
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex items-center space-x-8">
+        {navItems.map((item, index) => (
+          <div key={index} className="relative group">
+            {item.href ? (
+              <Link
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors font-medium"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <>
+                <span className="text-muted-foreground hover:text-foreground transition-colors font-medium cursor-pointer">
+                  {item.label}
+                </span>
                 {item.subItems && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-background/95 backdrop-blur-md border border-border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-background border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                     <div className="py-2">
-                      {item.subItems.map((subItem) => (
+                      {item.subItems.map((subItem, subIndex) => (
                         <Link
-                          key={subItem.href}
+                          key={subIndex}
                           href={subItem.href}
-                          className={`block px-4 py-2 text-sm transition-colors duration-200 ${
-                            pathname === subItem.href
-                              ? "text-primary font-medium bg-primary/10"
-                              : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-                          }`}
+                          className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
                         >
                           {subItem.label}
                         </Link>
@@ -105,73 +66,15 @@ export function Navigation() {
                     </div>
                   </div>
                 )}
-              </div>
-            ))}
-            <Button asChild className="ml-4">
-              <Link href="/contact">Get Started</Link>
-            </Button>
+              </>
+            )}
           </div>
-
-          {/* Mobile menu button */}
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-background/95 backdrop-blur-md border-t border-border">
-              {navItems.map((item, index) => (
-                <div key={item.href || index}>
-                  {item.href ? (
-                    <Link
-                      href={item.href}
-                      className={`block px-3 py-2 transition-colors duration-200 ${
-                        pathname === item.href || (item.subItems && item.subItems.some(sub => pathname === sub.href))
-                          ? "text-primary font-medium bg-primary/10 rounded-md"
-                          : "text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md"
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <div className="px-3 py-2 text-muted-foreground font-medium">
-                      {item.label}
-                    </div>
-                  )}
-                  {item.subItems && (
-                    <div className="ml-4 mt-1 space-y-1">
-                      {item.subItems.map((subItem) => (
-                        <Link
-                          key={subItem.href}
-                          href={subItem.href}
-                          className={`block px-3 py-2 text-sm transition-colors duration-200 ${
-                            pathname === subItem.href
-                              ? "text-primary font-medium bg-primary/10 rounded-md"
-                              : "text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-md"
-                          }`}
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {subItem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-              <div className="px-3 py-2">
-                <Button asChild className="w-full">
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    Get Started
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        )}
+        ))}
+        
+        <Button asChild>
+          <Link href="/contact">Get Started</Link>
+        </Button>
       </div>
-    </nav>
+    </NavigationClient>
   )
 }
