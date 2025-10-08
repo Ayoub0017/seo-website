@@ -18,6 +18,28 @@ export const metadata: Metadata = {
       "en-US": "https://ayoubouarain.com/services/content-marketing",
     },
   },
+  openGraph: {
+    title: "Content Marketing Services - Ayoub Ouraian",
+    description: "Engage your audience with strategic, high-quality content that builds trust, drives traffic, and converts visitors into loyal customers.",
+    url: "https://ayoubouarain.com/services/content-marketing",
+    siteName: "Ayoub Ouraian",
+    images: [
+      {
+        url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Content Marketing Services by Ayoub Ouraian",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Content Marketing Services - Ayoub Ouraian",
+    description: "Engage your audience with strategic, high-quality content that builds trust, drives traffic, and converts visitors into loyal customers.",
+    images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
+  },
 }
 
 export default function ContentMarketingPage() {
@@ -28,8 +50,8 @@ export default function ContentMarketingPage() {
       features: ["Content audit & analysis", "Competitor research", "Editorial calendar", "Content pillars"]
     },
     {
-      title: "Blog Writing & Semantic SEO Content",
-      description: "High-quality, semantic SEO-optimized content that drives traffic and engagement",
+      title: "Blog Writing & SEO Content",
+      description: "High-quality, SEO-optimized content that drives traffic and engagement",
       features: ["Keyword-optimized articles", "Long-form content", "Technical writing", "Industry expertise"]
     },
     {

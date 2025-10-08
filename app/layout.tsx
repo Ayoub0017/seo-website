@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Ayoub Ouraian - SEO & Content Marketing Specialist",
+  title: "Ayoub Ouraian - SEO & Content Marketing Consultant",
   description: "Professional SEO, Content Marketing, and Web Development services by Ayoub Ouraian to grow your business online.",
   generator: "v0.app",
   icons: {

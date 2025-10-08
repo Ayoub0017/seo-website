@@ -9,100 +9,122 @@ import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Semantic SEO Services",
-  description: "Advanced semantic SEO services focusing on topical authority, entity relationships, and contextual content optimization. Build lasting search presence through semantic understanding and schema markup.",
+  title: "SEO Services",
+  description: "Comprehensive SEO services including on-page, off-page, technical, semantic, local, and e-commerce SEO. Build lasting search presence through strategic optimization and content marketing.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouarain.com/services/semantic-seo",
+    canonical: "https://ayoubouarain.com/services/seo",
     languages: {
-      "en-US": "https://ayoubouarain.com/services/semantic-seo",
+      "en-US": "https://ayoubouarain.com/services/seo",
     },
+  },
+  openGraph: {
+    title: "SEO Services - Ayoub Ouraian",
+    description: "Comprehensive SEO services including on-page, off-page, technical, semantic, local, and e-commerce SEO. Build lasting search presence through strategic optimization and content marketing.",
+    url: "https://ayoubouarain.com/services/seo",
+    siteName: "Ayoub Ouraian",
+    images: [
+      {
+        url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "SEO Services by Ayoub Ouraian",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO Services - Ayoub Ouraian",
+    description: "Comprehensive SEO services including on-page, off-page, technical, semantic, local, and e-commerce SEO. Build lasting search presence through strategic optimization and content marketing.",
+    images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
 
-export default function SemanticSEOServicesPage() {
-  const semanticSeoServices = [
+export default function SEOServicesPage() {
+  const seoServices = [
     {
-      title: "Topical Map Development",
-      description: "Create comprehensive topical maps that establish your authority across entire subject areas, not just individual keywords",
-      features: ["Entity relationship mapping", "Topic cluster architecture", "Content gap analysis", "Semantic keyword research"],
-      icon: Map
-    },
-    {
-      title: "Semantic Content Briefs",
-      description: "Develop content briefs based on semantic SEO principles that guide writers to create contextually rich, topically relevant content",
-      features: ["Entity-based content planning", "Contextual keyword integration", "Topic depth analysis", "Semantic content structure"],
+      title: "On-Page SEO",
+      description: "Optimize your website's content, structure, and HTML elements to improve search engine rankings and user experience",
+      features: ["Keyword optimization", "Meta tags optimization", "Content structure", "Internal linking strategy"],
       icon: FileText
     },
     {
-      title: "Schema Markup Implementation",
-      description: "Advanced schema markup strategies to help search engines understand your content's context and relationships",
-      features: ["Structured data optimization", "Entity markup implementation", "Rich snippet enhancement", "Knowledge graph integration"],
-      icon: Code2
-    },
-    {
-      title: "Contextual Content Flow",
-      description: "Optimize content in logical, contextual flows that demonstrate topical expertise and semantic relationships",
-      features: ["Content hierarchy optimization", "Internal linking strategy", "Topic progression mapping", "Semantic content clustering"],
+      title: "Off-Page SEO",
+      description: "Build authority and trust through strategic link building, brand mentions, and external optimization techniques",
+      features: ["Link building campaigns", "Brand mention optimization", "Social signals", "Authority building"],
       icon: Network
     },
     {
-      title: "Entity-Based Optimization",
-      description: "Focus on entities and their relationships rather than traditional keyword density for modern search algorithms",
-      features: ["Entity identification & optimization", "Relationship mapping", "Knowledge panel optimization", "Entity-based content strategy"],
+      title: "Technical SEO",
+      description: "Optimize your website's technical foundation for better crawling, indexing, and overall search performance",
+      features: ["Site speed optimization", "Mobile optimization", "Schema markup", "Crawlability improvements"],
+      icon: Code2
+    },
+    {
+      title: "Content SEO",
+      description: "Focus on topics and entities rather than keywords to build comprehensive topical authority and contextual relevance",
+      features: ["Topic cluster development", "Entity optimization", "Contextual content", "Knowledge graph integration"],
       icon: Brain
     },
     {
-      title: "Topical Authority Building",
-      description: "Establish your website as the definitive source on specific topics through comprehensive semantic coverage",
-      features: ["Topic authority assessment", "Content depth analysis", "Expertise demonstration", "Thought leadership positioning"],
-      icon: Lightbulb
+      title: "Local SEO",
+      description: "Dominate local search results and attract customers in your geographic area through targeted local optimization",
+      features: ["Google My Business optimization", "Local citations", "Review management", "Local content strategy"],
+      icon: Map
+    },
+    {
+      title: "E-commerce SEO",
+      description: "Specialized SEO strategies for online stores to increase product visibility and drive more sales",
+      features: ["Product page optimization", "Category structure", "Shopping feed optimization", "Conversion optimization"],
+      icon: Target
     }
   ]
 
-  const semanticApproach = [
+  const seoApproach = [
     {
-      title: "Topics Over Keywords",
-      description: "We focus on comprehensive topic coverage rather than individual keyword targeting, building true topical authority."
+      title: "Comprehensive Strategy",
+      description: "We develop holistic SEO strategies that cover all aspects from technical foundations to content optimization."
     },
     {
-      title: "Entity Relationships",
-      description: "Understanding and optimizing for entity relationships helps search engines better comprehend your content's context."
+      title: "Results-Driven Approach",
+      description: "Every decision is backed by thorough analysis and performance data to ensure maximum ROI."
     },
     {
-      title: "Contextual Relevance",
-      description: "Content is optimized for semantic meaning and contextual relevance, not just keyword density."
+      title: "White-Hat Techniques",
+      description: "We use only ethical, sustainable SEO practices that comply with search engine guidelines."
     },
     {
-      title: "Schema-First Approach",
-      description: "Structured data and schema markup are integral to our semantic SEO strategy from the ground up."
+      title: "Continuous Optimization",
+      description: "SEO is an ongoing process. We continuously monitor, analyze, and optimize for better results."
     }
   ]
 
   const benefits = [
-    "Build comprehensive topical authority in your niche",
-    "Future-proof your SEO against algorithm changes",
-    "Improve semantic understanding by search engines",
-    "Higher click-through rates from rich snippets",
-    "Better user experience with contextual content",
-    "Establish thought leadership through topic mastery",
-    "Dominate entire topic clusters, not just keywords",
-    "Enhanced visibility in AI-powered search results"
+    "Increase organic traffic and search visibility",
+    "Improve search engine rankings across all SEO types",
+    "Build long-term sustainable online presence",
+    "Higher conversion rates from targeted traffic",
+    "Better user experience and site performance",
+    "Establish authority and trust in your industry",
+    "Dominate local and global search results",
+    "Future-proof your business against algorithm changes"
   ]
 
   return (
     <>
-      {/* Schema Markup for Semantic SEO Service */}
+      {/* Schema Markup for SEO Service */}
       <SchemaMarkup 
         type="service" 
         data={{
-          name: "Semantic SEO Services",
-          description: "Advanced semantic SEO services focusing on topical authority, entity relationships, and contextual content optimization. Build lasting search presence through semantic understanding and schema markup.",
+          name: "SEO Services",
+          description: "Comprehensive SEO services including on-page, off-page, technical, semantic, local, and e-commerce SEO. Build lasting search presence through strategic optimization and content marketing.",
           provider: ayoubPersonData,
           areaServed: "Worldwide",
-          serviceType: "Semantic Search Engine Optimization",
+          serviceType: "Search Engine Optimization",
           offers: {
-            description: "Professional semantic SEO services including topical mapping, entity optimization, schema markup implementation, and contextual content strategy"
+            description: "Professional SEO services including on-page optimization, technical SEO, link building, local SEO, and comprehensive SEO strategy"
           }
         }} 
       />
@@ -115,46 +137,46 @@ export default function SemanticSEOServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-4xl mx-auto">
             <Badge className="mb-4" variant="secondary">
-              <Brain className="w-4 h-4 mr-2" />
-              Semantic SEO Services
+              <Search className="w-4 h-4 mr-2" />
+              SEO Services
             </Badge>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              <span className="text-primary">Semantic SEO</span> Services
+              <span className="text-primary">SEO</span> Services
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Advanced semantic SEO services that focus on topics, not keywords. Build topical authority through 
-              strategic content mapping, entity optimization, and contextual content flows that search engines truly understand.
+              Comprehensive SEO services covering all aspects of search optimization. From technical foundations to content strategy, 
+              we help you dominate search results and drive sustainable organic growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="text-lg px-8 py-6">
                 <Link href="/contact">
-                  Get Semantic SEO Audit
+                  Get SEO Audit
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
-                <Link href="/blog">Learn About Semantic SEO</Link>
+                <Link href="/blog">Learn About SEO</Link>
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Semantic Approach Section */}
+      {/* SEO Approach Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Our Semantic SEO Approach
+              Our SEO Approach
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              We go beyond traditional keyword optimization to build comprehensive topical authority 
-              that search engines and users recognize as expertise.
+              We use proven SEO methodologies and cutting-edge techniques to deliver sustainable results 
+              that drive long-term growth for your business.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {semanticApproach.map((approach, index) => (
+            {seoApproach.map((approach, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3">
@@ -178,16 +200,16 @@ export default function SemanticSEOServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Semantic SEO Services
+              SEO Services
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Comprehensive semantic SEO strategies that establish topical authority, optimize for entity relationships,
-              and create content that search engines understand at a deeper level.
+              Comprehensive SEO strategies covering all aspects of search optimization, from technical foundations 
+              to content marketing, designed to drive sustainable organic growth.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {semanticSeoServices.map((service, index) => {
+            {seoServices.map((service, index) => {
               const IconComponent = service.icon;
               
               return (
@@ -226,11 +248,11 @@ export default function SemanticSEOServicesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Why Choose Semantic SEO?
+                Why Choose Our SEO Services?
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
-                Semantic SEO represents the future of search optimization. By focusing on topics, entities, and contextual 
-                relationships, we build sustainable search visibility that adapts to algorithm changes and AI-powered search.
+                Our comprehensive SEO approach combines technical expertise with strategic content marketing 
+                to deliver sustainable results that adapt to search engine evolution and user behavior changes.
               </p>
               <ul className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -245,24 +267,24 @@ export default function SemanticSEOServicesPage() {
             </div>
             <div className="grid grid-cols-2 gap-6">
               <Card className="text-center p-6">
-                <Map className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Topical Maps</h3>
-                <p className="text-muted-foreground">Comprehensive topic coverage strategy</p>
+                <Search className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-foreground mb-2">Technical SEO</h3>
+                <p className="text-muted-foreground">Site optimization and performance</p>
               </Card>
               <Card className="text-center p-6">
-                <Brain className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Entity Focus</h3>
-                <p className="text-muted-foreground">Entity-based optimization approach</p>
-              </Card>
-              <Card className="text-center p-6">
-                <Code2 className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Schema Markup</h3>
-                <p className="text-muted-foreground">Advanced structured data implementation</p>
+                <Target className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-foreground mb-2">On-Page SEO</h3>
+                <p className="text-muted-foreground">Content and keyword optimization</p>
               </Card>
               <Card className="text-center p-6">
                 <Network className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-foreground mb-2">Content Flow</h3>
-                <p className="text-muted-foreground">Logical contextual content structure</p>
+                <h3 className="text-xl font-bold text-foreground mb-2">Link Building</h3>
+                <p className="text-muted-foreground">Authority and trust development</p>
+              </Card>
+              <Card className="text-center p-6">
+                <BarChart3 className="w-12 h-12 text-primary mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-foreground mb-2">Analytics</h3>
+                <p className="text-muted-foreground">Performance tracking and insights</p>
               </Card>
             </div>
           </div>
@@ -274,10 +296,10 @@ export default function SemanticSEOServicesPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Our Semantic SEO Process
+              Our SEO Process
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A systematic approach to building topical authority and semantic understanding
+              A systematic approach to comprehensive SEO optimization and sustainable growth
             </p>
           </div>
 
@@ -286,29 +308,29 @@ export default function SemanticSEOServicesPage() {
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">1</span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Topic Research</h3>
-              <p className="text-muted-foreground">Identify core topics and entity relationships in your niche</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Audit & Analysis</h3>
+              <p className="text-muted-foreground">Comprehensive SEO audit and competitive analysis</p>
             </Card>
             <Card className="text-center p-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">2</span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Topical Mapping</h3>
-              <p className="text-muted-foreground">Create comprehensive topical maps and content clusters</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Strategy Development</h3>
+              <p className="text-muted-foreground">Create tailored SEO strategy and content plan</p>
             </Card>
             <Card className="text-center p-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">3</span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Content Briefs</h3>
-              <p className="text-muted-foreground">Develop semantic content briefs for contextual optimization</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Optimization</h3>
+              <p className="text-muted-foreground">Technical, on-page, and content optimization</p>
             </Card>
             <Card className="text-center p-6">
               <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-primary">4</span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Implementation</h3>
-              <p className="text-muted-foreground">Execute schema markup and contextual content optimization</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Monitoring</h3>
+              <p className="text-muted-foreground">Track performance and continuous improvement</p>
             </Card>
           </div>
         </div>
@@ -318,15 +340,15 @@ export default function SemanticSEOServicesPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-            Ready to Build Topical Authority?
+            Ready to Boost Your SEO?
           </h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Let's discuss your semantic SEO goals and create a strategy that establishes your authority through 
-            comprehensive topic coverage and entity optimization.
+            Let's discuss your SEO goals and create a comprehensive strategy that drives sustainable organic growth 
+            and establishes your online presence across all search channels.
           </p>
           <Button asChild size="lg" className="text-lg px-8 py-6">
             <Link href="/contact">
-              Start Your Semantic SEO Journey
+              Start Your SEO Journey
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

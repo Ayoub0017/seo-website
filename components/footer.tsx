@@ -6,7 +6,7 @@ export function Footer() {
 
   const footerLinks = {
     services: [
-      { href: "/services/semantic-seo", label: "Semantic SEO" },
+      { href: "/services/seo", label: "SEO" },
       { href: "/services/content-marketing", label: "Content Marketing" },
       { href: "/services/web-development", label: "Web Development" },
     ],
@@ -32,7 +32,7 @@ export function Footer() {
               Ayoub Ouraian
             </Link>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Helping businesses grow their online presence through semantic SEO, content marketing, and Next.js web
+              Helping businesses grow their online presence through SEO, content marketing, and Next.js web
               development.
             </p>
             <div className="flex space-x-4">

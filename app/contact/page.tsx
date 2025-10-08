@@ -3,15 +3,14 @@ import type { Metadata } from "next"
 
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Mail, Phone, Clock, Linkedin } from "lucide-react"
+import { Mail, Phone, Clock, Linkedin, Calendar } from "lucide-react"
 import Link from "next/link"
 import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 
 export const metadata: Metadata = {
-  title: "Contact - Ayoub Ouraian | SEO & Content Marketing Specialist",
+  title: "Contact - Ayoub Ouraian | SEO & Content Marketing Consultant",
   description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Free consultation available.",
   robots: "index, follow",
   alternates: {
@@ -19,6 +18,28 @@ export const metadata: Metadata = {
     languages: {
       "en-US": "https://ayoubouarain.com/contact",
     },
+  },
+  openGraph: {
+    title: "Contact Ayoub Ouraian - SEO & Content Marketing Consultant",
+    description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Free consultation available.",
+    url: "https://ayoubouarain.com/contact",
+    siteName: "Ayoub Ouraian",
+    images: [
+      {
+        url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Ayoub Ouraian - SEO & Content Marketing Consultant",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Ayoub Ouraian - SEO & Content Marketing Consultant",
+    description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Free consultation available.",
+    images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
 
@@ -46,21 +67,21 @@ export default function ContactPage() {
       href: "https://www.linkedin.com/in/ayoub-ouarain/",
     },
     {
-      icon: Clock,
-      title: "Response Time",
-      value: "Within 24 hours",
-      description: "Typical response time",
-      href: null,
+      icon: Calendar,
+      title: "Free Consultation",
+      value: "Book 30min call",
+      description: "Schedule a free consultation",
+      href: "https://calendly.com/ab-ouarain/30min",
     },
   ]
 
   const services = [
-    "Semantic SEO Optimization",
+    "SEO Optimization",
     "Content Marketing",
     "Web Development",
-    "Technical Semantic SEO Audit",
-    "Local Semantic SEO",
-    "E-commerce Semantic SEO",
+    "Technical SEO Audit",
+    "Local SEO",
+    "E-commerce SEO",
     "Content Strategy",
     "Website Redesign",
     "Other",
@@ -81,18 +102,10 @@ export default function ContactPage() {
       <SchemaMarkup 
         type="contactPage" 
         data={{
-          name: "Contact Ayoub Ouraian - Semantic SEO & Digital Marketing Consultant",
-          description: "Get in touch with Ayoub Ouraian for professional semantic SEO, content marketing, and web development services. Ready to grow your business online.",
+          name: "Contact Ayoub Ouraian - SEO & Digital Marketing Consultant",
+          description: "Get in touch with Ayoub Ouraian for professional SEO, content marketing, and web development services. Ready to grow your business online.",
           url: "https://ayoubouarain.com/contact",
           mainEntity: ayoubPersonData,
-          contactPoint: {
-            "@type": "ContactPoint",
-            "telephone": "+1-555-0123",
-            "contactType": "customer service",
-            "email": "contact@ayoubouarain.com",
-            "availableLanguage": ["English", "French"],
-            "areaServed": "Worldwide"
-          }
         }} 
       />
       
@@ -100,7 +113,7 @@ export default function ContactPage() {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <section className="pt-32 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             Let's Start Your <span className="text-primary">Success Story</span>
@@ -112,91 +125,68 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form and Info */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <ContactForm />
-            </div>
-
+      {/* Contact Information and Consultation */}
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="space-y-8">
             {/* Contact Information */}
-            <div className="space-y-6">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Get in Touch</CardTitle>
-                  <CardDescription>Multiple ways to reach me for your convenience.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <info.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-medium text-foreground">{info.title}</h3>
-                        {info.href ? (
-                          <Link
-                            href={info.href}
-                            className="text-primary hover:text-primary/80 transition-colors"
-                            target={info.href.startsWith("http") ? "_blank" : undefined}
-                            rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                          >
-                            {info.value}
-                          </Link>
-                        ) : (
-                          <p className="text-foreground">{info.value}</p>
-                        )}
-                        <p className="text-sm text-muted-foreground">{info.description}</p>
-                      </div>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-xl">Get in Touch</CardTitle>
+                <CardDescription>Multiple ways to reach me for your convenience.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {contactInfo.map((info, index) => (
+                  <div key={index} className="flex items-start space-x-3">
+                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <info.icon className="h-5 w-5 text-primary" />
                     </div>
-                  ))}
-                </CardContent>
-              </Card>
+                    <div className="flex-1">
+                      <h3 className="font-medium text-foreground">{info.title}</h3>
+                      {info.href ? (
+                        <Link
+                          href={info.href}
+                          className="text-primary hover:text-primary/80 transition-colors"
+                          target={info.href.startsWith("http") ? "_blank" : undefined}
+                          rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                        >
+                          {info.value}
+                        </Link>
+                      ) : (
+                        <p className="text-foreground">{info.value}</p>
+                      )}
+                      <p className="text-sm text-muted-foreground">{info.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+            </Card>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-xl">Why Work With Me?</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-sm">6+ years of proven experience</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-sm">Data-driven strategies</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-sm">Transparent reporting</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-sm">Dedicated support</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-primary rounded-full" />
-                    <span className="text-sm">Measurable results</span>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-primary/5 border-primary/20">
-                <CardContent className="p-6 text-center">
-                  <h3 className="font-semibold text-foreground mb-2">Ready to Get Started?</h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Book a free 30-minute consultation to discuss your project.
-                  </p>
-                  <Button asChild className="w-full">
-                    <Link href="mailto:contact@ayoubouarain.com?subject=Free Consultation Request">
-                      Book Free Consultation
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
+            {/* Consultation Booking */}
+            <Card className="bg-primary/5 border-primary/20">
+              <CardHeader>
+                <CardTitle className="text-xl text-center">Ready to Get Started?</CardTitle>
+                <CardDescription className="text-center">
+                  Book a free 30-minute consultation to discuss your project and goals.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="text-center space-y-4">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
+                  <Calendar className="h-8 w-8 text-primary" />
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  During our call, we'll discuss your business goals, current challenges, and how I can help you achieve success online.
+                </p>
+                <Button asChild size="lg" className="w-full">
+                  <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">
+                    Book Free 30min Consultation
+                  </Link>
+                </Button>
+                <p className="text-xs text-muted-foreground">
+                  No commitment required • Free consultation
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

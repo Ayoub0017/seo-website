@@ -10,8 +10,8 @@ import type { Metadata } from "next"
 import { SchemaMarkup } from "@/components/schema-markup"
 
 export const metadata: Metadata = {
-  title: "Hi, I'm Ayoub Ouraian",
-  description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic semantic SEO, compelling content marketing, and modern web development.",
+  title: "About - Ayoub Ouraian | SEO & Content Marketing Consultant",
+  description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/about",
@@ -19,14 +19,36 @@ export const metadata: Metadata = {
       "en-US": "https://ayoubouarain.com/about",
     },
   },
+  openGraph: {
+    title: "About Ayoub Ouraian - SEO & Content Marketing Consultant",
+    description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
+    url: "https://ayoubouarain.com/about",
+    siteName: "Ayoub Ouraian",
+    images: [
+      {
+        url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Ayoub Ouraian - SEO & Content Marketing Consultant",
+      },
+    ],
+    locale: "en_US",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Ayoub Ouraian - SEO & Content Marketing Consultant",
+    description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
+    images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
+  },
 }
 
 export default function AboutPage() {
   const skillCategories = [
     {
-      title: "Semantic SEO & Search Marketing",
+      title: "SEO & Search Marketing",
       skills: [
-        "Semantic SEO",
+        "SEO",
         "Technical SEO", 
         "Keyword Research",
         "Link Building",
@@ -88,7 +110,7 @@ export default function AboutPage() {
       role: "Search Engine Optimization Consultant",
       company: "Freelance",
       description:
-        "Providing strategic SEO consulting services to businesses, helping them improve their organic search visibility and drive sustainable growth through data-driven optimization strategies.",
+        "Providing strategic SEO consulting services to businesses, helping them improve their organic search visibility and drive sustainable growth through results-driven optimization strategies.",
     },
     {
       period: "Jan 2025 - Jul 2025",
@@ -127,35 +149,22 @@ export default function AboutPage() {
         type="person" 
         data={{
           name: "Ayoub Ouraian",
-          jobTitle: "Semantic SEO Specialist & Digital Marketing Consultant",
-          description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic semantic SEO, compelling content marketing, and modern web development.",
+          jobTitle: "SEO and Content Marketing Consultant",
+          description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development.",
           url: "https://ayoubouarain.com/",
           image: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+          email: "ayoub@ayoubouarain.com",
           sameAs: [
-            "https://www.linkedin.com/in/ayoub-ouraian/",
-            "https://ayoubouarain.com/"
+            "https://www.linkedin.com/in/ayoub-ouarain/",
+            "https://x.com/Ouarain01",
+            "https://github.com/Ayoub0017"
           ],
-          worksFor: {
-            "@type": "Organization",
-            "name": "Freelance Digital Marketing Consultant"
+          address: {
+            addressCountry: "Morocco"
           },
-          knowsAbout: [
-            "Search Engine Optimization",
-            "Content Marketing",
-            "Web Development",
-            "Digital Marketing Strategy",
-            "Technical SEO",
-            "Semantic SEO",
-            "Next.js Development",
-            "Headless CMS"
-          ],
-          hasOccupation: {
-            "@type": "Occupation",
-            "name": "Digital Marketing Consultant",
-            "occupationLocation": {
-              "@type": "Place",
-              "name": "Worldwide"
-            }
+          worksFor: {
+            name: "Ayoub Ouraian Digital Marketing",
+            url: "https://ayoubouarain.com/"
           }
         }} 
       />
@@ -169,14 +178,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Hi, I'm <span className="text-primary">Ayoub Ouraian</span>
+                Hi, I'm <span className="text-primary">Ayoub</span>
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                 With over 6 years of experience in digital marketing, I specialize in helping businesses grow their
-                online presence through strategic semantic SEO, compelling content marketing, and modern web development.
+                online presence through strategic SEO, compelling content marketing, and modern web development.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I believe in data-driven strategies that deliver measurable results. My approach combines technical
+                I believe in results-driven strategies that deliver measurable results. My approach combines technical
                 expertise with creative content solutions to drive sustainable growth for your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -194,17 +203,14 @@ export default function AboutPage() {
 
             <div className="relative">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 p-8">
+                <div className="aspect-square rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 p-8">
                   <Image
                     src="/ayoub-ouarain-profile.png"
-                    alt="Ayoub Ouraian - Semantic SEO and Content Marketing Specialist"
+                    alt="Ayoub Ouarain - SEO and Content Marketing Consultant"
                     width={400}
                     height={400}
-                    className="w-full h-full object-cover rounded-2xl"
+                    className="w-full h-full object-cover rounded-full"
                   />
-                </div>
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-primary/10 rounded-2xl flex items-center justify-center">
-                  <TrendingUp className="h-12 w-12 text-primary" />
                 </div>
               </div>
             </div>

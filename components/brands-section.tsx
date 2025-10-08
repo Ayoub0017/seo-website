@@ -1,7 +1,4 @@
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
 
 export function BrandsSection() {
   const brands = [
@@ -17,7 +14,7 @@ export function BrandsSection() {
         <h2 className="text-3xl sm:text-4xl font-bold text-center text-foreground mb-12">
           Some Brands I Worked With
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
           {brands.map((brand) => (
             <div key={brand.name} className="flex items-center justify-center">
               <Image
@@ -29,15 +26,6 @@ export function BrandsSection() {
               />
             </div>
           ))}
-        </div>
-        
-        <div className="flex justify-center mt-8">
-          <Button asChild size="lg" className="text-lg px-8 py-6">
-            <Link href="/contact">
-              Start Your Project
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Next.js & Headless CMS",
-  description: "Lightning-fast, secure, and semantic SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+  description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/services/web-development",
@@ -18,13 +18,35 @@ export const metadata: Metadata = {
       "en-US": "https://ayoubouarain.com/services/web-development",
     },
   },
+  openGraph: {
+    title: "Web Development Services - Ayoub Ouraian",
+    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+    url: "https://ayoubouarain.com/services/web-development",
+    siteName: "Ayoub Ouraian",
+    images: [
+      {
+        url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "Web Development Services by Ayoub Ouraian",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Web Development Services - Ayoub Ouraian",
+    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+    images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
+  },
 }
 
 export default function NextJSWebDevelopmentPage() {
   const developmentServices = [
     {
       title: "Next.js Development",
-      description: "High-performance websites built with Next.js for optimal speed and semantic SEO",
+      description: "High-performance websites built with Next.js for optimal speed and SEO",
       features: ["Server-side rendering", "Static site generation", "API routes", "Image optimization"]
     },
     {
@@ -33,9 +55,9 @@ export default function NextJSWebDevelopmentPage() {
       features: ["Sanity CMS setup", "Contentful integration", "Real-time previews", "Content modeling"]
     },
     {
-      title: "Performance & Semantic SEO Optimization",
+      title: "Performance & SEO Optimization",
       description: "Lightning-fast websites optimized for search engines and user experience",
-      features: ["Core Web Vitals optimization", "Semantic SEO-friendly architecture", "Image optimization", "Caching strategies"]
+      features: ["Core Web Vitals optimization", "SEO-friendly architecture", "Image optimization", "Caching strategies"]
     },
     {
       title: "Security & Maintenance",
@@ -55,7 +77,7 @@ export default function NextJSWebDevelopmentPage() {
 
   const benefits = [
     "Lightning-fast loading speeds",
-    "Semantic SEO-optimized from the ground up",
+    "SEO-optimized from the ground up",
     "Secure and scalable architecture",
     "Easy content management with headless CMS",
     "Mobile-first responsive design",
@@ -69,7 +91,7 @@ export default function NextJSWebDevelopmentPage() {
         type="service" 
         data={{
           name: "Web Development Services",
-          description: "Lightning-fast, secure, and semantic SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+          description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
           provider: ayoubPersonData,
           areaServed: "Worldwide",
           serviceType: "Web Development",
@@ -94,7 +116,7 @@ export default function NextJSWebDevelopmentPage() {
               Web Development <span className="text-primary">Services</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Lightning-fast, secure, and semantic SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. 
+              Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. 
               Modern web development that drives performance and business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

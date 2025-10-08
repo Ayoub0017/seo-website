@@ -9,7 +9,7 @@ export function Navigation() {
     { 
       label: "Services",
       subItems: [
-        { href: "/services/semantic-seo", label: "Semantic SEO" },
+        { href: "/services/seo", label: "SEO" },
         { href: "/services/content-marketing", label: "Content Marketing" },
         { href: "/services/web-development", label: "Web Development" }
       ]
@@ -31,7 +31,6 @@ export function Navigation() {
             height={40}
             className="rounded-lg"
           />
-          <span className="font-bold text-xl text-foreground">Ayoub Ouraian</span>
         </Link>
       </div>
 
@@ -72,7 +71,7 @@ export function Navigation() {
         ))}
         
         <Button asChild>
-          <Link href="/contact">Get Started</Link>
+          <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">Free Consultation</Link>
         </Button>
       </div>
     </NavigationClient>

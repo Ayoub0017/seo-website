@@ -293,22 +293,15 @@ export default async function BlogPost({ params }: PageProps) {
           image: post.mainImage ? urlFor(post.mainImage).url() : "https://ayoubouarain.com/placeholder.jpg",
           datePublished: post.publishedAt,
           author: post.author ? {
-            "@type": "Person",
-            "name": post.author.name,
-            "url": `https://ayoubouarain.com/author/${post.author.slug?.current || ''}`
+            name: post.author.name,
+            jobTitle: "Content Author",
+            description: post.author.bio || "Content author and contributor",
+            url: `https://ayoubouarain.com/author/${post.author.slug?.current || ''}`,
+            image: post.author.image ? urlFor(post.author.image).url() : undefined
           } : ayoubPersonData,
-          publisher: {
-            "@type": "Organization",
-            "name": "Ayoub Ouraian Digital Marketing",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://ayoubouarain.com/ayoub-ouarain-logo.png"
-            }
-          },
-          mainEntityOfPage: {
-            "@type": "WebPage",
-            "@id": `https://ayoubouarain.com/blog/${path}`
-          }
+          publisher: ayoubPersonData,
+          url: `https://ayoubouarain.com/blog/${path}`,
+          mainEntityOfPage: `https://ayoubouarain.com/blog/${path}`
         }} 
       />
       

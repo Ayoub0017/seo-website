@@ -20,6 +20,28 @@ export const metadata: Metadata = {
       "en-US": "https://ayoubouarain.com/blog",
     },
   },
+  openGraph: {
+    title: "SEO & Marketing Insights - Ayoub Ouraian Blog",
+    description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
+    url: "https://ayoubouarain.com/blog",
+    siteName: "Ayoub Ouraian",
+    images: [
+      {
+        url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
+        width: 1200,
+        height: 630,
+        alt: "SEO & Marketing Insights by Ayoub Ouraian",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO & Marketing Insights - Ayoub Ouraian Blog",
+    description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
+    images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
+  },
 }
 
 interface BlogPost {
@@ -142,14 +164,7 @@ export default async function BlogPage() {
           description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
           url: "https://ayoubouarain.com/blog",
           author: ayoubPersonData,
-          publisher: {
-            "@type": "Organization",
-            "name": "Ayoub Ouraian Digital Marketing",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://ayoubouarain.com/ayoub-ouarain-logo.png"
-            }
-          }
+          publisher: ayoubPersonData
         }} 
       />
       
