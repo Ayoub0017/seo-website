@@ -53,47 +53,82 @@ interface BlogPost {
   publishedAt: string
 }
 
+// Fallback blog posts for when Sanity is unavailable
+const fallbackPosts = {
+  featured: [
+    {
+      _id: 'fallback-1',
+      title: 'The Complete Guide to Technical SEO in 2024',
+      slug: { current: 'complete-guide-technical-seo-2024' },
+      excerpt: 'Master the technical aspects of SEO with our comprehensive guide covering Core Web Vitals, structured data, and more.',
+      mainImage: null,
+      publishedAt: '2024-01-15',
+      author: 'Ayoub Ouraian',
+      categories: ['SEO', 'Technical']
+    },
+    {
+      _id: 'fallback-2',
+      title: 'Advanced Content Marketing Strategies for 2024',
+      slug: { current: 'advanced-content-marketing-strategies-2024' },
+      excerpt: 'Discover cutting-edge content marketing techniques that drive engagement and convert visitors into loyal customers.',
+      mainImage: null,
+      publishedAt: '2024-01-12',
+      author: 'Ayoub Ouraian',
+      categories: ['Content Marketing', 'Strategy']
+    }
+  ],
+  latest: [
+    {
+      _id: 'fallback-3',
+      title: 'How to Optimize Your Website for Local Search',
+      slug: { current: 'optimize-website-local-search' },
+      excerpt: 'Learn the essential strategies for dominating local search results and attracting more customers to your business.',
+      mainImage: null,
+      publishedAt: '2024-01-10',
+      author: 'Ayoub Ouraian',
+      categories: ['SEO', 'Local']
+    },
+    {
+      _id: 'fallback-4',
+      title: 'Web Development Best Practices for SEO',
+      slug: { current: 'web-development-best-practices-seo' },
+      excerpt: 'Build SEO-friendly websites from the ground up with these essential web development practices and techniques.',
+      mainImage: null,
+      publishedAt: '2024-01-08',
+      author: 'Ayoub Ouraian',
+      categories: ['Web Development', 'SEO']
+    },
+    {
+      _id: 'fallback-5',
+      title: 'Measuring SEO Success: Key Metrics That Matter',
+      slug: { current: 'measuring-seo-success-key-metrics' },
+      excerpt: 'Track your SEO performance with the right metrics and KPIs to ensure your optimization efforts are paying off.',
+      mainImage: null,
+      publishedAt: '2024-01-05',
+      author: 'Ayoub Ouraian',
+      categories: ['SEO', 'Analytics']
+    },
+    {
+      _id: 'fallback-6',
+      title: 'The Future of Search: AI and SEO in 2024',
+      slug: { current: 'future-search-ai-seo-2024' },
+      excerpt: 'Explore how artificial intelligence is reshaping search and what it means for your SEO strategy going forward.',
+      mainImage: null,
+      publishedAt: '2024-01-03',
+      author: 'Ayoub Ouraian',
+      categories: ['SEO', 'AI', 'Future Trends']
+    }
+  ]
+}
+
 async function getBlogPosts() {
   // Check if Sanity is properly configured
   const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+  
+  // Always return fallback data if Sanity is not configured
   if (!projectId || projectId === 'demo-project') {
-    // Return mock data for testing when Sanity is not configured
-    return {
-      featured: [
-        {
-          _id: '1',
-          title: 'The Complete Guide to Technical SEO in 2024',
-          slug: { current: 'complete-guide-technical-seo-2024' },
-          excerpt: 'Master the technical aspects of SEO with our comprehensive guide covering Core Web Vitals, structured data, and more.',
-          mainImage: null,
-          publishedAt: '2024-01-15',
-          author: 'SEO Expert',
-          categories: ['SEO', 'Technical']
-        }
-      ],
-      latest: [
-        {
-          _id: '2',
-          title: 'How to Optimize Your Website for Local Search',
-          slug: { current: 'optimize-website-local-search' },
-          excerpt: 'Learn the essential strategies for dominating local search results and attracting more customers to your business.',
-          mainImage: null,
-          publishedAt: '2024-01-10',
-          author: 'Local SEO Expert',
-          categories: ['SEO', 'Local']
-        },
-        {
-          _id: '3',
-          title: 'Content Marketing Strategies That Actually Work',
-          slug: { current: 'content-marketing-strategies-work' },
-          excerpt: 'Discover proven content marketing tactics that drive engagement, build authority, and convert visitors into customers.',
-          mainImage: null,
-          publishedAt: '2024-01-05',
-          author: 'Content Strategist',
-          categories: ['Content Marketing', 'Strategy']
-        }
-      ]
-    }
+    console.log('Using fallback blog posts - Sanity not configured')
+    return fallbackPosts
   }
 
   try {
@@ -127,13 +162,22 @@ async function getBlogPosts() {
       `)
     ])
 
-    return {
-      featured: featuredPosts,
-      latest: latestPosts.filter((post: any) => !post.featured)
+    // If we get data from Sanity, use it
+    if (featuredPosts && latestPosts) {
+      return {
+        featured: featuredPosts,
+        latest: latestPosts.filter((post: any) => !post.featured)
+      }
     }
+    
+    // Fallback if Sanity returns empty data
+    console.log('Sanity returned empty data, using fallback posts')
+    return fallbackPosts
+    
   } catch (error) {
-    console.error('Error fetching blog posts:', error)
-    return { featured: [], latest: [] }
+    console.error('Error fetching blog posts, using fallback data:', error)
+    // Always return fallback data instead of empty arrays
+    return fallbackPosts
   }
 }
 
@@ -263,7 +307,7 @@ export default async function BlogPage() {
             <FileText className="h-5 w-5 text-primary" />
             <h2 className="text-2xl font-bold text-foreground">Latest Articles</h2>
           </div>
-          {latest.length > 0 ? (
+          {latest && latest.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latest.map((post) => (
                 <Card
@@ -320,10 +364,15 @@ export default async function BlogPage() {
           ) : (
             <div className="text-center py-12">
               <FileText className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-foreground mb-2">No blog posts found</h3>
-              <p className="text-muted-foreground">
-                Check back later for new content or create your first post in the Sanity Studio.
+              <h3 className="text-lg font-semibold text-foreground mb-2">No Articles Available</h3>
+              <p className="text-muted-foreground mb-6">
+                We're working on bringing you valuable content. Check back soon for the latest insights on SEO, content marketing, and web development.
               </p>
+              <Link href="/contact">
+                <Button className="px-6">
+                  Get in Touch
+                </Button>
+              </Link>
             </div>
           )}
         </div>
