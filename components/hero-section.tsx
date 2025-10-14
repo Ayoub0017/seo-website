@@ -8,12 +8,12 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-6">
-            SEO & Content Marketing <span className="text-primary">Consultant</span>
+            Holistic Digital <span className="text-primary">Marketing</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            I help businesses grow their online presence through strategic SEO, compelling content marketing, and modern
-            web development solutions.
+            I help businesses scale with holistic marketing strategies that cover SEO, Meta Ads, Google Ads, and Cold Emailing. 
+            Building complete acquisition machines rather than siloed campaigns.
           </p>
 
           <div className="flex justify-center mb-16">

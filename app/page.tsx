@@ -7,8 +7,8 @@ import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "SEO & Content Marketing Consultant",
-  description: "Professional SEO consultant helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions.",
+  title: "Holistic Digital Marketing - Complete Acquisition Systems",
+  description: "Scale your business with holistic marketing strategies covering SEO, Meta Ads, Google Ads, and Cold Emailing. Building complete acquisition machines rather than siloed campaigns.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/",
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Ayoub Ouraian - SEO & Content Marketing Consultant",
-    description: "Professional SEO consultant helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions.",
+    title: "Ayoub Ouraian - Holistic Digital Marketing Specialist",
+    description: "Scale your business with holistic marketing strategies covering SEO, Meta Ads, Google Ads, and Cold Emailing. Building complete acquisition machines rather than siloed campaigns.",
     url: "https://ayoubouarain.com/",
     siteName: "Ayoub Ouraian",
     images: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
         width: 1200,
         height: 630,
-        alt: "Ayoub Ouraian - SEO & Content Marketing Consultant",
+        alt: "Ayoub Ouraian - Holistic Digital Marketing Specialist",
       },
     ],
     locale: "en_US",
@@ -50,9 +50,9 @@ export default function HomePage() {
       <SchemaMarkup 
         type="website" 
         data={{
-          name: "Ayoub Ouraian - SEO & Content Marketing Consultant",
+          name: "Ayoub Ouraian - Holistic Digital Marketing Specialist",
           url: "https://ayoubouarain.com/",
-          description: "Professional SEO consultant helping businesses grow their online presence through strategic SEO, compelling content marketing, and modern web development solutions."
+          description: "Scale your business with holistic marketing strategies covering SEO, Meta Ads, Google Ads, and Cold Emailing. Building complete acquisition machines rather than siloed campaigns."
         }} 
       />
       

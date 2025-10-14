@@ -156,13 +156,7 @@ const richTextOptions = {
   },
 }
 
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
-}
+
 
 function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: string }> {
   const breadcrumbs = [{ title: 'Blog', href: '/blog' }]
@@ -312,7 +306,7 @@ export default async function BlogPost({ params }: PageProps) {
           <div className="flex items-center justify-center gap-6 text-muted-foreground mb-8">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
-              <span>{formatDate(post.fields.publishedDate)}</span>
+              <span>{contentfulFormatDate(post.fields.publishedDate)}</span>
             </div>
             {post.fields.author && (
               <div className="flex items-center gap-2">
