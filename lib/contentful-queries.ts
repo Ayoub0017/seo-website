@@ -51,23 +51,27 @@ export interface Category {
 // Get all blog posts
 export async function getBlogPosts(limit: number = 10): Promise<BlogPost[]> {
   try {
-    // First check if the content type exists
-    const contentTypes = await client.getContentTypes()
-    const blogPostType = contentTypes.items.find(ct => ct.sys.id === 'blogPost')
-    
-    if (!blogPostType) {
-      console.warn('Content type "blogPost" not found in Contentful space')
+    if (!client || typeof client.getEntries !== 'function') {
+      console.warn('Contentful client not available, returning empty array')
       return []
     }
 
     const response = await client.getEntries({
       content_type: 'blogPost',
-      limit,
+      limit: limit,
       order: '-fields.publishedDate',
-      include: 2, // Include linked entries
+      include: 2, // Include linked entries (author, category)
     })
-    
-    return response.items as BlogPost[]
+
+    return response.items.map((item: any) => ({
+      sys: item.sys,
+      fields: {
+        ...item.fields,
+        // Ensure we have the linked entries resolved
+        author: item.fields.author,
+        category: item.fields.category,
+      }
+    }))
   } catch (error) {
     console.error('Error fetching blog posts:', error)
     return []
@@ -77,16 +81,20 @@ export async function getBlogPosts(limit: number = 10): Promise<BlogPost[]> {
 // Get a single blog post by slug
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
+    if (!client || typeof client.getEntries !== 'function') {
+      console.warn('Contentful client not available, returning null')
+      return null
+    }
+
     const response = await client.getEntries({
       content_type: 'blogPost',
       'fields.slug': slug,
-      limit: 1,
       include: 2,
     })
-    
-    return response.items[0] as BlogPost || null
+
+    return response.items.length > 0 ? response.items[0] as BlogPost : null
   } catch (error) {
-    console.error('Error fetching blog post:', error)
+    console.error('Error fetching blog post by slug:', error)
     return null
   }
 }
@@ -112,6 +120,11 @@ export async function getBlogPostsByCategory(categorySlug: string, limit: number
 // Get related blog posts (excluding current post)
 export async function getRelatedPosts(currentPostId: string, categoryId?: string, limit: number = 3): Promise<BlogPost[]> {
   try {
+    if (!client || typeof client.getEntries !== 'function') {
+      console.warn('Contentful client not available, returning empty array')
+      return []
+    }
+
     const query: any = {
       content_type: 'blogPost',
       limit,

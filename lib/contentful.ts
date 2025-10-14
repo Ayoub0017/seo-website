@@ -1,11 +1,27 @@
 import { createClient } from 'contentful'
 
-// Contentful client configuration
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID || '',
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-  environment: process.env.CONTENTFUL_ENVIRONMENT || 'master',
-})
+// Contentful client configuration with proper error handling
+const spaceId = process.env.CONTENTFUL_SPACE_ID
+const accessToken = process.env.CONTENTFUL_ACCESS_TOKEN
+const environment = process.env.CONTENTFUL_ENVIRONMENT || 'master'
+
+// Create client only if required environment variables are present
+let client: any = null
+
+if (spaceId && accessToken) {
+  client = createClient({
+    space: spaceId,
+    accessToken: accessToken,
+    environment: environment,
+  })
+} else {
+  // Create a mock client for build time when env vars are missing
+  client = {
+    getEntries: () => Promise.resolve({ items: [] }),
+    getEntry: () => Promise.resolve(null),
+    getAsset: () => Promise.resolve(null),
+  }
+}
 
 export { client }
 
