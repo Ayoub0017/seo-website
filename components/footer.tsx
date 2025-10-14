@@ -7,8 +7,9 @@ export function Footer() {
   const footerLinks = {
     services: [
       { href: "/services/seo", label: "SEO" },
-      { href: "/services/content-marketing", label: "Content Marketing" },
-      { href: "/services/web-development", label: "Web Development" },
+      { href: "/services/google-ads", label: "Google Ads" },
+      { href: "/services/meta-ads", label: "Meta Ads" },
+      { href: "/services/cold-emailing", label: "Cold Emailing" },
     ],
     company: [
       { href: "/about", label: "About Me" },
@@ -32,8 +33,7 @@ export function Footer() {
               Ayoub Ouraian
             </Link>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Helping businesses grow their online presence through SEO, content marketing, and Next.js web
-              development.
+              Helping businesses grow their online presence through comprehensive digital marketing services including SEO, Google Ads, Meta Ads, and cold emailing.
             </p>
             <div className="flex space-x-4">
               <Link
