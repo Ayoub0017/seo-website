@@ -168,180 +168,192 @@ export default function MetaAdsPage() {
         
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <Badge variant="outline" className="mb-4">
-                Meta Advertising Experts
-              </Badge>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Drive Results with Expert Meta Ads Management
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Reach your ideal customers on Facebook and Instagram with targeted advertising campaigns that deliver measurable ROI and sustainable growth.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
-                <Link href="https://calendly.com/ab-ouarain/30min">
-                  Get Free Strategy Session
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="max-w-4xl mx-auto text-center">
+                <Badge variant="outline" className="mb-4">
+                  Meta Advertising Experts
+                </Badge>
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Drive Results with Expert Meta Ads Management
+                </h1>
+                <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                  Reach your ideal customers on Facebook and Instagram with targeted advertising campaigns that deliver measurable ROI and sustainable growth.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
+                    <Link href="https://calendly.com/ab-ouarain/30min">
+                      Get Free Strategy Session
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose Our Meta Ads Management?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine data-driven strategies with creative excellence to deliver Meta advertising campaigns that drive real business results.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center border-0 shadow-lg">
-                <CardHeader>
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <benefit.icon className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{benefit.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Comprehensive Meta Advertising Services
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From Facebook ads to Instagram campaigns, we provide end-to-end Meta advertising solutions tailored to your business goals.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {metaServices.map((service, index) => (
-              <Card key={index} className={`${service.color} border-2 hover:shadow-lg transition-shadow`}>
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <service.icon className="h-8 w-8 text-blue-600" />
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                  </div>
-                  <CardDescription className="text-gray-700">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2 text-sm">
-                        <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Our Meta Ads Management Process
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A proven methodology that ensures your Meta advertising campaigns deliver maximum ROI from day one.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {processSteps.map((step, index) => (
-              <Card key={index} className="relative border-2 border-gray-100 hover:border-blue-200 transition-colors">
-                <CardHeader>
-                  <div className="flex items-center gap-4 mb-2">
-                    <div className="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">
-                      {step.step}
-                    </div>
-                    <CardTitle className="text-xl">{step.title}</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{step.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Meta Ads Results That Speak for Themselves
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">300%</div>
-              <p className="text-blue-100">Average ROAS Increase</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">50%</div>
-              <p className="text-blue-100">Lower Cost Per Lead</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">2.5M+</div>
-              <p className="text-blue-100">Ad Impressions Managed</p>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold mb-2">150+</div>
-              <p className="text-blue-100">Successful Campaigns</p>
+        {/* Benefits Section */}
+        <section className="py-20 bg-white">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Why Choose Our Meta Ads Management?
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  We combine data-driven strategies with creative excellence to deliver Meta advertising campaigns that drive real business results.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {benefits.map((benefit, index) => (
+                  <Card key={index} className="text-center border-0 shadow-lg">
+                    <CardHeader>
+                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <benefit.icon className="h-6 w-6 text-blue-600" />
+                      </div>
+                      <CardTitle className="text-xl">{benefit.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">{benefit.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Scale Your Business with Meta Ads?
-            </h2>
-            <p className="text-xl text-gray-600 mb-8">
-              Get a free strategy session and discover how we can help you reach more customers and drive more sales on Facebook and Instagram.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
-                <Link href="https://calendly.com/ab-ouarain/30min">
-                  Get Free Strategy Session
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+        {/* Services Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Comprehensive Meta Advertising Services
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  From Facebook ads to Instagram campaigns, we provide end-to-end Meta advertising solutions tailored to your business goals.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {metaServices.map((service, index) => (
+                  <Card key={index} className={`${service.color} border-2 hover:shadow-lg transition-shadow`}>
+                    <CardHeader>
+                      <div className="flex items-center gap-3 mb-2">
+                        <service.icon className="h-8 w-8 text-blue-600" />
+                        <CardTitle className="text-xl">{service.title}</CardTitle>
+                      </div>
+                      <CardDescription className="text-gray-700">
+                        {service.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-center gap-2 text-sm">
+                            <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <Footer />
+        {/* Process Section */}
+        <section className="py-20 bg-white">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Our Meta Ads Management Process
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  A proven methodology that ensures your Meta advertising campaigns deliver maximum ROI from day one.
+                </p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {processSteps.map((step, index) => (
+                  <Card key={index} className="relative border-2 border-gray-100 hover:border-blue-200 transition-colors">
+                    <CardHeader>
+                      <div className="flex items-center gap-4 mb-2">
+                        <div className="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">
+                          {step.step}
+                        </div>
+                        <CardTitle className="text-xl">{step.title}</CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600">{step.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  Meta Ads Results That Speak for Themselves
+                </h2>
+              </div>
+              <div className="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                  <div className="text-4xl md:text-5xl font-bold mb-2">300%</div>
+                  <p className="text-blue-100">Average ROAS Increase</p>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-5xl font-bold mb-2">50%</div>
+                  <p className="text-blue-100">Lower Cost Per Lead</p>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-5xl font-bold mb-2">2.5M+</div>
+                  <p className="text-blue-100">Ad Impressions Managed</p>
+                </div>
+                <div>
+                  <div className="text-4xl md:text-5xl font-bold mb-2">150+</div>
+                  <p className="text-blue-100">Successful Campaigns</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Ready to Scale Your Business with Meta Ads?
+                </h2>
+                <p className="text-xl text-gray-600 mb-8">
+                  Get a free strategy session and discover how we can help you reach more customers and drive more sales on Facebook and Instagram.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
+                    <Link href="https://calendly.com/ab-ouarain/30min">
+                      Get Free Strategy Session
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
       </main>
     </>
   )
