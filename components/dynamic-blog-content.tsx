@@ -2,162 +2,153 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Calendar, Clock, ArrowRight, TrendingUp, Search, FileText, Star } from "lucide-react"
-import { client, urlFor } from "@/lib/sanity"
+import { getBlogPosts } from "@/lib/contentful-queries"
+import { getImageUrl, formatDate } from "@/lib/contentful"
 import Link from "next/link"
 import Image from "next/image"
 
 interface BlogPost {
-  _id: string
-  title: string
-  slug: { current: string }
-  excerpt: string
-  mainImage?: any
-  publishedAt: string
-  author?: string
-  categories?: string[]
+  sys: {
+    id: string
+  }
+  fields: {
+    title: string
+    slug: string
+    excerpt?: string
+    featuredImage?: any
+    publishedDate: string
+    author?: {
+      fields: {
+        name: string
+      }
+    }
+    category?: {
+      fields: {
+        name: string
+      }
+    }
+    tags?: string[]
+  }
 }
 
 const fallbackPosts = {
   featured: [
     {
-      _id: 'fallback-1',
-      title: 'The Complete Guide to Technical SEO in 2024',
-      slug: { current: 'complete-guide-technical-seo-2024' },
-      excerpt: 'Master the technical aspects of SEO with our comprehensive guide covering Core Web Vitals, structured data, and more.',
-      mainImage: null,
-      publishedAt: '2024-01-15',
-      author: 'Ayoub Ouraian',
-      categories: ['SEO', 'Technical']
+      sys: { id: 'fallback-1' },
+      fields: {
+        title: 'The Complete Guide to Technical SEO in 2024',
+        slug: 'complete-guide-technical-seo-2024',
+        excerpt: 'Master the technical aspects of SEO with our comprehensive guide covering Core Web Vitals, structured data, and more.',
+        featuredImage: null,
+        publishedDate: '2024-01-15',
+        author: { fields: { name: 'Ayoub Ouraian' } },
+        category: { fields: { name: 'SEO' } },
+        tags: ['SEO', 'Technical']
+      }
     },
     {
-      _id: 'fallback-2',
-      title: 'Advanced Content Marketing Strategies for 2024',
-      slug: { current: 'advanced-content-marketing-strategies-2024' },
-      excerpt: 'Discover cutting-edge content marketing techniques that drive engagement and convert visitors into loyal customers.',
-      mainImage: null,
-      publishedAt: '2024-01-12',
-      author: 'Ayoub Ouraian',
-      categories: ['Content Marketing', 'Strategy']
+      sys: { id: 'fallback-2' },
+      fields: {
+        title: 'Advanced Content Marketing Strategies for 2024',
+        slug: 'advanced-content-marketing-strategies-2024',
+        excerpt: 'Discover cutting-edge content marketing techniques that drive engagement and convert visitors into loyal customers.',
+        featuredImage: null,
+        publishedDate: '2024-01-12',
+        author: { fields: { name: 'Ayoub Ouraian' } },
+        category: { fields: { name: 'Content Marketing' } },
+        tags: ['Content Marketing', 'Strategy']
+      }
     }
   ],
   latest: [
     {
-      _id: 'fallback-3',
-      title: 'How to Optimize Your Website for Local Search',
-      slug: { current: 'optimize-website-local-search' },
-      excerpt: 'Learn the essential strategies for dominating local search results and attracting more customers to your business.',
-      mainImage: null,
-      publishedAt: '2024-01-10',
-      author: 'Ayoub Ouraian',
-      categories: ['SEO', 'Local']
+      sys: { id: 'fallback-3' },
+      fields: {
+        title: 'How to Optimize Your Website for Local Search',
+        slug: 'optimize-website-local-search',
+        excerpt: 'Learn the essential strategies for dominating local search results and attracting more customers to your business.',
+        featuredImage: null,
+        publishedDate: '2024-01-10',
+        author: { fields: { name: 'Ayoub Ouraian' } },
+        category: { fields: { name: 'SEO' } },
+        tags: ['SEO', 'Local']
+      }
     },
     {
-      _id: 'fallback-4',
-      title: 'Web Development Best Practices for SEO',
-      slug: { current: 'web-development-best-practices-seo' },
-      excerpt: 'Build SEO-friendly websites from the ground up with these essential web development practices and techniques.',
-      mainImage: null,
-      publishedAt: '2024-01-08',
-      author: 'Ayoub Ouraian',
-      categories: ['Web Development', 'SEO']
+      sys: { id: 'fallback-4' },
+      fields: {
+        title: 'Web Development Best Practices for SEO',
+        slug: 'web-development-best-practices-seo',
+        excerpt: 'Build SEO-friendly websites from the ground up with these essential web development practices and techniques.',
+        featuredImage: null,
+        publishedDate: '2024-01-08',
+        author: { fields: { name: 'Ayoub Ouraian' } },
+        category: { fields: { name: 'Web Development' } },
+        tags: ['Web Development', 'SEO']
+      }
     },
     {
-      _id: 'fallback-5',
-      title: 'Measuring SEO Success: Key Metrics That Matter',
-      slug: { current: 'measuring-seo-success-key-metrics' },
-      excerpt: 'Track your SEO performance with the right metrics and KPIs to ensure your optimization efforts are paying off.',
-      mainImage: null,
-      publishedAt: '2024-01-05',
-      author: 'Ayoub Ouraian',
-      categories: ['SEO', 'Analytics']
+      sys: { id: 'fallback-5' },
+      fields: {
+        title: 'Measuring SEO Success: Key Metrics That Matter',
+        slug: 'measuring-seo-success-key-metrics',
+        excerpt: 'Track your SEO performance with the right metrics and KPIs to ensure your optimization efforts are paying off.',
+        featuredImage: null,
+        publishedDate: '2024-01-05',
+        author: { fields: { name: 'Ayoub Ouraian' } },
+        category: { fields: { name: 'SEO' } },
+        tags: ['SEO', 'Analytics']
+      }
     },
     {
-      _id: 'fallback-6',
-      title: 'The Future of Search: AI and SEO in 2024',
-      slug: { current: 'future-search-ai-seo-2024' },
-      excerpt: 'Explore how artificial intelligence is reshaping search and what it means for your SEO strategy going forward.',
-      mainImage: null,
-      publishedAt: '2024-01-03',
-      author: 'Ayoub Ouraian',
-      categories: ['SEO', 'AI', 'Future Trends']
+      sys: { id: 'fallback-6' },
+      fields: {
+        title: 'The Future of Search: AI and SEO in 2024',
+        slug: 'future-search-ai-seo-2024',
+        excerpt: 'Explore how artificial intelligence is reshaping search and what it means for your SEO strategy going forward.',
+        featuredImage: null,
+        publishedDate: '2024-01-03',
+        author: { fields: { name: 'Ayoub Ouraian' } },
+        category: { fields: { name: 'SEO' } },
+        tags: ['SEO', 'AI', 'Future Trends']
+      }
     }
   ]
 }
 
-async function getBlogPosts() {
-  // Check if Sanity is properly configured
-  const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-  
-  // Always return fallback data if Sanity is not configured
-  if (!projectId || projectId === 'demo-project') {
-    console.log('Using fallback blog posts - Sanity not configured')
-    return fallbackPosts
-  }
-
+async function getBlogPostsData() {
   try {
-    const [featuredPosts, latestPosts] = await Promise.all([
-      // Fetch featured posts
-      client.fetch(`
-        *[_type == "post" && featured == true] | order(publishedAt desc) {
-          _id,
-          title,
-          slug,
-          excerpt,
-          mainImage,
-          publishedAt,
-          "author": author->name,
-          "categories": categories[]->title
-        }
-      `),
-      // Fetch latest posts (excluding featured ones)
-      client.fetch(`
-        *[_type == "post"] | order(publishedAt desc) {
-          _id,
-          title,
-          slug,
-          excerpt,
-          mainImage,
-          publishedAt,
-          featured,
-          "author": author->name,
-          "categories": categories[]->title
-        }
-      `)
-    ])
-
-    // If we get data from Sanity and it's not empty, use it
-    if (featuredPosts && latestPosts && (featuredPosts.length > 0 || latestPosts.length > 0)) {
+    // Fetch blog posts from Contentful
+    const posts = await getBlogPosts()
+    
+    if (posts && posts.length > 0) {
+      // Split posts into featured and latest
+      const featured = posts.slice(0, 3)
+      const latest = posts.slice(3, 12)
+      
       return {
-        featured: featuredPosts,
-        latest: latestPosts.filter((post: any) => !post.featured)
+        featured: featured.length > 0 ? featured : fallbackPosts.featured,
+        latest: latest.length > 0 ? latest : fallbackPosts.latest
       }
     }
     
-    // Fallback if Sanity returns empty data
-    console.log('Sanity returned empty data, using fallback posts')
+    // Return fallback data if no posts found
+    console.log('No posts found in Contentful, using fallback data')
     return fallbackPosts
     
   } catch (error) {
-    console.error('Error fetching blog posts, using fallback data:', error)
-    // Always return fallback data instead of empty arrays
+    console.error('Error fetching blog posts from Contentful:', error)
+    // Return fallback data on error
     return fallbackPosts
   }
 }
 
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
-
 function generateBlogPath(post: BlogPost): string {
-  return `/blog/${post.slug.current}`
+  return `/blog/${post.fields.slug}`
 }
 
 export async function DynamicBlogContent() {
-  const { featured, latest } = await getBlogPosts()
+  const { featured, latest } = await getBlogPostsData()
 
   return (
     <>
@@ -172,7 +163,7 @@ export async function DynamicBlogContent() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featured.map((post) => (
                 <Card
-                  key={post._id}
+                  key={post.sys.id}
                   className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20 relative"
                 >
                   <div className="absolute top-4 right-4 z-10">
@@ -180,11 +171,11 @@ export async function DynamicBlogContent() {
                       Featured
                     </div>
                   </div>
-                  {post.mainImage && (
+                  {post.fields.featuredImage && (
                     <div className="relative h-48 overflow-hidden rounded-t-lg">
                       <Image
-                        src={urlFor(post.mainImage).width(600).height(300).url()}
-                        alt={post.title}
+                        src={getImageUrl(post.fields.featuredImage, 600, 300)}
+                        alt={post.fields.title}
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-300"
                       />
@@ -194,25 +185,25 @@ export async function DynamicBlogContent() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center text-sm text-muted-foreground">
                         <Calendar className="h-4 w-4 mr-1" />
-                        {formatDate(post.publishedAt)}
+                        {formatDate(post.fields.publishedDate)}
                       </div>
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                      {post.title}
+                      {post.fields.title}
                     </CardTitle>
                     <CardDescription className="text-base leading-relaxed">
-                      {post.excerpt}
+                      {post.fields.excerpt}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-1 mb-3">
-                        {post.categories?.slice(0, 2).map((category, index) => (
+                        {post.fields.tags?.slice(0, 2).map((tag, index) => (
                           <span
                             key={index}
                             className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground"
                           >
-                            {category}
+                            {tag}
                           </span>
                         ))}
                       </div>
@@ -241,14 +232,14 @@ export async function DynamicBlogContent() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {latest.map((post) => (
               <Card
-                key={post._id}
+                key={post.sys.id}
                 className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20"
               >
-                {post.mainImage && (
+                {post.fields.featuredImage && (
                   <div className="relative h-48 overflow-hidden rounded-t-lg">
                     <Image
-                      src={urlFor(post.mainImage).width(600).height(300).url()}
-                      alt={post.title}
+                      src={getImageUrl(post.fields.featuredImage, 600, 300)}
+                      alt={post.fields.title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
@@ -258,25 +249,25 @@ export async function DynamicBlogContent() {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center text-sm text-muted-foreground">
                       <Calendar className="h-4 w-4 mr-1" />
-                      {formatDate(post.publishedAt)}
+                      {formatDate(post.fields.publishedDate)}
                     </div>
                   </div>
                   <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {post.title}
+                    {post.fields.title}
                   </CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    {post.excerpt}
+                    {post.fields.excerpt}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
                     <div className="flex flex-wrap gap-1 mb-3">
-                      {post.categories?.slice(0, 2).map((category, index) => (
+                      {post.fields.tags?.slice(0, 2).map((tag, index) => (
                         <span
                           key={index}
                           className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground"
                         >
-                          {category}
+                          {tag}
                         </span>
                       ))}
                     </div>

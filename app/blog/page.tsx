@@ -1,29 +1,19 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import type { Metadata } from "next"
-import { SchemaMarkup } from "@/components/schema-markup"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Calendar, Star, FileText, ArrowRight, TrendingUp } from "lucide-react"
-import Link from "next/link"
-import Image from "next/image"
-import { getBlogPosts } from "@/lib/sanity-queries"
-import { urlFor } from "@/lib/sanity"
-import { ayoubPersonData } from "@/components/schema-markup"
+import { Metadata } from 'next'
+import { Navigation } from '@/components/navigation'
+import { Footer } from '@/components/footer'
+import { SchemaMarkup } from '@/components/schema-markup'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import Link from 'next/link'
+import Image from 'next/image'
+import { getBlogPosts } from '@/lib/contentful-queries'
+import { formatDate } from '@/lib/contentful'
+import { ayoubPersonData } from '@/components/schema-markup'
+import { getImageUrl } from '@/lib/contentful'
 
-// Utility functions
-function formatDate(dateString: string): string {
-  const date = new Date(dateString)
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  })
-}
-
-function generateBlogPath(post: any): string {
-  return `/blog/${post.slug.current}`
-}
+// Use ISR (Incremental Static Regeneration) to fetch fresh content
+export const revalidate = 3600 // Revalidate every hour
 
 export const metadata: Metadata = {
   title: "SEO & Marketing Insights",
@@ -59,211 +49,158 @@ export const metadata: Metadata = {
   },
 }
 
-export const revalidate = 0 // Disable caching for immediate updates
-
 export default async function BlogPage() {
-  console.log('BlogPage component is rendering on the server')
+  // Fetch blog posts from Contentful
+  const posts = await getBlogPosts(6)
   
-  const { featured, latest } = await getBlogPosts()
-  
-  console.log('Server-side data fetched:', {
-    featuredCount: featured.length,
-    latestCount: latest.length,
-    featuredTitles: featured.map(post => post.title),
-    latestTitles: latest.map(post => post.title)
-  })
-
   return (
     <>
-      {/* Blog Schema Markup */}
-      <SchemaMarkup 
-        type="blog" 
-        data={{
-          name: "SEO & Marketing Insights Blog",
-          description: "Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.",
-          url: "https://ayoubouarain.com/blog",
-          author: ayoubPersonData,
-          publisher: ayoubPersonData
-        }} 
-      />
-      
-      <main className="min-h-screen">
-        {/* Navigation component */}
-        <Navigation />
-
+      <SchemaMarkup type="person" data={ayoubPersonData} />
+      <Navigation />
+      <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 text-balance">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
               SEO & Marketing
               <span className="text-primary block">Insights</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto text-pretty">
-              Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights
-              that drive real business results.
+            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+              Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.
             </p>
           </div>
-        </section>
+        </div>
 
-        {/* Featured Articles - Server-side rendered */}
-        {featured.length > 0 && (
-          <section className="pb-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center gap-2 mb-8">
-                <Star className="h-5 w-5 text-primary" />
-                <h2 className="text-2xl font-bold text-foreground">Featured Articles</h2>
+        {/* Blog Posts Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+          {posts.length > 0 ? (
+            <>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-foreground mb-4">Latest Articles</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Discover actionable insights and strategies to grow your business online.
+                </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {featured.map((post) => (
-                  <Card
-                    key={post._id}
-                    className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20"
-                  >
-                    <CardHeader className="pb-4">
-                      {post.mainImage && (
-                        <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
-                          <Image
-                            src={urlFor(post.mainImage).width(400).height(200).url()}
-                            alt={post.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
+
+              {/* Blog Posts Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                {posts.map((post) => (
+                  <Card key={post.sys.id} className="h-full hover:shadow-lg transition-shadow">
+                    {post.fields.featuredImage && (
+                      <div className="relative h-48 w-full overflow-hidden rounded-t-lg">
+                        <Image
+                          src={getImageUrl(post.fields.featuredImage, 400, 200)}
+                          alt={post.fields.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                    <CardHeader>
+                      {post.fields.category && (
+                        <Badge variant="secondary" className="w-fit mb-2">
+                          {post.fields.category.fields?.name || 'Article'}
+                        </Badge>
                       )}
-                      <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
+                      <CardTitle className="text-xl line-clamp-2">
+                        <Link href={`/blog/${post.fields.slug}`} className="hover:text-primary transition-colors">
+                          {post.fields.title}
+                        </Link>
                       </CardTitle>
+                      {post.fields.excerpt && (
+                        <CardDescription className="line-clamp-3">
+                          {post.fields.excerpt}
+                        </CardDescription>
+                      )}
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                      <CardDescription className="text-muted-foreground line-clamp-3">
-                        {post.excerpt}
-                      </CardDescription>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{formatDate(post.publishedAt)}</span>
-                        </div>
-                        {post.author && (
-                          <span>by {post.author}</span>
-                        )}
+                    <CardContent>
+                      <div className="flex items-center justify-between text-sm text-muted-foreground">
+                        <span>{formatDate(post.fields.publishedDate)}</span>
+                        <Link 
+                          href={`/blog/${post.fields.slug}`}
+                          className="text-primary hover:underline"
+                        >
+                          Read more
+                        </Link>
                       </div>
-                      <div className="flex flex-wrap gap-2">
-                        {post.categories?.slice(0, 2).map((category, index) => (
-                          <span
-                            key={index}
-                            className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground"
-                          >
-                            {category}
-                          </span>
-                        ))}
-                      </div>
-                      <Link href={generateBlogPath(post)}>
-                        <Button variant="ghost" size="sm" className="group-hover:bg-primary/10">
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
                     </CardContent>
                   </Card>
                 ))}
               </div>
-            </div>
-          </section>
-        )}
-
-        {/* Latest Articles - Server-side rendered */}
-        {latest.length > 0 && (
-          <section className="pb-16 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-              <div className="flex items-center gap-2 mb-8">
-                <FileText className="h-5 w-5 text-primary" />
-                <h2 className="text-2xl font-bold text-foreground">Latest Articles</h2>
+            </>
+          ) : (
+            <>
+              {/* Fallback Content when no posts are available */}
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-foreground mb-4">Blog Coming Soon</h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  We're preparing valuable content about SEO strategies, content marketing tips, and web development insights.
+                  Check back soon for our latest articles and insights.
+                </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {latest.map((post) => (
-                  <Card
-                    key={post._id}
-                    className="group hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/20"
-                  >
-                    <CardHeader className="pb-4">
-                      {post.mainImage && (
-                        <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
-                          <Image
-                            src={urlFor(post.mainImage).width(400).height(200).url()}
-                            alt={post.title}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                      )}
-                      <CardTitle className="text-xl font-bold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <CardDescription className="text-muted-foreground line-clamp-3">
-                        {post.excerpt}
-                      </CardDescription>
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          <span>{formatDate(post.publishedAt)}</span>
-                        </div>
-                        {post.author && (
-                          <span>by {post.author}</span>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {post.categories?.slice(0, 2).map((category, index) => (
-                          <span
-                            key={index}
-                            className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-secondary text-secondary-foreground"
-                          >
-                            {category}
-                          </span>
-                        ))}
-                      </div>
-                      <Link href={generateBlogPath(post)}>
-                        <Button variant="ghost" size="sm" className="group-hover:bg-primary/10">
-                          Read More
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
 
-        {/* Newsletter CTA - Server-side rendered */}
-        <section className="pb-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <Card className="bg-gradient-to-r from-primary/10 to-secondary/10 border-primary/20">
-              <CardHeader className="text-center">
-                <CardTitle className="text-2xl font-bold text-foreground mb-2">
-                  Stay Updated with SEO Insights
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  Get the latest SEO strategies, marketing tips, and web development insights delivered to your inbox.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-center">
-                <Link href="/contact">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90">
-                    <TrendingUp className="mr-2 h-5 w-5" />
-                    Subscribe to Newsletter
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+              {/* Preview Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <Card className="h-full">
+                  <CardHeader>
+                    <Badge variant="secondary" className="w-fit mb-2">SEO Strategy</Badge>
+                    <CardTitle className="text-xl">Advanced SEO Techniques</CardTitle>
+                    <CardDescription>
+                      Learn cutting-edge SEO strategies that drive organic traffic and improve search rankings.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Coming Soon</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="h-full">
+                  <CardHeader>
+                    <Badge variant="secondary" className="w-fit mb-2">Content Marketing</Badge>
+                    <CardTitle className="text-xl">Content That Converts</CardTitle>
+                    <CardDescription>
+                      Discover how to create compelling content that engages your audience and drives conversions.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Coming Soon</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="h-full">
+                  <CardHeader>
+                    <Badge variant="secondary" className="w-fit mb-2">Web Development</Badge>
+                    <CardTitle className="text-xl">Performance Optimization</CardTitle>
+                    <CardDescription>
+                      Learn how to optimize your website for speed, performance, and better user experience.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-sm text-muted-foreground">Coming Soon</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </>
+          )}
+
+          {/* Newsletter Section */}
+          <div className="bg-muted/50 rounded-lg p-8 text-center">
+            <h3 className="text-2xl font-bold text-foreground mb-4">Stay Updated</h3>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Get the latest SEO strategies, marketing tips, and web development insights delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <Button>Subscribe</Button>
+            </div>
           </div>
-        </section>
-
-        {/* Footer */}
-        <Footer />
-      </main>
+        </div>
+      </div>
+      <Footer />
     </>
   )
 }

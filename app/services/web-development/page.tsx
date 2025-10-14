@@ -10,7 +10,7 @@ import type { Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Next.js & Headless CMS",
-  description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+  description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/services/web-development",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Web Development Services - Ayoub Ouraian",
-    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
     url: "https://ayoubouarain.com/services/web-development",
     siteName: "Ayoub Ouraian",
     images: [
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Web Development Services - Ayoub Ouraian",
-    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
     images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
@@ -51,8 +51,8 @@ export default function NextJSWebDevelopmentPage() {
     },
     {
       title: "Headless CMS Integration",
-      description: "Flexible content management with Sanity and Contentful for seamless editing",
-      features: ["Sanity CMS setup", "Contentful integration", "Real-time previews", "Content modeling"]
+      description: "Flexible content management with Contentful for seamless editing and content delivery",
+      features: ["Contentful CMS setup", "API integration", "Real-time previews", "Content modeling"]
     },
     {
       title: "Performance & SEO Optimization",
@@ -68,7 +68,6 @@ export default function NextJSWebDevelopmentPage() {
 
   const technologies = [
     { name: "Next.js", description: "React framework for production websites" },
-    { name: "Sanity", description: "Structured content platform" },
     { name: "Contentful", description: "API-first headless CMS" },
     { name: "TypeScript", description: "Type-safe development" },
     { name: "Tailwind CSS", description: "Utility-first CSS framework" },
@@ -91,7 +90,7 @@ export default function NextJSWebDevelopmentPage() {
         type="service" 
         data={{
           name: "Web Development Services",
-          description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. Modern web development that drives performance and business growth.",
+          description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
           provider: ayoubPersonData,
           areaServed: "Worldwide",
           serviceType: "Web Development",
@@ -116,7 +115,7 @@ export default function NextJSWebDevelopmentPage() {
               Web Development <span className="text-primary">Services</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Lightning-fast, secure, and SEO-optimized websites built with Next.js and headless CMS tools like Sanity and Contentful. 
+              Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. 
               Modern web development that drives performance and business growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

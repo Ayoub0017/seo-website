@@ -7,35 +7,47 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import { client, urlFor } from '@/lib/sanity'
-import { getBlogPostByPath, getRelatedPosts, getBlogPostPath } from '@/lib/sanity-queries'
-import { PortableText } from '@portabletext/react'
+import { client, getImageUrl, formatDate as contentfulFormatDate } from '@/lib/contentful'
+import { getBlogPostBySlug, getRelatedPosts } from '@/lib/contentful-queries'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { BlogSidebar } from '@/components/blog-sidebar'
 import { SchemaMarkup, ayoubPersonData } from '@/components/schema-markup'
 
 interface BlogPost {
-  _id: string
-  title: string
-  slug: { current: string }
-  excerpt: string
-  mainImage?: any
-  body: any[]
-  publishedAt: string
-  author?: {
-    _id: string
-    name: string
-    slug: { current: string }
-    image?: any
-    bio?: string
-    email?: string
-    website?: string
-    socialMedia?: {
-      twitter?: string
-      linkedin?: string
-      github?: string
+  sys: {
+    id: string
+    createdAt: string
+    updatedAt: string
+  }
+  fields: {
+    title: string
+    slug: string
+    excerpt?: string
+    content: any // Rich text content
+    featuredImage?: any
+    author?: {
+      fields: {
+        name: string
+        bio?: string
+        image?: any
+        website?: string
+        twitter?: string
+        linkedin?: string
+      }
     }
+    category?: {
+      fields: {
+        name: string
+        slug: string
+      }
+    }
+    publishedDate: string
+    tags?: string[]
+    seoTitle?: string
+    seoDescription?: string
   }
 }
 
@@ -45,158 +57,102 @@ interface PageProps {
   }
 }
 
-// Custom components for PortableText
-const portableTextComponents = {
-  types: {
-    image: ({ value }: any) => {
-      if (!value || !value.asset) {
-        return null;
-      }
-      
-      try {
-        const imageUrl = urlFor(value).width(800).height(400).url();
-        
+// Custom components for Contentful Rich Text
+const richTextOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
+      const { file, title } = node.data.target.fields
+      if (file.contentType.startsWith('image/')) {
         return (
           <div className="my-8">
             <Image
-              src={imageUrl}
-              alt={value.alt || 'Blog image'}
+              src={`https:${file.url}`}
+              alt={title || 'Blog image'}
               width={800}
               height={400}
-              className="rounded-lg"
+              className="rounded-lg shadow-lg w-full h-auto"
             />
-            {value.caption && (
-              <p className="text-sm text-muted-foreground text-center mt-2">
-                {value.caption}
+            {title && (
+              <p className="text-center text-sm text-muted-foreground mt-2 italic">
+                {title}
               </p>
             )}
           </div>
-        );
-      } catch (error) {
-        console.error('Error generating image URL:', error);
-        return null;
+        )
       }
+      return null
     },
-  },
-  block: {
-    h1: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
+    [BLOCKS.HEADING_1]: (node: any, children: any) => {
+      const text = children[0]?.props?.children || ''
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
       return (
-        <h1 className="text-3xl font-bold mt-8 mb-6" style={{ color: 'oklch(0.55 0.18 280)' }}>
+        <h1 id={id} className="text-4xl font-bold text-foreground mb-6 mt-12 scroll-mt-24">
           {children}
         </h1>
-      );
+      )
     },
-    h2: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      const text = children.map((child: any) => 
-        typeof child === 'string' ? child : child.props?.children || ''
-      ).join('').trim();
-      
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
-      
+    [BLOCKS.HEADING_2]: (node: any, children: any) => {
+      const text = children[0]?.props?.children || ''
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
       return (
-        <h2 id={id} className="text-2xl font-bold mt-8 mb-4" style={{ color: 'oklch(0.55 0.18 280)' }}>
+        <h2 id={id} className="text-3xl font-bold text-foreground mb-4 mt-10 scroll-mt-24">
           {children}
         </h2>
-      );
+      )
     },
-    h3: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      const text = children.map((child: any) => 
-        typeof child === 'string' ? child : child.props?.children || ''
-      ).join('').trim();
-      
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/(^-|-$)/g, '');
-      
+    [BLOCKS.HEADING_3]: (node: any, children: any) => {
+      const text = children[0]?.props?.children || ''
+      const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
       return (
-        <h3 id={id} className="text-xl font-semibold mt-6 mb-3" style={{ color: 'oklch(0.55 0.18 280)' }}>
+        <h3 id={id} className="text-2xl font-semibold text-foreground mb-3 mt-8 scroll-mt-24">
           {children}
         </h3>
-      );
+      )
     },
-    h4: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
+    [BLOCKS.HEADING_4]: (node: any, children: any) => {
       return (
-        <h4 className="text-lg font-semibold mt-4 mb-2" style={{ color: 'oklch(0.55 0.18 280)' }}>
+        <h4 className="text-xl font-semibold text-foreground mb-2 mt-6">
           {children}
         </h4>
-      );
+      )
     },
-    normal: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
+    [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
       return (
-        <p className="mb-4 leading-relaxed text-muted-foreground">
+        <p className="text-muted-foreground leading-relaxed mb-4">
           {children}
         </p>
-      );
+      )
     },
-    blockquote: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
+    [BLOCKS.QUOTE]: (node: any, children: any) => {
       return (
-        <blockquote className="border-l-4 pl-4 my-6 italic text-muted-foreground" style={{ borderLeftColor: 'oklch(0.55 0.18 280)' }}>
+        <blockquote className="border-l-4 border-primary pl-6 py-4 my-6 bg-muted/50 rounded-r-lg italic text-foreground">
           {children}
         </blockquote>
-      );
+      )
+    },
+    [BLOCKS.UL_LIST]: (node: any, children: any) => {
+      return <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>
+    },
+    [BLOCKS.OL_LIST]: (node: any, children: any) => {
+      return <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>
+    },
+    [BLOCKS.LIST_ITEM]: (node: any, children: any) => {
+      return <li className="text-muted-foreground">{children}</li>
     },
   },
-  list: {
-    bullet: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return <ul className="list-disc list-inside mb-4 space-y-2">{children}</ul>;
-    },
-    number: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return <ol className="list-decimal list-inside mb-4 space-y-2">{children}</ol>;
-    },
+  renderMark: {
+    [MARKS.BOLD]: (text: any) => <strong className="font-semibold text-foreground">{text}</strong>,
+    [MARKS.ITALIC]: (text: any) => <em className="italic">{text}</em>,
+    [MARKS.CODE]: (text: any) => (
+      <code className="bg-muted px-2 py-1 rounded text-sm font-mono text-primary">
+        {text}
+      </code>
+    ),
   },
-  listItem: {
-    bullet: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return <li className="text-muted-foreground">{children}</li>;
-    },
-    number: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return <li className="text-muted-foreground">{children}</li>;
-    },
-  },
-  marks: {
-    strong: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return <strong className="font-semibold">{children}</strong>;
-    },
-    em: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return <em className="italic">{children}</em>;
-    },
-    code: ({ children }: any) => {
-      if (!children || children.length === 0) return null;
-      return (
-        <code className="bg-muted px-1 py-0.5 rounded text-sm font-mono">
-          {children}
-        </code>
-      );
-    },
-    link: ({ children, value }: any) => {
-      if (!children || children.length === 0 || !value?.href) return children;
-      return (
-        <Link 
-          href={value.href} 
-          className="hover:underline"
-              style={{ color: 'oklch(0.55 0.18 280)' }}
-          target={value.href.startsWith('http') ? '_blank' : undefined}
-          rel={value.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-        >
-          {children}
-        </Link>
-      );
-    },
+  renderText: (text: string) => {
+    return text.split('\n').reduce((children: any[], textSegment, index) => {
+      return [...children, index > 0 && <br key={index} />, textSegment]
+    }, [])
   },
 }
 
@@ -212,7 +168,7 @@ function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: strin
   const breadcrumbs = [{ title: 'Blog', href: '/blog' }]
   
   // Handle parent/child slug structure
-  const slugParts = post.slug.current.split('/')
+  const slugParts = post.fields.slug.split('/')
   
   if (slugParts.length > 1) {
     // Add parent article breadcrumb (not category)
@@ -230,7 +186,7 @@ function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: strin
   
   // Add current post
   breadcrumbs.push({
-    title: post.title,
+    title: post.fields.title,
     href: '#'
   })
   
@@ -239,8 +195,8 @@ function generateBreadcrumbs(post: BlogPost): Array<{ title: string; href: strin
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const resolvedParams = await params
-  const path = resolvedParams.slug.join('/')
-  const post = await getBlogPostByPath(path)
+  const slug = resolvedParams.slug.join('/')
+  const post = await getBlogPostBySlug(slug)
   
   if (!post) {
     return {
@@ -248,11 +204,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
   }
 
-  const currentUrl = `https://ayoubouarain.com/blog/${path}`
+  const currentUrl = `https://ayoubouarain.com/blog/${slug}`
 
   return {
-    title: post.title, // This will be customized per article as requested
-    description: post.excerpt, // This will be customized per article as requested
+    title: post.fields.seoTitle || post.fields.title,
+    description: post.fields.seoDescription || post.fields.excerpt,
     robots: "index, follow",
     alternates: {
       canonical: currentUrl,
@@ -261,9 +217,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
     },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
-      images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+      title: post.fields.seoTitle || post.fields.title,
+      description: post.fields.seoDescription || post.fields.excerpt,
+      images: post.fields.featuredImage ? [getImageUrl(post.fields.featuredImage, 1200, 630)] : [],
     },
   }
 }
@@ -272,14 +228,14 @@ export const revalidate = 0 // Disable caching for immediate updates
 
 export default async function BlogPost({ params }: PageProps) {
   const resolvedParams = await params
-  const path = resolvedParams.slug.join('/')
-  const post = await getBlogPostByPath(path)
+  const slug = resolvedParams.slug.join('/')
+  const post = await getBlogPostBySlug(slug)
   
   if (!post) {
     notFound()
   }
 
-  const relatedPosts = await getRelatedPosts(post._id)
+  const relatedPosts = await getRelatedPosts(post.sys.id)
   const breadcrumbs = generateBreadcrumbs(post)
 
   return (
@@ -288,20 +244,20 @@ export default async function BlogPost({ params }: PageProps) {
       <SchemaMarkup 
         type="blogPosting" 
         data={{
-          headline: post.title,
-          description: post.excerpt,
-          image: post.mainImage ? urlFor(post.mainImage).url() : "https://ayoubouarain.com/placeholder.jpg",
-          datePublished: post.publishedAt,
-          author: post.author ? {
-            name: post.author.name,
+          headline: post.fields.title,
+          description: post.fields.excerpt,
+          image: post.fields.featuredImage ? getImageUrl(post.fields.featuredImage) : "https://ayoubouarain.com/placeholder.jpg",
+          datePublished: post.fields.publishedDate,
+          author: post.fields.author ? {
+            name: post.fields.author.fields.name,
             jobTitle: "Content Author",
-            description: post.author.bio || "Content author and contributor",
-            url: `https://ayoubouarain.com/author/${post.author.slug?.current || ''}`,
-            image: post.author.image ? urlFor(post.author.image).url() : undefined
+            description: post.fields.author.fields.bio || "Content author and contributor",
+            url: `https://ayoubouarain.com/author/${post.fields.author.fields.name.toLowerCase().replace(/\s+/g, '-')}`,
+            image: post.fields.author.fields.image ? getImageUrl(post.fields.author.fields.image) : undefined
           } : ayoubPersonData,
           publisher: ayoubPersonData,
-          url: `https://ayoubouarain.com/blog/${path}`,
-          mainEntityOfPage: `https://ayoubouarain.com/blog/${path}`
+          url: `https://ayoubouarain.com/blog/${slug}`,
+          mainEntityOfPage: `https://ayoubouarain.com/blog/${slug}`
         }} 
       />
       
@@ -349,29 +305,29 @@ export default async function BlogPost({ params }: PageProps) {
 
           {/* Title with Purple Color */}
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight text-center" style={{ color: 'oklch(0.55 0.18 280)' }}>
-            {post.title}
+            {post.fields.title}
           </h1>
 
           {/* Meta Info */}
           <div className="flex items-center justify-center gap-6 text-muted-foreground mb-8">
             <div className="flex items-center gap-2">
               <Calendar className="h-4 w-4" />
-              <span>{formatDate(post.publishedAt)}</span>
+              <span>{formatDate(post.fields.publishedDate)}</span>
             </div>
-            {post.author && (
+            {post.fields.author && (
               <div className="flex items-center gap-2">
                 <User className="h-4 w-4" />
-                <span>By {post.author.name}</span>
+                <span>By {post.fields.author.fields.name}</span>
               </div>
             )}
           </div>
 
           {/* Featured Image - Positioned between heading and content */}
-          {post.mainImage && (
+          {post.fields.featuredImage && (
             <div className="relative h-64 md:h-96 mb-8 rounded-lg overflow-hidden">
               <Image
-                src={urlFor(post.mainImage).width(1200).height(600).url()}
-                alt={post.title}
+                src={getImageUrl(post.fields.featuredImage, 1200, 600)}
+                alt={post.fields.title}
                 fill
                 className="object-cover"
                 priority
@@ -390,11 +346,8 @@ export default async function BlogPost({ params }: PageProps) {
               <div className="max-w-4xl mx-auto">
                 <div className="w-full bg-white dark:bg-gray-900 rounded-lg shadow-lg p-8 md:p-12">
                 <div className="prose prose-lg max-w-none">
-                  {post.body && Array.isArray(post.body) && post.body.length > 0 ? (
-                    <PortableText
-                      value={post.body}
-                      components={portableTextComponents}
-                    />
+                  {post.fields.content ? (
+                    documentToReactComponents(post.fields.content, richTextOptions)
                   ) : (
                     <p className="text-muted-foreground">No content available.</p>
                   )}
@@ -402,7 +355,7 @@ export default async function BlogPost({ params }: PageProps) {
               </div>
 
               {/* Author Bio Card - Moved below content */}
-              {post.author && (
+              {post.fields.author && (
                 <div className="max-w-4xl mx-auto">
                   <div className="w-full">
                     <Card className="mt-12 p-6 bg-white dark:bg-gray-900 shadow-lg">
@@ -411,29 +364,26 @@ export default async function BlogPost({ params }: PageProps) {
                     </CardHeader>
                     <CardContent>
                       <div className="flex items-start gap-4">
-                        {post.author.image && (
+                        {post.fields.author.fields.image && (
                           <Image
-                            src={urlFor(post.author.image).width(80).height(80).url()}
-                            alt={post.author.name}
+                            src={getImageUrl(post.fields.author.fields.image, 80, 80)}
+                            alt={post.fields.author.fields.name}
                             width={80}
                             height={80}
                             className="rounded-full flex-shrink-0"
                           />
                         )}
                         <div className="flex-1">
-                          <h3 className="font-semibold text-foreground text-lg mb-2">{post.author.name}</h3>
-                          {post.author.bio && Array.isArray(post.author.bio) && post.author.bio.length > 0 && (
-                            <div className="text-muted-foreground mb-4 leading-relaxed prose prose-sm max-w-none">
-                              <PortableText
-                                value={post.author.bio}
-                                components={portableTextComponents}
-                              />
+                          <h3 className="font-semibold text-foreground text-lg mb-2">{post.fields.author.fields.name}</h3>
+                          {post.fields.author.fields.bio && (
+                            <div className="text-muted-foreground mb-4 leading-relaxed">
+                              <p>{post.fields.author.fields.bio}</p>
                             </div>
                           )}
                           <div className="flex gap-3">
-                            {post.author.website && (
+                            {post.fields.author.fields.website && (
                               <Link 
-                                href={post.author.website} 
+                                href={post.fields.author.fields.website} 
                                 target="_blank" 
                                 className="text-sm hover:underline font-medium"
                                 style={{ color: 'oklch(0.55 0.18 280)' }}
@@ -441,9 +391,9 @@ export default async function BlogPost({ params }: PageProps) {
                                 Website
                               </Link>
                             )}
-                            {post.author.socialMedia?.twitter && (
+                            {post.fields.author.fields.twitter && (
                               <Link 
-                                href={`https://twitter.com/${post.author.socialMedia.twitter}`} 
+                                href={`https://twitter.com/${post.fields.author.fields.twitter}`} 
                                 target="_blank" 
                                 className="text-sm hover:underline font-medium"
                                 style={{ color: 'oklch(0.55 0.18 280)' }}
@@ -451,9 +401,9 @@ export default async function BlogPost({ params }: PageProps) {
                                 Twitter
                               </Link>
                             )}
-                            {post.author.socialMedia?.linkedin && (
+                            {post.fields.author.fields.linkedin && (
                               <Link 
-                                href={post.author.socialMedia.linkedin} 
+                                href={post.fields.author.fields.linkedin} 
                                 target="_blank" 
                                 className="text-sm hover:underline font-medium"
                                 style={{ color: 'oklch(0.55 0.18 280)' }}
@@ -477,7 +427,7 @@ export default async function BlogPost({ params }: PageProps) {
             {/* Sidebar - Right Side - Fixed Position */}
             <div className="lg:w-80 lg:flex-shrink-0 hidden lg:block">
               <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
-                <BlogSidebar content={post.body} />
+                <BlogSidebar content={post.fields.content} />
               </div>
             </div>
           </div>
