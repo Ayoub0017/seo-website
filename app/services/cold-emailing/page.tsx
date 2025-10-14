@@ -180,12 +180,11 @@ export default function ColdEmailingPage() {
                 Turn cold prospects into warm leads with personalized email campaigns that get responses, build relationships, and drive revenue growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" style={{backgroundColor: '#1447E6'}}>
-                Get Free Email Audit
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" style={{borderColor: '#1447E6', color: '#1447E6'}}>
-                View Success Stories
+              <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
+                <Link href="https://calendly.com/ab-ouarain/30min">
+                  Get Free Strategy Session
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>
@@ -331,12 +330,11 @@ export default function ColdEmailingPage() {
               Get a free cold email audit and discover how we can help you reach more prospects and convert them into paying customers.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" style={{backgroundColor: '#1447E6'}}>
-                Get Free Email Audit
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-              <Button size="lg" variant="outline" style={{borderColor: '#1447E6', color: '#1447E6'}}>
-                Schedule Strategy Call
+              <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
+                <Link href="https://calendly.com/ab-ouarain/30min">
+                  Get Free Strategy Session
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>

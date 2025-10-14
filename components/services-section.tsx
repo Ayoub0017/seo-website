@@ -97,7 +97,7 @@ const services = [
 export function ServicesSection() {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Comprehensive Digital Marketing Services
@@ -106,15 +106,15 @@ export function ServicesSection() {
             From SEO to Meta Ads, we provide end-to-end digital marketing solutions tailored to your business goals.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
-            <div key={index} className={`bg-white border-2 hover:shadow-lg transition-shadow rounded-lg p-6`}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className={`w-12 h-12 ${service.iconBg} rounded-lg flex items-center justify-center`}>
-                  <service.icon className={`h-6 w-6 ${service.iconColor}`} />
+            <div key={index} className={`bg-white border-2 hover:shadow-lg transition-shadow rounded-lg p-5`}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-10 h-10 ${service.iconBg} rounded-lg flex items-center justify-center`}>
+                  <service.icon className={`h-5 w-5 ${service.iconColor}`} />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold">{service.title}</h3>
+                  <h3 className="text-lg font-semibold">{service.title}</h3>
                   {service.badge && (
                     <Badge variant={service.badgeVariant} className="text-xs">
                       {service.badge}
@@ -122,26 +122,26 @@ export function ServicesSection() {
                   )}
                 </div>
               </div>
-              <p className="text-gray-700 mb-6">
+              <p className="text-gray-700 mb-4 text-sm">
                 {service.description}
               </p>
-              <ul className="space-y-2 mb-6">
+              <ul className="space-y-1.5 mb-5">
                 {service.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                  <li key={featureIndex} className="flex items-center gap-2 text-xs">
+                    <CheckCircle className="h-3.5 w-3.5 text-green-500 flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
               </ul>
               <div className="flex items-center justify-between">
                 <div className="text-center">
-                  <div className="text-2xl font-bold" style={{color: '#1447E6'}}>{service.stats.value}</div>
-                  <p className="text-sm text-gray-600">{service.stats.label}</p>
+                  <div className="text-xl font-bold" style={{color: '#1447E6'}}>{service.stats.value}</div>
+                  <p className="text-xs text-gray-600">{service.stats.label}</p>
                 </div>
-                <Button asChild className="text-white" style={{backgroundColor: '#1447E6'}}>
+                <Button asChild className="text-white text-sm px-4 py-2" style={{backgroundColor: '#1447E6'}}>
                   <Link href={service.href} className="flex items-center gap-2">
                     <span>Learn More</span>
-                    <ArrowRight className="h-4 w-4" />
+                    <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </Button>
               </div>

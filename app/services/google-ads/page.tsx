@@ -285,13 +285,42 @@ export default function GoogleAdsServicesPage() {
           </div>
         </section>
 
+        {/* Stats Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+                Google Ads Results That Speak for Themselves
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">400%</div>
+                <p className="text-blue-100">Average ROI Increase</p>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">65%</div>
+                <p className="text-blue-100">Cost Per Click Reduction</p>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">250%</div>
+                <p className="text-blue-100">Conversion Rate Boost</p>
+              </div>
+              <div>
+                <div className="text-3xl sm:text-4xl font-bold mb-2">24/7</div>
+                <p className="text-blue-100">Campaign Monitoring</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
-        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               Ready to Accelerate Your Growth?
             </h2>
-            <p className="text-xl mb-8 opacity-90">
+            <p className="text-xl text-gray-600 mb-8">
               Get a free strategy session and let's create Google Ads campaigns that drive real results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
