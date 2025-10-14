@@ -58,6 +58,7 @@ export async function getBlogPosts(limit: number = 10): Promise<BlogPost[]> {
 
     const response = await client.getEntries({
       content_type: 'blogPost',
+      'fields.status': 'published', // Only fetch published posts
       limit: limit,
       order: '-fields.publishedDate',
       include: 2, // Include linked entries (author, category)
