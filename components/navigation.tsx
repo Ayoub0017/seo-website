@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 export function Navigation() {
   const navItems = [
@@ -9,9 +10,10 @@ export function Navigation() {
     {
       label: "Services",
       subItems: [
-        { label: "SEO Optimization", href: "/services/seo" },
-        { label: "Content Marketing", href: "/services/content-marketing" },
-        { label: "Web Dev with Next.js", href: "/services/web-development" },
+        { label: "SEO Services", href: "/services/seo" },
+        { label: "Google Ads", href: "/services/google-ads" },
+        { label: "Meta Ads", href: "/services/meta-ads" },
+        { label: "Cold Emailing", href: "/services/cold-emailing" },
       ]
     },
     { label: "Blog", href: "/blog" },
@@ -115,8 +117,11 @@ export function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Link href="/contact">
-              <Button className="px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200">Get Started</Button>
+            <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">
+              <Button className="px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" style={{backgroundColor: '#1447E6', color: 'white'}}>
+                Free Strategy Session
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </Link>
           </div>
         </nav>

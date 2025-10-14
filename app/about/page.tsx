@@ -60,6 +60,7 @@ export default function AboutPage() {
     {
       title: "Content Marketing",
       skills: [
+        "Content Marketing",
         "Content Strategy",
         "Blog Writing",
         "Social Media Content",
@@ -69,14 +70,15 @@ export default function AboutPage() {
       ]
     },
     {
-      title: "Web Development",
+      title: "Paid Advertising & Strategy",
       skills: [
-        "Next.js Development",
-        "React & TypeScript",
-        "Headless CMS",
-        "Performance Optimization",
-        "SEO-Friendly Architecture",
-        "Responsive Design"
+        "Paid Ads",
+        "Google Ads",
+        "Meta Ads",
+        "Cold Emailing",
+        "Holistic Marketing Strategy",
+        "Campaign Management",
+        "Conversion Optimization"
       ]
     }
   ]
@@ -177,8 +179,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Hi, I'm <span className="text-primary">Ayoub</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Hi, I'm Ayoub
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                 With over 6 years of experience in digital marketing, I specialize in helping businesses grow their
@@ -189,10 +191,10 @@ export default function AboutPage() {
                 expertise with creative content solutions to drive sustainable growth for your business.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="text-lg px-8 py-6">
+                <Button asChild size="lg" className="text-lg px-8 py-6" style={{backgroundColor: '#1447E6'}}>
                   <Link href="/contact">Work With Me</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
+                <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent hover:bg-[#1447E6] hover:text-white transition-colors border-[#1447E6] text-[#1447E6]">
                   <Link href="https://www.linkedin.com/in/ayoub-ouarain/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-5 w-5" />
                     Connect on LinkedIn
@@ -203,7 +205,7 @@ export default function AboutPage() {
 
             <div className="relative">
               <div className="relative w-full max-w-md mx-auto">
-                <div className="aspect-square rounded-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20 p-8">
+                <div className="aspect-square rounded-full overflow-hidden p-8">
                   <Image
                     src="/ayoub-ouarain-profile.png"
                     alt="Ayoub Ouarain - SEO and Content Marketing Consultant"
@@ -224,7 +226,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Skills & Expertise</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Specialized expertise across three core service areas to drive your digital success.
+              Comprehensive digital marketing expertise covering SEO, Content Marketing, Paid Ads, Cold Emailing, and Holistic Marketing Strategy.
             </p>
           </div>
 
@@ -317,10 +319,10 @@ export default function AboutPage() {
             Ready to take your digital marketing to the next level? I'd love to hear about your project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="text-lg px-8 py-6">
+            <Button asChild size="lg" className="text-lg px-8 py-6" style={{backgroundColor: '#1447E6'}}>
               <Link href="/contact">Start a Project</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent">
+            <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent hover:bg-[#1447E6] hover:text-white transition-colors border-[#1447E6] text-[#1447E6]">
               <Link href="https://www.linkedin.com/in/ayoub-ouarain/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="mr-2 h-5 w-5" />
                 View LinkedIn Profile

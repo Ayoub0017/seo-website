@@ -61,9 +61,9 @@ export default async function BlogPage() {
         {/* Hero Section */}
         <div className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               SEO & Marketing
-              <span className="text-primary block">Insights</span>
+              <span className="block">Insights</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Stay ahead of the curve with actionable SEO strategies, content marketing tips, and web development insights that drive real business results.

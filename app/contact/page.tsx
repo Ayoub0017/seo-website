@@ -115,8 +115,8 @@ export default function ContactPage() {
         {/* Hero Section */}
         <section className="pt-32 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-            Let's Start Your <span className="text-primary">Success Story</span>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Let's Start Your Success Story
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
             Ready to grow your business? I'd love to hear about your project and discuss how I can help you achieve your
@@ -177,7 +177,7 @@ export default function ContactPage() {
                 <p className="text-sm text-muted-foreground">
                   During our call, we'll discuss your business goals, current challenges, and how I can help you achieve success online.
                 </p>
-                <Button asChild size="lg" className="w-full">
+                <Button asChild size="lg" className="w-full" style={{backgroundColor: '#1447E6'}}>
                   <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">
                     Book Free 30min Consultation
                   </Link>

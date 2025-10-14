@@ -86,7 +86,7 @@ const richTextOptions = {
       const text = children[0]?.props?.children || ''
       const id = text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
       return (
-        <h1 id={id} className="text-4xl font-bold text-foreground mb-6 mt-12 scroll-mt-24">
+        <h1 id={id} className="text-4xl font-bold mb-6 mt-12 scroll-mt-24 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           {children}
         </h1>
       )
@@ -291,14 +291,14 @@ export default async function BlogPost({ params }: PageProps) {
 
           {/* Back Button */}
           <Link href="/blog">
-            <Button variant="ghost" size="sm" className="mb-6">
+            <Button variant="ghost" size="sm" className="mb-6" style={{color: '#1447E6'}}>
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Blog
             </Button>
           </Link>
 
           {/* Title with Purple Color */}
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight text-center" style={{ color: 'oklch(0.55 0.18 280)' }}>
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {post.fields.title}
           </h1>
 

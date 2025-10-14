@@ -1,129 +1,152 @@
 import { Button } from "@/components/ui/button"
-import { Search, PenTool, Code, CheckCircle } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Search, Target, Eye, Mail, CheckCircle, TrendingUp, Users, Zap, ArrowRight } from "lucide-react"
 import Link from "next/link"
+
+const services = [
+  {
+    icon: Search,
+    title: "SEO Services",
+    description: "Boost your search rankings and drive organic traffic with comprehensive SEO strategies.",
+    badge: "Most Popular",
+    badgeVariant: "default" as const,
+    features: [
+      "Technical SEO Audits",
+      "Keyword Research & Strategy",
+      "On-Page Optimization",
+      "Link Building Campaigns",
+      "Local SEO & Google My Business",
+      "E-commerce SEO",
+      "Content SEO Strategy",
+      "Performance Tracking & Reporting"
+    ],
+    stats: { value: "300%", label: "Avg. Traffic Increase" },
+    href: "/services/seo",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Target,
+    title: "Google Ads",
+    description: "Drive immediate results with targeted Google Ads campaigns that maximize your ROI.",
+    badge: "Fast Results",
+    badgeVariant: "secondary" as const,
+    features: [
+      "Search Ads Management",
+      "Display Advertising",
+      "Shopping Campaigns",
+      "YouTube Advertising",
+      "Keyword Research & Bidding",
+      "Landing Page Optimization",
+      "Conversion Tracking",
+      "Performance Analytics"
+    ],
+    stats: { value: "400%", label: "Average ROAS" },
+    href: "/services/google-ads",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Eye,
+    title: "Meta Ads",
+    description: "Reach your ideal customers on Facebook and Instagram with targeted social media advertising.",
+    badge: "High Engagement",
+    badgeVariant: "outline" as const,
+    features: [
+      "Facebook Ads Management",
+      "Instagram Advertising",
+      "Lead Generation Campaigns",
+      "E-commerce Ads",
+      "Video Advertising",
+      "Audience Targeting",
+      "Creative Development",
+      "Campaign Optimization"
+    ],
+    stats: { value: "300%", label: "Average ROAS" },
+    href: "/services/meta-ads",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Mail,
+    title: "Cold Emailing",
+    description: "Generate quality leads with personalized cold email campaigns that get responses.",
+    badge: "Lead Generation",
+    badgeVariant: "default" as const,
+    features: [
+      "Prospect Research & Targeting",
+      "Email Copywriting",
+      "Campaign Management",
+      "Deliverability Optimization",
+      "CRM Integration",
+      "Follow-up Sequences",
+      "Response Tracking",
+      "Performance Analytics"
+    ],
+    stats: { value: "25%", label: "Average Open Rate" },
+    href: "/services/cold-emailing",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  }
+]
 
 export function ServicesSection() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">My Services</h2>
-          <p className="text-xl text-muted-foreground">
-            Comprehensive digital marketing solutions to grow your online presence and drive business success.
+    <section className="py-20 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Comprehensive Digital Marketing Services
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            From SEO to Meta Ads, we provide end-to-end digital marketing solutions tailored to your business goals.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* SEO Services Card */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-              <Search className="h-8 w-8 text-primary" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {services.map((service, index) => (
+            <div key={index} className={`bg-white border-2 hover:shadow-lg transition-shadow rounded-lg p-6`}>
+              <div className="flex items-center gap-3 mb-4">
+                <div className={`w-12 h-12 ${service.iconBg} rounded-lg flex items-center justify-center`}>
+                  <service.icon className={`h-6 w-6 ${service.iconColor}`} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">{service.title}</h3>
+                  {service.badge && (
+                    <Badge variant={service.badgeVariant} className="text-xs">
+                      {service.badge}
+                    </Badge>
+                  )}
+                </div>
+              </div>
+              <p className="text-gray-700 mb-6">
+                {service.description}
+              </p>
+              <ul className="space-y-2 mb-6">
+                {service.features.map((feature, featureIndex) => (
+                  <li key={featureIndex} className="flex items-center gap-2 text-sm">
+                    <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex items-center justify-between">
+                <div className="text-center">
+                  <div className="text-2xl font-bold" style={{color: '#1447E6'}}>{service.stats.value}</div>
+                  <p className="text-sm text-gray-600">{service.stats.label}</p>
+                </div>
+                <Button asChild className="text-white" style={{backgroundColor: '#1447E6'}}>
+                  <Link href={service.href} className="flex items-center gap-2">
+                    <span>Learn More</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
-            <h3 className="text-2xl font-bold mb-6">SEO Services</h3>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                On-page SEO
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Off-page SEO
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Technical SEO
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Content SEO
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Local SEO
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                E-commerce SEO
-              </li>
-            </ul>
-            <Button asChild className="w-full">
-              <Link href="/services/seo">Learn More</Link>
-            </Button>
-          </div>
-
-          {/* Content Marketing Card */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50">
-            <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-4">
-              <PenTool className="h-8 w-8 text-accent" />
-            </div>
-            <h3 className="text-2xl font-bold mb-6">Content Marketing</h3>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Content Strategy
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Blog Writing
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Social Media Content
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Email Marketing
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Content Optimization
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Brand Voice Development
-              </li>
-            </ul>
-            <Button asChild className="w-full">
-              <Link href="/services/content-marketing">Learn More</Link>
-            </Button>
-          </div>
-
-          {/* Web Development Card */}
-          <div className="bg-card border border-border rounded-2xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4">
-              <Code className="h-8 w-8 text-primary" />
-            </div>
-            <h3 className="text-2xl font-bold mb-6">Web Development</h3>
-            <ul className="space-y-2 mb-6">
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Next.js Development
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                React Applications
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Headless CMS Integration
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Performance Optimization
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                SEO-Optimized Architecture
-              </li>
-              <li className="flex items-center text-sm">
-                <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
-                Security Best Practices
-              </li>
-            </ul>
-            <Button asChild className="w-full">
-              <Link href="/services/web-development">Learn More</Link>
-            </Button>
-          </div>
+          ))}
         </div>
       </div>
     </section>

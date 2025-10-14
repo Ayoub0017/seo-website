@@ -3,14 +3,14 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Code, Smartphone, Zap, Shield, CheckCircle, ArrowRight, Monitor, Rocket, Globe, Database, Layers } from "lucide-react"
+import { Code, Smartphone, Zap, Shield, CheckCircle, ArrowRight, Globe, Palette, Database, Rocket, Users, TrendingUp, Award, Monitor, Server, Search } from "lucide-react"
 import Link from "next/link"
 import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Next.js & Headless CMS",
-  description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
+  title: "Web Development Services - Custom Websites & Web Applications",
+  description: "Professional web development services including responsive websites, e-commerce platforms, web applications, and custom solutions. Modern, fast, and SEO-optimized websites that drive results.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/services/web-development",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Web Development Services - Ayoub Ouraian",
-    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
+    description: "Professional web development services including responsive websites, e-commerce platforms, web applications, and custom solutions. Modern, fast, and SEO-optimized websites that drive results.",
     url: "https://ayoubouarain.com/services/web-development",
     siteName: "Ayoub Ouraian",
     images: [
@@ -37,66 +37,149 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Web Development Services - Ayoub Ouraian",
-    description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
+    description: "Professional web development services including responsive websites, e-commerce platforms, web applications, and custom solutions. Modern, fast, and SEO-optimized websites that drive results.",
     images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
 
-export default function NextJSWebDevelopmentPage() {
-  const developmentServices = [
+export default function WebDevelopmentPage() {
+  const webServices = [
     {
-      title: "Next.js Development",
-      description: "High-performance websites built with Next.js for optimal speed and SEO",
-      features: ["Server-side rendering", "Static site generation", "API routes", "Image optimization"]
+      title: "Custom Website Development",
+      description: "Build modern, responsive websites tailored to your business needs and brand identity",
+      icon: Globe,
+      features: ["Responsive design", "Custom functionality", "CMS integration", "Performance optimization", "Cross-browser compatibility", "Mobile-first approach"],
+      color: "bg-[#1447E6]/10 text-[#1447E6]"
     },
     {
-      title: "Headless CMS Integration",
-      description: "Flexible content management with Contentful for seamless editing and content delivery",
-      features: ["Contentful CMS setup", "API integration", "Real-time previews", "Content modeling"]
+      title: "E-commerce Development",
+      description: "Create powerful online stores with secure payment processing and inventory management",
+      icon: Database,
+      features: ["Shopping cart functionality", "Payment gateway integration", "Inventory management", "Order tracking", "Customer accounts", "Admin dashboard"],
+      color: "bg-green-500/10 text-green-600"
     },
     {
-      title: "Performance & SEO Optimization",
-      description: "Lightning-fast websites optimized for search engines and user experience",
-      features: ["Core Web Vitals optimization", "SEO-friendly architecture", "Image optimization", "Caching strategies"]
+      title: "Web Application Development",
+      description: "Develop custom web applications with advanced functionality and user experiences",
+      icon: Code,
+      features: ["Custom web apps", "API development", "Database design", "User authentication", "Real-time features", "Scalable architecture"],
+      color: "bg-purple-500/10 text-purple-600"
     },
     {
-      title: "Security & Maintenance",
-      description: "Secure, scalable websites with ongoing support and maintenance",
-      features: ["Security best practices", "Regular updates", "Performance monitoring", "Technical support"]
+      title: "Frontend Development",
+      description: "Create stunning user interfaces with modern frameworks and responsive design",
+      icon: Palette,
+      features: ["React/Next.js development", "Vue.js applications", "Interactive UI/UX", "Animation & transitions", "Component libraries", "State management"],
+      color: "bg-orange-500/10 text-orange-600"
+    },
+    {
+      title: "Backend Development",
+      description: "Build robust server-side solutions with secure APIs and database management",
+      icon: Server,
+      features: ["RESTful API development", "Database optimization", "Server configuration", "Security implementation", "Performance tuning", "Cloud deployment"],
+      color: "bg-red-500/10 text-red-600"
+    },
+    {
+      title: "Website Optimization",
+      description: "Optimize existing websites for speed, performance, and search engine visibility",
+      icon: Rocket,
+      features: ["Performance optimization", "SEO implementation", "Core Web Vitals", "Speed optimization", "Code refactoring", "Technical SEO"],
+      color: "bg-indigo-500/10 text-indigo-600"
+    }
+  ]
+
+  const benefits = [
+    {
+      icon: Zap,
+      title: "Lightning Fast",
+      description: "Optimized for speed and performance with modern development practices"
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Responsive",
+      description: "Perfect user experience across all devices and screen sizes"
+    },
+    {
+      icon: Shield,
+      title: "Secure & Reliable",
+      description: "Built with security best practices and reliable hosting solutions"
+    },
+    {
+      icon: Search,
+      title: "SEO Optimized",
+      description: "Search engine friendly code structure and technical SEO implementation"
+    }
+  ]
+
+  const process = [
+    {
+      step: "01",
+      title: "Discovery & Planning",
+      description: "Understand your requirements, goals, and create a detailed project roadmap"
+    },
+    {
+      step: "02",
+      title: "Design & Prototyping",
+      description: "Create wireframes, mockups, and interactive prototypes for approval"
+    },
+    {
+      step: "03",
+      title: "Development & Testing",
+      description: "Build your website with clean code, thorough testing, and quality assurance"
+    },
+    {
+      step: "04",
+      title: "Launch & Support",
+      description: "Deploy your website and provide ongoing maintenance and support"
     }
   ]
 
   const technologies = [
-    { name: "Next.js", description: "React framework for production websites" },
-    { name: "Contentful", description: "API-first headless CMS" },
-    { name: "TypeScript", description: "Type-safe development" },
-    { name: "Tailwind CSS", description: "Utility-first CSS framework" },
-    { name: "Vercel", description: "Deployment and hosting platform" }
+    "React & Next.js",
+    "Vue.js & Nuxt.js",
+    "Node.js & Express",
+    "Python & Django",
+    "PHP & Laravel",
+    "WordPress & Headless CMS",
+    "MongoDB & PostgreSQL",
+    "AWS & Vercel",
+    "TypeScript",
+    "Tailwind CSS"
   ]
 
-  const benefits = [
-    "Lightning-fast loading speeds",
-    "SEO-optimized from the ground up",
-    "Secure and scalable architecture",
-    "Easy content management with headless CMS",
-    "Mobile-first responsive design",
-    "Built-in performance monitoring"
+  const projectTypes = [
+    {
+      title: "Business Websites",
+      description: "Professional websites for businesses and organizations",
+      features: ["Company profiles", "Service pages", "Contact forms", "Blog integration"]
+    },
+    {
+      title: "E-commerce Stores",
+      description: "Online stores with full shopping functionality",
+      features: ["Product catalogs", "Shopping carts", "Payment processing", "Order management"]
+    },
+    {
+      title: "Web Applications",
+      description: "Custom web apps with advanced functionality",
+      features: ["User dashboards", "Data management", "API integrations", "Real-time features"]
+    },
+    {
+      title: "Portfolio Sites",
+      description: "Showcase your work with stunning portfolio websites",
+      features: ["Gallery displays", "Project showcases", "Client testimonials", "Contact integration"]
+    }
   ]
 
   return (
     <>
-      {/* Schema Markup for Web Development Service */}
       <SchemaMarkup 
         type="service" 
         data={{
           name: "Web Development Services",
-          description: "Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. Modern web development that drives performance and business growth.",
+          description: "Professional web development services for modern, responsive websites and applications",
           provider: ayoubPersonData,
-          areaServed: "Worldwide",
           serviceType: "Web Development",
-          offers: {
-            description: "Professional web development services including Next.js development, headless CMS integration, and modern web applications"
-          }
+          areaServed: "Worldwide"
         }} 
       />
       
@@ -104,239 +187,232 @@ export default function NextJSWebDevelopmentPage() {
         <Navigation />
         
         {/* Hero Section */}
-        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-secondary/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-4xl mx-auto">
-            <Badge className="mb-4" variant="secondary">
-              <Code className="w-4 h-4 mr-2" />
-              Next.js Development
-            </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Web Development <span className="text-primary">Services</span>
-            </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-              Lightning-fast, secure, and SEO-optimized websites built with Next.js and Contentful CMS. 
-              Modern web development that drives performance and business growth.
+        <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-accent/5 via-background to-primary/5">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-4xl mx-auto">
+              <Badge variant="outline" className="mb-4">
+                <Code className="h-4 w-4 mr-2" />
+                Web Development
+              </Badge>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+                Custom Websites & 
+                <span className="text-primary"> Web Applications</span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                Build modern, responsive websites and web applications that drive results. From simple business sites to complex e-commerce platforms, I create digital solutions that grow with your business.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild>
+                  <Link href="/contact">Start Your Project</Link>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <Link href="#services">View Services</Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Why Choose Professional Web Development
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Modern websites built with the latest technologies and best practices
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {benefits.map((benefit, index) => (
+                <Card key={index} className="text-center border-0 shadow-lg">
+                  <CardContent className="pt-6">
+                    <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                      <benefit.icon className="h-8 w-8 text-accent" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">{benefit.title}</h3>
+                    <p className="text-muted-foreground">{benefit.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Section */}
+        <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Web Development Services
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Comprehensive web development solutions for businesses of all sizes
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {webServices.map((service, index) => (
+                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-0">
+                  <CardHeader>
+                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${service.color}`}>
+                      <service.icon className="h-8 w-8" />
+                    </div>
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardDescription className="text-base">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm">
+                          <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Project Types Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Types of Projects I Build
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                From simple websites to complex applications, I create solutions that fit your needs
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {projectTypes.map((project, index) => (
+                <Card key={index} className="hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                    <CardDescription className="text-base">
+                      {project.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2">
+                      {project.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm">
+                          <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Technologies Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                Technologies I Use
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                Modern tech stack for building scalable and maintainable applications
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {technologies.map((tech, index) => (
+                <Card key={index} className="text-center p-4 hover:shadow-md transition-shadow">
+                  <CardContent className="p-0">
+                    <p className="font-medium text-sm">{tech}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+                My Development Process
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                A structured approach to deliver high-quality web solutions on time and within budget
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {process.map((step, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-accent text-accent-foreground rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                    {step.step}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                  {index < process.length - 1 && (
+                    <ArrowRight className="h-6 w-6 text-muted-foreground mx-auto mt-4 hidden lg:block" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Stats Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div>
+                <div className="text-4xl font-bold text-accent mb-2">100+</div>
+                <div className="text-muted-foreground">Websites Developed</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-accent mb-2">99%</div>
+                <div className="text-muted-foreground">Client Satisfaction</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold text-accent mb-2">24/7</div>
+                <div className="text-muted-foreground">Support Available</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+              Ready to Build Your Dream Website?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Let's create a modern, responsive website that drives results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="text-lg px-8 py-6">
-                <Link href="/contact">
-                  Start Your Next.js Project
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
+              <Button size="lg" asChild>
+                <Link href="/contact">Start Your Project</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6">
-                <Link href="/blog">Read Our Blog</Link>
+              <Button size="lg" variant="outline" asChild>
+                <Link href="/portfolio">View Portfolio</Link>
               </Button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Key Features */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Built for Performance & Growth
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Every website I build is designed with performance, user experience, 
-              and search engine optimization as top priorities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Zap className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Lightning Fast</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Optimized for speed with fast loading times</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Smartphone className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Mobile First</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Responsive design that works perfectly on all devices</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Shield className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle className="text-xl">Secure & Reliable</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Built with security best practices and reliable hosting</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Globe className="w-8 h-8 text-primary" />
-                </div>
-                <CardTitle className="text-xl">SEO Optimized</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">Search engine friendly from day one</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Complete Web Development Services
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              From simple landing pages to complex web applications, 
-              I provide end-to-end development solutions tailored to your needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {developmentServices.map((service, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Code className="w-5 h-5 text-primary" />
-                    </div>
-                    {service.title}
-                  </CardTitle>
-                  <CardDescription className="text-base">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                        <span className="text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Technologies */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Modern Technologies
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              I use cutting-edge technologies and frameworks to build websites 
-              that are fast, scalable, and future-proof.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {technologies.map((tech, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="text-lg">{tech.name}</CardTitle>
-                  <CardDescription>{tech.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-                Why Choose Professional Web Development?
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                A professionally developed website is an investment in your business growth. 
-                It's not just about looking good—it's about performing well and driving results.
-              </p>
-              <ul className="space-y-4">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-primary" />
-                    </div>
-                    <span className="text-foreground font-medium">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="grid grid-cols-2 gap-6">
-              <Card className="text-center p-6">
-                <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">Maximum</h3>
-                <p className="text-muted-foreground">Uptime Reliability</p>
-              </Card>
-              <Card className="text-center p-6">
-                <Monitor className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">Extensive</h3>
-                <p className="text-muted-foreground">Portfolio</p>
-              </Card>
-              <Card className="text-center p-6">
-                <Zap className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">Fast</h3>
-                <p className="text-muted-foreground">Loading Speed</p>
-              </Card>
-              <Card className="text-center p-6">
-                <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">Continuous</h3>
-                <p className="text-muted-foreground">Security Monitoring</p>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">
-            Ready to Build Your Dream Website?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8">
-            Let's discuss your project requirements and create a website that exceeds your expectations 
-            and drives real business results.
-          </p>
-          <Button asChild size="lg" className="text-lg px-8 py-6">
-            <Link href="/contact">
-              Start Your Web Project
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-
-      <Footer />
-    </main>
+        <Footer />
+      </main>
     </>
   )
 }
