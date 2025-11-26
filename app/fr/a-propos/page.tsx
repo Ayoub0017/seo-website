@@ -10,63 +10,64 @@ import type { Metadata } from "next"
 import { SchemaMarkup } from "@/components/schema-markup"
 
 export const metadata: Metadata = {
-  title: "About - Ayoub Ouraian | SEO & Content Marketing Consultant",
-  description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO and compelling content marketing.",
+  title: "À Propos - Ayoub Ouraian | Consultant SEO et Marketing de Contenu",
+  description: "Avec plus de 6 ans d'expérience en marketing digital, je me spécialise dans l'aide aux entreprises pour développer leur présence en ligne grâce à des stratégies SEO et de marketing de contenu.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouarain.com/about",
+    canonical: "https://ayoubouarain.com/fr/a-propos",
     languages: {
+      "fr-FR": "https://ayoubouarain.com/fr/a-propos",
       "en-US": "https://ayoubouarain.com/about",
     },
   },
   openGraph: {
-    title: "About Ayoub Ouraian - SEO & Content Marketing Consultant",
-    description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO and compelling content marketing.",
-    url: "https://ayoubouarain.com/about",
+    title: "À Propos d'Ayoub Ouraian - Consultant SEO et Marketing de Contenu",
+    description: "Avec plus de 6 ans d'expérience en marketing digital, je me spécialise dans l'aide aux entreprises pour développer leur présence en ligne grâce à des stratégies SEO et de marketing de contenu.",
+    url: "https://ayoubouarain.com/fr/a-propos",
     siteName: "Ayoub Ouraian",
     images: [
       {
         url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
         width: 1200,
         height: 630,
-        alt: "Ayoub Ouraian - SEO & Content Marketing Consultant",
+        alt: "Ayoub Ouraian - Consultant SEO et Marketing de Contenu",
       },
     ],
-    locale: "en_US",
+    locale: "fr_FR",
     type: "profile",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Ayoub Ouraian - SEO & Content Marketing Consultant",
-    description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO and compelling content marketing.",
+    title: "À Propos d'Ayoub Ouraian - Consultant SEO et Marketing de Contenu",
+    description: "Avec plus de 6 ans d'expérience en marketing digital, je me spécialise dans l'aide aux entreprises pour développer leur présence en ligne grâce à des stratégies SEO et de marketing de contenu.",
     images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
 
-export default function AboutPage() {
+export default function AboutPageFR() {
   const skillCategories = [
     {
-      title: "Search Engine Optimization",
+      title: "Référencement SEO",
       skills: [
         "SEO",
-        "Technical SEO",
-        "Keyword Research",
-        "Link Building",
+        "SEO Technique", 
+        "Recherche de Mots-Clés",
+        "Netlinking",
         "Google Analytics",
-        "Entity Optimization",
-        "Topical Authority"
+        "Optimisation d'Entités",
+        "Autorité Thématique"
       ]
     },
     {
-      title: "Content Marketing",
+      title: "Marketing de Contenu",
       skills: [
-        "Content Marketing",
-        "Content Strategy",
-        "Blog Writing",
-        "Social Media Content",
+        "Marketing de Contenu",
+        "Stratégie de Contenu",
+        "Rédaction de Blog",
+        "Contenu Réseaux Sociaux",
         "Email Marketing",
-        "Content Planning",
-        "Brand Voice Development"
+        "Planification de Contenu",
+        "Développement de Ton de Marque"
       ]
     }
   ]
@@ -74,61 +75,61 @@ export default function AboutPage() {
   const achievements = [
     {
       icon: TrendingUp,
-      title: "Traffic Growth",
-      description: "Substantial organic traffic increase for clients within months",
+      title: "Croissance du Trafic",
+      description: "Augmentation substantielle du trafic organique pour les clients en quelques mois",
     },
     {
       icon: Users,
-      title: "Happy Clients",
-      description: "Businesses transformed through strategic digital marketing",
+      title: "Clients Satisfaits",
+      description: "Entreprises transformées grâce au marketing digital stratégique",
     },
     {
       icon: Award,
-      title: "6+ Years Experience",
-      description: "Proven expertise in SEO and content marketing",
+      title: "6+ Ans d'Expérience",
+      description: "Expertise prouvée en SEO et marketing de contenu",
     },
     {
       icon: Clock,
-      title: "24/7 Support",
-      description: "Dedicated support and ongoing optimization",
+      title: "Support 24/7",
+      description: "Support dédié et optimisation continue",
     },
   ]
 
   const experience = [
     {
-      period: "Jan 2024 - Present",
-      role: "Search Engine Optimization Consultant",
+      period: "Jan 2024 - Présent",
+      role: "Consultant en Optimisation pour les Moteurs de Recherche",
       company: "Freelance",
       description:
-        "Providing strategic SEO consulting services to businesses, helping them improve their organic search visibility and drive sustainable growth through results-driven optimization strategies.",
+        "Fourniture de services de conseil en SEO stratégique aux entreprises, les aidant à améliorer leur visibilité dans les résultats de recherche organique et à générer une croissance durable grâce à des stratégies d'optimisation axées sur les résultats.",
     },
     {
-      period: "Jan 2025 - Jul 2025",
-      role: "Growth Lead",
-      company: "Agency",
+      period: "Jan 2025 - Juil 2025",
+      role: "Responsable de la Croissance",
+      company: "Agence",
       description:
-        "Leading growth initiatives and developing comprehensive digital marketing strategies to drive client acquisition and revenue growth across multiple channels.",
+        "Direction des initiatives de croissance et développement de stratégies de marketing digital complètes pour stimuler l'acquisition de clients et la croissance du chiffre d'affaires sur plusieurs canaux.",
     },
     {
-      period: "May 2022 - Nov 2023",
-      role: "French Content Manager",
+      period: "Mai 2022 - Nov 2023",
+      role: "Responsable de Contenu Français",
       company: "Hostinger International",
       description:
-        "Managed French content strategy and creation, overseeing content marketing initiatives and editorial processes to enhance brand presence in French-speaking markets.",
+        "Gestion de la stratégie et de la création de contenu français, supervision des initiatives de marketing de contenu et des processus éditoriaux pour renforcer la présence de la marque sur les marchés francophones.",
     },
     {
-      period: "Jul 2019 - May 2022",
-      role: "Web Marketing Manager",
+      period: "Juil 2019 - Mai 2022",
+      role: "Responsable Marketing Web",
       company: "Araoo",
       description:
-        "Responsible for web marketing strategies, attribution marketing, and content creation. Developed and executed digital marketing campaigns to drive user acquisition and engagement.",
+        "Responsable des stratégies de marketing web, du marketing d'attribution et de la création de contenu. Développement et exécution de campagnes de marketing digital pour stimuler l'acquisition d'utilisateurs et l'engagement.",
     },
     {
-      period: "Sep 2017 - Jul 2019",
-      role: "Freelance Content Marketer",
-      company: "Independent",
+      period: "Sep 2017 - Juil 2019",
+      role: "Consultant en Marketing de Contenu",
+      company: "Indépendant",
       description:
-        "Provided content marketing consulting services, specializing in search engine optimization and marketing strategy for various clients across different industries.",
+        "Fourniture de services de conseil en marketing de contenu, spécialisé dans l'optimisation pour les moteurs de recherche et la stratégie marketing pour divers clients dans différents secteurs.",
     },
   ]
 
@@ -139,9 +140,9 @@ export default function AboutPage() {
         type="person" 
         data={{
           name: "Ayoub Ouraian",
-          jobTitle: "SEO and Content Marketing Consultant",
-          description: "With over 6 years of experience in digital marketing, I specialize in helping businesses grow their online presence through strategic SEO and compelling content marketing.",
-          url: "https://ayoubouarain.com/",
+          jobTitle: "Consultant SEO et Marketing de Contenu",
+          description: "Avec plus de 6 ans d'expérience en marketing digital, je me spécialise dans l'aide aux entreprises pour développer leur présence en ligne grâce à des stratégies SEO et de marketing de contenu.",
+          url: "https://ayoubouarain.com/fr/",
           image: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
           email: "ayoub@ayoubouarain.com",
           sameAs: [
@@ -150,11 +151,11 @@ export default function AboutPage() {
             "https://github.com/Ayoub0017"
           ],
           address: {
-            addressCountry: "Morocco"
+            addressCountry: "Maroc"
           },
           worksFor: {
-            name: "Ayoub Ouraian Digital Marketing",
-            url: "https://ayoubouarain.com/"
+            name: "Ayoub Ouraian Marketing Digital",
+            url: "https://ayoubouarain.com/fr/"
           }
         }} 
       />
@@ -168,24 +169,24 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Hi, I'm Ayoub
+                Bonjour, je suis Ayoub
               </h1>
               <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                With over 6 years of experience in digital marketing, I specialize in helping businesses grow their
-                online presence through strategic SEO and compelling content marketing.
+                Avec plus de 6 ans d'expérience en marketing digital, je me spécialise dans l'aide aux entreprises pour développer leur
+                présence en ligne grâce à des stratégies SEO et de marketing de contenu.
               </p>
               <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                I believe in results-driven strategies that deliver measurable results. My approach combines technical
-                expertise with creative content solutions to drive sustainable growth for your business.
+                Je crois en des stratégies axées sur les résultats qui génèrent des retours mesurables. Mon approche combine l'expertise
+                technique avec des solutions de contenu créatives pour générer une croissance durable pour votre entreprise.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button asChild size="lg" className="text-lg px-8 py-6" style={{backgroundColor: '#1447E6'}}>
-                  <Link href="/contact">Work With Me</Link>
+                  <Link href="/fr/contact">Travailler Avec Moi</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent hover:bg-[#1447E6] hover:text-white transition-colors border-[#1447E6] text-[#1447E6]">
                   <Link href="https://www.linkedin.com/in/ayoub-ouarain/" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-5 w-5" />
-                    Connect on LinkedIn
+                    Se Connecter sur LinkedIn
                   </Link>
                 </Button>
               </div>
@@ -196,7 +197,7 @@ export default function AboutPage() {
                 <div className="aspect-square rounded-full overflow-hidden p-8">
                   <Image
                     src="/ayoub-ouarain-profile.png"
-                    alt="Ayoub Ouarain - SEO and Content Marketing Consultant"
+                    alt="Ayoub Ouarain - Consultant SEO et Marketing de Contenu"
                     width={400}
                     height={400}
                     className="w-full h-full object-cover rounded-full"
@@ -212,9 +213,9 @@ export default function AboutPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Skills & Expertise</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Compétences & Expertise</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive digital marketing expertise focused on SEO and Content Marketing to drive organic growth and engagement.
+              Expertise complète en marketing digital axée sur le SEO et le Marketing de Contenu pour générer une croissance organique et de l'engagement.
             </p>
           </div>
 
@@ -243,9 +244,9 @@ export default function AboutPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Proven Results</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Résultats Prouvés</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Numbers that speak for themselves - real results for real businesses.
+              Des chiffres qui parlent d'eux-mêmes - des résultats réels pour de vraies entreprises.
             </p>
           </div>
 
@@ -269,9 +270,9 @@ export default function AboutPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Expérience Professionnelle</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A track record of success across various industries and company sizes.
+              Un historique de réussite à travers divers secteurs et tailles d'entreprise.
             </p>
           </div>
 
@@ -302,18 +303,18 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Let's Work Together</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Travaillons Ensemble</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Ready to take your digital marketing to the next level? I'd love to hear about your project.
+            Prêt à passer votre marketing digital au niveau supérieur ? J'aimerais en savoir plus sur votre projet.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button asChild size="lg" className="text-lg px-8 py-6" style={{backgroundColor: '#1447E6'}}>
-              <Link href="/contact">Start a Project</Link>
+              <Link href="/fr/contact">Démarrer un Projet</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="text-lg px-8 py-6 bg-transparent hover:bg-[#1447E6] hover:text-white transition-colors border-[#1447E6] text-[#1447E6]">
               <Link href="https://www.linkedin.com/in/ayoub-ouarain/" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="mr-2 h-5 w-5" />
-                View LinkedIn Profile
+                Voir le Profil LinkedIn
               </Link>
             </Button>
           </div>

@@ -1,24 +1,40 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export function Navigation() {
-  const navItems = [
+  const pathname = usePathname()
+  const isFrench = pathname.startsWith('/fr')
+  
+  const navItems = isFrench ? [
+    { label: "Accueil", href: "/fr" },
+    { label: "À Propos", href: "/fr/a-propos" },
+    {
+      label: "Services",
+      subItems: [
+        { label: "Services SEO", href: "/fr/services/seo" },
+        { label: "Marketing de Contenu", href: "/fr/services/marketing-de-contenu" },
+      ]
+    },
+    { label: "Contact", href: "/fr/contact" },
+  ] : [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     {
       label: "Services",
       subItems: [
         { label: "SEO Services", href: "/services/seo" },
-        { label: "Google Ads", href: "/services/google-ads" },
-        { label: "Meta Ads", href: "/services/meta-ads" },
-        { label: "Cold Emailing", href: "/services/cold-emailing" },
+        { label: "Content Marketing", href: "/services/content-marketing" },
       ]
     },
-    { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ]
+
+  const ctaText = isFrench ? "Session Stratégique Gratuite" : "Free Strategy Session"
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/20">
@@ -116,13 +132,15 @@ export function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
-            <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">
-              <Button className="px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" style={{backgroundColor: '#1447E6', color: 'white'}}>
-                Free Strategy Session
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:block">
+              <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">
+                <Button className="px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" style={{backgroundColor: '#1447E6', color: 'white'}}>
+                  {ctaText}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </nav>
       </div>

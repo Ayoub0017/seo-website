@@ -6,60 +6,60 @@ import Link from "next/link"
 const services = [
   {
     icon: Search,
-    title: "SEO Services",
-    description: "Boost your search rankings and drive organic traffic with comprehensive SEO strategies.",
-    badge: "Most Popular",
+    title: "Services SEO",
+    description: "Améliorez votre classement dans les moteurs de recherche et générez du trafic organique avec des stratégies SEO complètes.",
+    badge: "Le Plus Populaire",
     badgeVariant: "default" as const,
     features: [
-      "Technical SEO Audits",
-      "Keyword Research & Strategy",
-      "On-Page Optimization",
-      "Link Building Campaigns",
-      "Local SEO & Google My Business",
-      "E-commerce SEO",
-      "Content SEO Strategy",
-      "Performance Tracking & Reporting"
+      "Audits SEO Techniques",
+      "Recherche de Mots-Clés & Stratégie",
+      "Optimisation On-Page",
+      "Campagnes de Netlinking",
+      "SEO Local & Google My Business",
+      "SEO E-commerce",
+      "Stratégie de Contenu SEO",
+      "Suivi des Performances & Reporting"
     ],
-    stats: { value: "300%", label: "Avg. Traffic Increase" },
-    href: "/services/seo",
+    stats: { value: "300%", label: "Augmentation Moyenne du Trafic" },
+    href: "/fr/services/seo",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600"
   },
   {
     icon: TrendingUp,
-    title: "Content Marketing",
-    description: "Create compelling content that attracts, engages, and converts your target audience.",
-    badge: "Brand Building",
+    title: "Marketing de Contenu",
+    description: "Créez un contenu captivant qui attire, engage et convertit votre audience cible.",
+    badge: "Construction de Marque",
     badgeVariant: "secondary" as const,
     features: [
-      "Content Strategy Development",
-      "Blog Post Creation",
-      "SEO-Optimized Articles",
-      "Content Calendar Management",
-      "Content Distribution",
-      "Performance Analytics",
-      "Content Refresh & Optimization",
-      "Audience Engagement"
+      "Développement de Stratégie de Contenu",
+      "Création d'Articles de Blog",
+      "Articles Optimisés SEO",
+      "Gestion de Calendrier Éditorial",
+      "Distribution de Contenu",
+      "Analyse des Performances",
+      "Actualisation & Optimisation de Contenu",
+      "Engagement de l'Audience"
     ],
-    stats: { value: "200%", label: "Avg. Engagement Increase" },
-    href: "/services/content-marketing",
+    stats: { value: "200%", label: "Augmentation Moyenne de l'Engagement" },
+    href: "/fr/services/marketing-de-contenu",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600"
   }
 ]
 
-export function ServicesSection() {
+export function ServicesSectionFR() {
   return (
     <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            SEO & Content Marketing Services
+            Services SEO & Marketing de Contenu
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional SEO and content marketing solutions to grow your online presence and drive sustainable business growth.
+            Solutions professionnelles de SEO et marketing de contenu pour développer votre présence en ligne et générer une croissance durable.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
@@ -96,7 +96,7 @@ export function ServicesSection() {
                 </div>
                 <Button asChild className="text-white text-sm px-4 py-2" style={{backgroundColor: '#1447E6'}}>
                   <Link href={service.href} className="flex items-center gap-2">
-                    <span>Learn More</span>
+                    <span>En Savoir Plus</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </Button>

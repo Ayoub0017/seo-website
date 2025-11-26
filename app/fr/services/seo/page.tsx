@@ -9,81 +9,82 @@ import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Expert SEO Services - Dominate Search Rankings & Drive Growth",
-  description: "Professional SEO services that deliver results. Comprehensive on-page, technical, local, and e-commerce SEO strategies to boost your organic traffic and search rankings.",
+  title: "Services SEO Expert - Dominez les Classements de Recherche & Faites Croître Votre Entreprise",
+  description: "Services SEO professionnels qui délivrent des résultats. Stratégies SEO complètes on-page, technique, locale et e-commerce pour booster votre trafic organique et vos classements de recherche.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouarain.com/services/seo",
+    canonical: "https://ayoubouarain.com/fr/services/seo",
     languages: {
+      "fr-FR": "https://ayoubouarain.com/fr/services/seo",
       "en-US": "https://ayoubouarain.com/services/seo",
     },
   },
   openGraph: {
-    title: "Expert SEO Services - Ayoub Ouraian",
-    description: "Professional SEO services that deliver results. Comprehensive on-page, technical, local, and e-commerce SEO strategies to boost your organic traffic and search rankings.",
-    url: "https://ayoubouarain.com/services/seo",
+    title: "Services SEO Expert - Ayoub Ouraian",
+    description: "Services SEO professionnels qui délivrent des résultats. Stratégies SEO complètes on-page, technique, locale et e-commerce pour booster votre trafic organique et vos classements de recherche.",
+    url: "https://ayoubouarain.com/fr/services/seo",
     siteName: "Ayoub Ouraian",
     images: [
       {
         url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
         width: 1200,
         height: 630,
-        alt: "SEO Services by Ayoub Ouraian",
+        alt: "Services SEO par Ayoub Ouraian",
       },
     ],
-    locale: "en_US",
+    locale: "fr_FR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Expert SEO Services - Ayoub Ouraian",
-    description: "Professional SEO services that deliver results. Comprehensive on-page, technical, local, and e-commerce SEO strategies to boost your organic traffic and search rankings.",
+    title: "Services SEO Expert - Ayoub Ouraian",
+    description: "Services SEO professionnels qui délivrent des résultats. Stratégies SEO complètes on-page, technique, locale et e-commerce pour booster votre trafic organique et vos classements de recherche.",
     images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
 
-export default function SEOServicesPage() {
+export default function SEOServicesPageFR() {
   const seoServices = [
     {
-      title: "On-Page SEO",
-      description: "Optimize your website's content, structure, and HTML elements to improve search engine rankings and user experience",
+      title: "SEO On-Page",
+      description: "Optimisez le contenu, la structure et les éléments HTML de votre site web pour améliorer les classements dans les moteurs de recherche et l'expérience utilisateur",
       icon: FileText,
-      features: ["Keyword research & optimization", "Meta tags optimization", "Content structure & headings", "Internal linking strategy", "Image optimization", "Schema markup implementation"],
+      features: ["Recherche et optimisation de mots-clés", "Optimisation des balises meta", "Structure de contenu et en-têtes", "Stratégie de liens internes", "Optimisation des images", "Implémentation du balisage schema"],
       color: "bg-[#1447E6]/10 text-[#1447E6]"
     },
     {
-      title: "Technical SEO",
-      description: "Improve your website's technical foundation to ensure search engines can crawl, index, and understand your content",
+      title: "SEO Technique",
+      description: "Améliorez les fondations techniques de votre site web pour garantir que les moteurs de recherche puissent crawler, indexer et comprendre votre contenu",
       icon: Code2,
-      features: ["Site speed optimization", "Mobile responsiveness", "Core Web Vitals improvement", "XML sitemaps", "Robots.txt optimization", "SSL & security"],
+      features: ["Optimisation de la vitesse du site", "Responsive mobile", "Amélioration des Core Web Vitals", "Sitemaps XML", "Optimisation du robots.txt", "SSL & sécurité"],
       color: "bg-green-500/10 text-green-600"
     },
     {
-      title: "Off-Page SEO",
-      description: "Build authority and trust through strategic link building and external optimization techniques",
+      title: "SEO Off-Page",
+      description: "Construisez de l'autorité et de la confiance grâce à des techniques stratégiques de netlinking et d'optimisation externe",
       icon: Network,
-      features: ["Link building campaigns", "Guest posting", "Digital PR", "Brand mentions", "Local citations", "Social signals"],
+      features: ["Campagnes de netlinking", "Guest posting", "Relations publiques digitales", "Mentions de marque", "Citations locales", "Signaux sociaux"],
       color: "bg-[#1447E6]/10 text-[#1447E6]"
     },
     {
-      title: "Local SEO",
-      description: "Dominate local search results and attract customers in your geographic area",
+      title: "SEO Local",
+      description: "Dominez les résultats de recherche locaux et attirez des clients dans votre zone géographique",
       icon: Map,
-      features: ["Google Business Profile optimization", "Local keyword targeting", "NAP consistency", "Local citations", "Review management", "Local content creation"],
+      features: ["Optimisation Google Business Profile", "Ciblage de mots-clés locaux", "Consistance NAP", "Citations locales", "Gestion des avis", "Création de contenu local"],
       color: "bg-orange-500/10 text-orange-600"
     },
     {
-      title: "E-commerce SEO",
-      description: "Specialized SEO strategies for online stores to increase product visibility and sales",
+      title: "SEO E-commerce",
+      description: "Stratégies SEO spécialisées pour les boutiques en ligne pour augmenter la visibilité des produits et les ventes",
       icon: Target,
-      features: ["Product page optimization", "Category page SEO", "Shopping feed optimization", "Product schema markup", "Faceted navigation", "Conversion optimization"],
+      features: ["Optimisation des pages produit", "SEO des pages catégorie", "Optimisation des flux shopping", "Balises schema produit", "Navigation à facettes", "Optimisation de la conversion"],
       color: "bg-red-500/10 text-red-600"
     },
     {
-      title: "SEO Strategy & Consulting",
-      description: "Comprehensive SEO audits and strategic planning to maximize your organic growth potential",
+      title: "Stratégie & Conseil SEO",
+      description: "Audits SEO complets et planification stratégique pour maximiser votre potentiel de croissance organique",
       icon: Brain,
-      features: ["SEO audits & analysis", "Competitor research", "Keyword strategy", "Content planning", "Performance tracking", "ROI optimization"],
+      features: ["Audits et analyse SEO", "Recherche concurrentielle", "Stratégie de mots-clés", "Planification de contenu", "Suivi des performances", "Optimisation du ROI"],
       color: "bg-indigo-500/10 text-indigo-600"
     }
   ]
@@ -91,46 +92,46 @@ export default function SEOServicesPage() {
   const benefits = [
     {
       icon: TrendingUp,
-      title: "Increased Organic Traffic",
-      description: "Drive more qualified visitors to your website through improved search rankings"
+      title: "Trafic Organique Augmenté",
+      description: "Conduisez plus de visiteurs qualifiés vers votre site web grâce à l'amélioration des classements de recherche"
     },
     {
       icon: Target,
-      title: "Better Conversion Rates",
-      description: "Attract users with high purchase intent through targeted keyword optimization"
+      title: "Meilleurs Taux de Conversion",
+      description: "Attirez des utilisateurs avec une forte intention d'achat grâce à l'optimisation ciblée des mots-clés"
     },
     {
       icon: BarChart3,
-      title: "Long-term ROI",
-      description: "Build sustainable organic growth that continues to deliver results over time"
+      title: "ROI à Long Terme",
+      description: "Construisez une croissance organique durable qui continue à délivrer des résultats dans le temps"
     },
     {
       icon: Award,
-      title: "Brand Authority",
-      description: "Establish your business as a trusted authority in your industry"
+      title: "Autorité de Marque",
+      description: "Établissez votre entreprise comme une autorité de confiance dans votre industrie"
     }
   ]
 
   const process = [
     {
       step: "01",
-      title: "SEO Audit & Analysis",
-      description: "Comprehensive analysis of your current SEO performance, technical issues, and opportunities"
+      title: "Audit & Analyse SEO",
+      description: "Analyse complète de vos performances SEO actuelles, problèmes techniques et opportunités"
     },
     {
       step: "02",
-      title: "Strategy Development",
-      description: "Create a customized SEO strategy based on your business goals and competitive landscape"
+      title: "Développement de Stratégie",
+      description: "Créez une stratégie SEO personnalisée basée sur vos objectifs business et le paysage concurrentiel"
     },
     {
       step: "03",
-      title: "Implementation",
-      description: "Execute on-page, technical, and off-page optimizations according to the strategic plan"
+      title: "Implémentation",
+      description: "Exécutez les optimisations on-page, techniques et off-page selon le plan stratégique"
     },
     {
       step: "04",
-      title: "Monitoring & Optimization",
-      description: "Continuous monitoring, reporting, and optimization to maximize results and ROI"
+      title: "Monitoring & Optimisation",
+      description: "Surveillance continue, reporting et optimisation pour maximiser les résultats et le ROI"
     }
   ]
 
@@ -139,11 +140,11 @@ export default function SEOServicesPage() {
       <SchemaMarkup 
         type="service" 
         data={{
-          name: "SEO Services",
-          description: "Professional SEO services to improve search rankings and organic traffic",
+          name: "Services SEO",
+          description: "Services SEO professionnels pour améliorer les classements de recherche et le trafic organique",
           provider: ayoubPersonData,
-          serviceType: "Search Engine Optimization",
-          areaServed: "Worldwide"
+          serviceType: "Optimisation pour les Moteurs de Recherche",
+          areaServed: "Monde"
         }} 
       />
       
@@ -156,17 +157,17 @@ export default function SEOServicesPage() {
             <div className="text-center max-w-4xl mx-auto">
               <Badge variant="outline" className="mb-4">
                 <Search className="h-4 w-4 mr-2" />
-                SEO Services
+                Services SEO
               </Badge>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1447E6] to-purple-600 bg-clip-text text-transparent">
-                Search Engine Optimization
+                Référencement SEO
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-                Boost your search rankings, increase organic traffic, and grow your business with comprehensive SEO strategies that deliver measurable results.
+                Boostez vos classements de recherche, augmentez votre trafic organique et développez votre entreprise avec des stratégies SEO complètes qui délivrent des résultats mesurables.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" style={{backgroundColor: '#1447E6', color: 'white'}} asChild>
-                  <Link href="https://calendly.com/ab-ouarain/30min">Get Free Strategy Session</Link>
+                  <Link href="https://calendly.com/ab-ouarain/30min">Obtenir une Session Stratégique Gratuite</Link>
                 </Button>
               </div>
             </div>
@@ -178,10 +179,10 @@ export default function SEOServicesPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Why Choose Professional SEO?
+                Pourquoi Choisir le SEO Professionnel ?
               </h2>
               <p className="text-xl text-gray-600">
-                SEO is one of the most cost-effective marketing strategies with long-lasting results
+                Le SEO est l'une des stratégies marketing les plus rentables avec des résultats durables
               </p>
             </div>
             
@@ -208,10 +209,10 @@ export default function SEOServicesPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Comprehensive SEO Services
+                Services SEO Complets
               </h2>
               <p className="text-xl text-gray-600">
-                Full-spectrum SEO solutions tailored to your business needs and goals
+                Solutions SEO complètes adaptées à vos besoins business et objectifs
               </p>
             </div>
             
@@ -248,10 +249,10 @@ export default function SEOServicesPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                My SEO Process
+                Mon Processus SEO
               </h2>
               <p className="text-xl text-gray-600">
-                A proven methodology that delivers consistent results for businesses of all sizes
+                Une méthodologie éprouvée qui délivre des résultats constants pour les entreprises de toutes tailles
               </p>
             </div>
             
@@ -281,15 +282,15 @@ export default function SEOServicesPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-white mb-2">150+</div>
-                <div className="text-blue-100">Websites Optimized</div>
+                <div className="text-blue-100">Sites Web Optimisés</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-2">300%</div>
-                <div className="text-blue-100">Average Traffic Increase</div>
+                <div className="text-blue-100">Augmentation Moyenne du Trafic</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-2">95%</div>
-                <div className="text-blue-100">Client Satisfaction Rate</div>
+                <div className="text-blue-100">Taux de Satisfaction Client</div>
               </div>
             </div>
           </div>
@@ -299,14 +300,14 @@ export default function SEOServicesPage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Ready to Dominate Search Results?
+              Prêt à Dominer les Résultats de Recherche ?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Get a free strategy session and discover how to improve your search rankings and organic traffic.
+              Obtenez une session stratégique gratuite et découvrez comment améliorer vos classements de recherche et votre trafic organique.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
-                <Link href="https://calendly.com/ab-ouarain/30min">Get Free Strategy Session</Link>
+                <Link href="https://calendly.com/ab-ouarain/30min">Obtenir une Session Stratégique Gratuite</Link>
               </Button>
             </div>
           </div>

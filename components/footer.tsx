@@ -1,25 +1,27 @@
+"use client"
+
 import Link from "next/link"
 import { Linkedin, Mail, Phone } from "lucide-react"
+import { usePathname } from "next/navigation"
 
 export function Footer() {
+  const pathname = usePathname()
   const currentYear = new Date().getFullYear()
+  const isFrench = pathname?.startsWith("/fr")
 
   const footerLinks = {
     services: [
-      { href: "/services/seo", label: "SEO" },
-      { href: "/services/google-ads", label: "Google Ads" },
-      { href: "/services/meta-ads", label: "Meta Ads" },
-      { href: "/services/cold-emailing", label: "Cold Emailing" },
+      { href: isFrench ? "/fr/services/seo" : "/services/seo", label: "SEO" },
+      { href: isFrench ? "/fr/services/marketing-de-contenu" : "/services/content-marketing", label: isFrench ? "Marketing de Contenu" : "Content Marketing" },
     ],
     company: [
-      { href: "/about", label: "About Me" },
-      { href: "/blog", label: "Blog" },
-      { href: "/contact", label: "Contact" },
+      { href: isFrench ? "/fr/a-propos" : "/about", label: isFrench ? "À Propos" : "About Me" },
+      { href: isFrench ? "/fr/contact" : "/contact", label: isFrench ? "Contact" : "Contact" },
     ],
     contact: [
       { href: "mailto:contact@ayoubouarain.com", label: "contact@ayoubouarain.com", icon: Mail },
       { href: "tel:+212669705440", label: "+212669705440", icon: Phone },
-      { href: "https://www.linkedin.com/in/ayoub-ouarain/", label: "LinkedIn Profile", icon: Linkedin },
+      { href: "https://www.linkedin.com/in/ayoub-ouarain/", label: isFrench ? "Profil LinkedIn" : "LinkedIn Profile", icon: Linkedin },
     ],
   }
 
@@ -33,7 +35,10 @@ export function Footer() {
               Ayoub Ouraian
             </Link>
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Helping businesses grow their online presence through comprehensive digital marketing services including SEO, Google Ads, Meta Ads, and cold emailing.
+              {isFrench
+                ? "J'aide les entreprises à développer leur présence en ligne grâce à des services professionnels de SEO et de Marketing de Contenu qui génèrent du trafic organique et de l'engagement."
+                : "Helping businesses grow their online presence through professional SEO and Content Marketing services that drive organic traffic and engagement."
+              }
             </p>
             <div className="flex space-x-4">
               <Link
@@ -55,7 +60,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Services</h3>
+            <h3 className="font-semibold text-white mb-4">{isFrench ? "Services" : "Services"}</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link, index) => (
                 <li key={index}>
@@ -69,7 +74,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Company</h3>
+            <h3 className="font-semibold text-white mb-4">{isFrench ? "Entreprise" : "Company"}</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link, index) => (
                 <li key={index}>
@@ -83,7 +88,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-semibold text-white mb-4">Get in Touch</h3>
+            <h3 className="font-semibold text-white mb-4">{isFrench ? "Contactez-moi" : "Get in Touch"}</h3>
             <ul className="space-y-2">
               {footerLinks.contact.map((link, index) => (
                 <li key={index}>
@@ -104,7 +109,7 @@ export function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <p className="text-gray-400">
-            © {currentYear} Ayoub Ouraian. All rights reserved. Built with Next.js and Tailwind CSS.
+            © {currentYear} Ayoub Ouraian. {isFrench ? "Tous droits réservés. Construit avec Next.js et Tailwind CSS." : "All rights reserved. Built with Next.js and Tailwind CSS."}
           </p>
         </div>
       </div>

@@ -9,81 +9,82 @@ import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Content Marketing Services - Engage, Convert & Grow Your Audience",
-  description: "Strategic content marketing services including blog writing, social media content, email marketing, and content strategy. Build brand authority and drive conversions through compelling content.",
+  title: "Services de Marketing de Contenu - Engagez, Convertissez & Développez Votre Audience",
+  description: "Services stratégiques de marketing de contenu incluant la rédaction de blog, le contenu réseaux sociaux, l'email marketing et la stratégie de contenu. Construisez l'autorité de votre marque et générez des conversions grâce à un contenu captivant.",
   robots: "index, follow",
   alternates: {
-    canonical: "https://ayoubouarain.com/services/content-marketing",
+    canonical: "https://ayoubouarain.com/fr/services/marketing-de-contenu",
     languages: {
+      "fr-FR": "https://ayoubouarain.com/fr/services/marketing-de-contenu",
       "en-US": "https://ayoubouarain.com/services/content-marketing",
     },
   },
   openGraph: {
-    title: "Content Marketing Services - Ayoub Ouraian",
-    description: "Strategic content marketing services including blog writing, social media content, email marketing, and content strategy. Build brand authority and drive conversions through compelling content.",
-    url: "https://ayoubouarain.com/services/content-marketing",
+    title: "Services de Marketing de Contenu - Ayoub Ouraian",
+    description: "Services stratégiques de marketing de contenu incluant la rédaction de blog, le contenu réseaux sociaux, l'email marketing et la stratégie de contenu. Construisez l'autorité de votre marque et générez des conversions grâce à un contenu captivant.",
+    url: "https://ayoubouarain.com/fr/services/marketing-de-contenu",
     siteName: "Ayoub Ouraian",
     images: [
       {
         url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
         width: 1200,
         height: 630,
-        alt: "Content Marketing Services by Ayoub Ouraian",
+        alt: "Services de Marketing de Contenu par Ayoub Ouraian",
       },
     ],
-    locale: "en_US",
+    locale: "fr_FR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Content Marketing Services - Ayoub Ouraian",
-    description: "Strategic content marketing services including blog writing, social media content, email marketing, and content strategy. Build brand authority and drive conversions through compelling content.",
+    title: "Services de Marketing de Contenu - Ayoub Ouraian",
+    description: "Services stratégiques de marketing de contenu incluant la rédaction de blog, le contenu réseaux sociaux, l'email marketing et la stratégie de contenu. Construisez l'autorité de votre marque et générez des conversions grâce à un contenu captivant.",
     images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
 
-export default function ContentMarketingPage() {
+export default function ContentMarketingPageFR() {
   const contentServices = [
     {
-      title: "Content Strategy & Planning",
-      description: "Develop comprehensive content strategies aligned with your business goals and audience needs",
+      title: "Stratégie & Planification de Contenu",
+      description: "Développez des stratégies de contenu complètes alignées avec vos objectifs business et les besoins de votre audience",
       icon: Target,
-      features: ["Content audit & analysis", "Audience research & personas", "Content calendar planning", "Competitive content analysis", "Content gap identification", "Performance metrics setup"],
+      features: ["Audit et analyse de contenu", "Recherche d'audience et personas", "Planification de calendrier éditorial", "Analyse de contenu concurrentiel", "Identification des gaps de contenu", "Configuration des métriques de performance"],
       color: "bg-[#1447E6]/10 text-[#1447E6]"
     },
     {
-      title: "Blog Writing & SEO Content",
-      description: "Create engaging, SEO-optimized blog posts and articles that drive traffic and establish authority",
+      title: "Rédaction de Blog & Contenu SEO",
+      description: "Créez des articles de blog engageants et optimisés SEO qui génèrent du trafic et établissent votre autorité",
       icon: BookOpen,
-      features: ["SEO-optimized blog posts", "Long-form content creation", "Topic research & ideation", "Keyword integration", "Content optimization", "Editorial calendar management"],
+      features: ["Articles de blog optimisés SEO", "Création de contenu long format", "Recherche et idéation de sujets", "Intégration de mots-clés", "Optimisation de contenu", "Gestion de calendrier éditorial"],
       color: "bg-green-500/10 text-green-600"
     },
     {
-      title: "Social Media Content",
-      description: "Craft compelling social media content that engages your audience and builds community",
+      title: "Contenu Réseaux Sociaux",
+      description: "Concevez du contenu réseaux sociaux captivant qui engage votre audience et construit une communauté",
       icon: Share2,
-      features: ["Platform-specific content", "Visual content creation", "Social media captions", "Hashtag strategy", "Community engagement", "Social media calendars"],
+      features: ["Contenu spécifique à la plateforme", "Création de contenu visuel", "Légendes réseaux sociaux", "Stratégie de hashtags", "Engagement communautaire", "Calendriers réseaux sociaux"],
       color: "bg-purple-500/10 text-purple-600"
     },
     {
-      title: "Email Marketing Content",
-      description: "Design email campaigns that nurture leads and drive conversions through strategic messaging",
+      title: "Contenu Email Marketing",
+      description: "Concevez des campagnes email qui nourrissent les leads et génèrent des conversions grâce à un messaging stratégique",
       icon: Mail,
-      features: ["Email campaign creation", "Newsletter content", "Drip campaign sequences", "Subject line optimization", "A/B testing content", "Personalization strategies"],
+      features: ["Création de campagnes email", "Contenu de newsletter", "Séquences de campagnes drip", "Optimisation des sujets", "Tests A/B de contenu", "Stratégies de personnalisation"],
       color: "bg-orange-500/10 text-orange-600"
     },
     {
-      title: "Video & Multimedia Content",
-      description: "Create engaging video scripts, multimedia content, and interactive materials",
+      title: "Contenu Vidéo & Multimédia",
+      description: "Créez des scripts vidéo, du contenu multimédia et des supports interactifs engageants",
       icon: Video,
-      features: ["Video script writing", "Podcast content planning", "Infographic concepts", "Interactive content", "Webinar planning", "Multimedia storytelling"],
+      features: ["Rédaction de scripts vidéo", "Planification de contenu podcast", "Concepts d'infographies", "Contenu interactif", "Planification de webinaires", "Storytelling multimédia"],
       color: "bg-red-500/10 text-red-600"
     },
     {
-      title: "Brand Voice & Messaging",
-      description: "Develop consistent brand voice and messaging that resonates with your target audience",
+      title: "Ton de Marque & Messaging",
+      description: "Développez un ton de marque cohérent et un messaging qui résonne avec votre audience cible",
       icon: Megaphone,
-      features: ["Brand voice development", "Messaging framework", "Tone of voice guidelines", "Content style guides", "Brand storytelling", "Message consistency"],
+      features: ["Développement du ton de marque", "Cadre de messaging", "Guide du ton de voix", "Guide de style de contenu", "Storytelling de marque", "Cohérence du message"],
       color: "bg-indigo-500/10 text-indigo-600"
     }
   ]
@@ -91,60 +92,60 @@ export default function ContentMarketingPage() {
   const benefits = [
     {
       icon: Users,
-      title: "Audience Engagement",
-      description: "Build meaningful connections with your audience through valuable, relevant content"
+      title: "Engagement de l'Audience",
+      description: "Construisez des connexions significatives avec votre audience grâce à un contenu précieux et pertinent"
     },
     {
       icon: TrendingUp,
-      title: "Increased Traffic",
-      description: "Drive more qualified traffic to your website through strategic content marketing"
+      title: "Trafic Augmenté",
+      description: "Générez plus de trafic qualifié vers votre site web grâce au marketing de contenu stratégique"
     },
     {
       icon: Award,
-      title: "Brand Authority",
-      description: "Establish your business as a thought leader and trusted authority in your industry"
+      title: "Autorité de Marque",
+      description: "Établissez votre entreprise comme un leader d'opinion et une autorité de confiance dans votre industrie"
     },
     {
       icon: Heart,
-      title: "Customer Loyalty",
-      description: "Build lasting relationships with customers through consistent, valuable content"
+      title: "Loyauté Client",
+      description: "Construisez des relations durables avec les clients grâce à un contenu cohérent et précieux"
     }
   ]
 
   const process = [
     {
       step: "01",
-      title: "Content Audit & Strategy",
-      description: "Analyze existing content, identify gaps, and develop a comprehensive content strategy"
+      title: "Audit & Stratégie de Contenu",
+      description: "Analysez le contenu existant, identifiez les gaps et développez une stratégie de contenu complète"
     },
     {
       step: "02",
-      title: "Content Planning",
-      description: "Create detailed content calendars and editorial plans aligned with your business goals"
+      title: "Planification de Contenu",
+      description: "Créez des calendriers de contenu détaillés et des plans éditoriaux alignés avec vos objectifs business"
     },
     {
       step: "03",
-      title: "Content Creation",
-      description: "Produce high-quality, engaging content across multiple formats and platforms"
+      title: "Création de Contenu",
+      description: "Produisez du contenu de haute qualité et engageant à travers multiples formats et plateformes"
     },
     {
       step: "04",
-      title: "Distribution & Optimization",
-      description: "Distribute content strategically and continuously optimize based on performance data"
+      title: "Distribution & Optimisation",
+      description: "Distribuez le contenu stratégiquement et optimisez continuellement basé sur les données de performance"
     }
   ]
 
   const contentTypes = [
-    "Blog Posts & Articles",
-    "Social Media Content",
-    "Email Campaigns",
-    "Video Scripts",
-    "Infographics",
-    "Whitepapers & eBooks",
-    "Case Studies",
-    "Landing Page Copy",
-    "Product Descriptions",
-    "Press Releases"
+    "Articles & Posts de Blog",
+    "Contenu Réseaux Sociaux",
+    "Campagnes Email",
+    "Scripts Vidéo",
+    "Infographies",
+    "Livres Blancs & eBooks",
+    "Études de Cas",
+    "Copie de Pages de Destination",
+    "Descriptions de Produits",
+    "Communiqués de Presse"
   ]
 
   return (
@@ -152,11 +153,11 @@ export default function ContentMarketingPage() {
       <SchemaMarkup 
         type="service" 
         data={{
-          name: "Content Marketing Services",
-          description: "Strategic content marketing services to engage audiences and drive business growth",
+          name: "Services de Marketing de Contenu",
+          description: "Services stratégiques de marketing de contenu pour engager les audiences et générer de la croissance business",
           provider: ayoubPersonData,
-          serviceType: "Content Marketing",
-          areaServed: "Worldwide"
+          serviceType: "Marketing de Contenu",
+          areaServed: "Monde"
         }} 
       />
       
@@ -169,17 +170,17 @@ export default function ContentMarketingPage() {
             <div className="text-center max-w-4xl mx-auto">
               <Badge variant="outline" className="mb-4">
                 <PenTool className="h-4 w-4 mr-2" />
-                Content Marketing
+                Marketing de Contenu
               </Badge>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-[#1447E6] to-purple-600 bg-clip-text text-transparent">
-                Content Marketing
+                Marketing de Contenu
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
-                Build brand authority, engage your audience, and drive conversions through compelling content marketing strategies that deliver measurable results.
+                Construisez l'autorité de votre marque, engagez votre audience et générez des conversions grâce à des stratégies de marketing de contenu qui délivrent des résultats mesurables.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" style={{backgroundColor: '#1447E6', color: 'white'}} asChild>
-                  <Link href="https://calendly.com/ab-ouarain/30min">Get Free Strategy Session</Link>
+                  <Link href="https://calendly.com/ab-ouarain/30min">Obtenir une Session Stratégique Gratuite</Link>
                 </Button>
               </div>
             </div>
@@ -191,10 +192,10 @@ export default function ContentMarketingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Why Choose Content Marketing?
+                Pourquoi Choisir le Marketing de Contenu ?
               </h2>
               <p className="text-xl text-gray-600">
-                Content marketing generates 3x more leads than traditional marketing while costing 62% less
+                Le marketing de contenu génère 3x plus de leads que le marketing traditionnel tout en coûtant 62% moins cher
               </p>
             </div>
             
@@ -221,10 +222,10 @@ export default function ContentMarketingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Comprehensive Content Marketing Services
+                Services Complets de Marketing de Contenu
               </h2>
               <p className="text-xl text-gray-600">
-                Full-spectrum content solutions tailored to your business needs and goals
+                Solutions de contenu complètes adaptées à vos besoins business et objectifs
               </p>
             </div>
             
@@ -261,10 +262,10 @@ export default function ContentMarketingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Content Types We Create
+                Types de Contenu Que Nous Créons
               </h2>
-              <p className="text-xl text-muted-foreground">
-                From blog posts to video scripts, we create content that resonates with your audience
+              <p className="text-xl text-gray-600">
+                Des articles de blog aux scripts vidéo, nous créons du contenu qui résonne avec votre audience
               </p>
             </div>
             
@@ -285,10 +286,10 @@ export default function ContentMarketingPage() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                My Content Marketing Process
+                Mon Processus de Marketing de Contenu
               </h2>
               <p className="text-xl text-gray-600">
-                A proven methodology that delivers consistent results for businesses of all sizes
+                Une méthodologie éprouvée qui délivre des résultats constants pour les entreprises de toutes tailles
               </p>
             </div>
             
@@ -318,15 +319,15 @@ export default function ContentMarketingPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-4xl font-bold text-white mb-2">500+</div>
-                <div className="text-blue-100">Content Pieces Created</div>
+                <div className="text-blue-100">Pieces de Contenu Créées</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-2">250%</div>
-                <div className="text-blue-100">Average Engagement Increase</div>
+                <div className="text-blue-100">Augmentation Moyenne de l'Engagement</div>
               </div>
               <div>
                 <div className="text-4xl font-bold text-white mb-2">85%</div>
-                <div className="text-blue-100">Client Retention Rate</div>
+                <div className="text-blue-100">Taux de Rétention Client</div>
               </div>
             </div>
           </div>
@@ -336,14 +337,14 @@ export default function ContentMarketingPage() {
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              Ready to Transform Your Content Strategy?
+              Prêt à Transformer Votre Stratégie de Contenu ?
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Get a free strategy session and discover how to engage your audience and drive growth through compelling content.
+              Obtenez une session stratégique gratuite et découvrez comment engager votre audience et générer de la croissance grâce à un contenu captivant.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" style={{backgroundColor: '#1447E6'}} asChild>
-                <Link href="https://calendly.com/ab-ouarain/30min">Get Free Strategy Session</Link>
+                <Link href="https://calendly.com/ab-ouarain/30min">Obtenir une Session Stratégique Gratuite</Link>
               </Button>
             </div>
           </div>
