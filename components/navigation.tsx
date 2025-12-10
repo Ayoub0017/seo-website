@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation"
 export function Navigation() {
   const pathname = usePathname()
   const isFrench = pathname.startsWith('/fr')
-  
+
   const navItems = isFrench ? [
     { label: "Accueil", href: "/fr" },
     { label: "À Propos", href: "/fr/a-propos" },
@@ -132,10 +132,10 @@ export function Navigation() {
           </div>
 
           {/* CTA Button */}
-          <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <div className="hidden lg:block">
               <Link href="https://calendly.com/ab-ouarain/30min" target="_blank" rel="noopener noreferrer">
-                <Button className="px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" style={{backgroundColor: '#1447E6', color: 'white'}}>
+                <Button className="px-6 py-2 rounded-lg shadow-sm hover:shadow-md transition-all duration-200" style={{ backgroundColor: '#1447E6', color: 'white' }}>
                   {ctaText}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
