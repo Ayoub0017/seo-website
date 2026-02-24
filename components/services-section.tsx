@@ -5,45 +5,81 @@ import Link from "next/link"
 
 const services = [
   {
-    icon: Search,
-    title: "SEO Services",
-    description: "Boost your search rankings and drive organic traffic with comprehensive SEO strategies.",
-    badge: "Most Popular",
+    icon: Target,
+    title: "Paid Media & Advertising",
+    description: "Scale your customer acquisition with data-driven paid advertising campaigns across multiple channels.",
+    badge: "Fast Results",
     badgeVariant: "default" as const,
     features: [
+      "Google Ads Management",
+      "Meta (Facebook & Instagram) Ads",
+      "LinkedIn B2B Campaigns",
+      "Retargeting Strategies",
+      "RoAS & CPA Optimization",
+      "Ad Copywriting & A/B Testing"
+    ],
+    stats: { value: "3x", label: "Avg. Target RoAS" },
+    href: "#contact",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Search,
+    title: "Search Engine Optimization",
+    description: "Drive sustainable organic growth and improve your visibility with comprehensive SEO strategies.",
+    badge: "Sustainable Growth",
+    badgeVariant: "secondary" as const,
+    features: [
       "Technical SEO Audits",
-      "Keyword Research & Strategy",
+      "Keyword Strategy & Research",
       "On-Page Optimization",
       "Link Building Campaigns",
-      "Local SEO & Google My Business",
-      "E-commerce SEO",
       "Content SEO Strategy",
-      "Performance Tracking & Reporting"
+      "Local & E-commerce SEO"
     ],
-    stats: { value: "300%", label: "Avg. Traffic Increase" },
-    href: "/services/seo",
+    stats: { value: "200%", label: "Avg. Organic Growth" },
+    href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600"
   },
   {
     icon: TrendingUp,
-    title: "Content Marketing",
-    description: "Create compelling content that attracts, engages, and converts your target audience.",
-    badge: "Brand Building",
+    title: "Conversion Optimization",
+    description: "Maximize your marketing ROI through continuous experimentation and funnel optimization.",
+    badge: "Maximize ROI",
     badgeVariant: "secondary" as const,
     features: [
-      "Content Strategy Development",
-      "Blog Post Creation",
-      "SEO-Optimized Articles",
-      "Content Calendar Management",
-      "Content Distribution",
-      "Performance Analytics",
-      "Content Refresh & Optimization",
-      "Audience Engagement"
+      "Data-driven A/B Testing",
+      "User Behavior Analysis",
+      "Landing Page Optimization",
+      "Full-Funnel Audits",
+      "Checkout Rate Improvement",
+      "Experimentation Roadmaps"
     ],
-    stats: { value: "200%", label: "Avg. Engagement Increase" },
-    href: "/services/content-marketing",
+    stats: { value: "+40%", label: "Conversion Rate Uplift" },
+    href: "#contact",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Zap,
+    title: "Marketing Automation",
+    description: "Engage your audience and nurture leads with personalized full-funnel marketing automation.",
+    badge: "Retention",
+    badgeVariant: "secondary" as const,
+    features: [
+      "Email Marketing Sequences",
+      "CRM Setup & Integration",
+      "Lead Scoring & Nurturing",
+      "Customer Retention Campaigns",
+      "Workflow Automation",
+      "Automated Reporting"
+    ],
+    stats: { value: "150%", label: "Increase in Lead Gen" },
+    href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600"
@@ -52,14 +88,14 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            SEO & Content Marketing Services
+            Growth Marketing Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional SEO and content marketing solutions to grow your online presence and drive sustainable business growth.
+            Professional growth marketing solutions to grow your online presence and drive sustainable business growth.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
@@ -91,12 +127,12 @@ export function ServicesSection() {
               </ul>
               <div className="flex items-center justify-between">
                 <div className="text-center">
-                  <div className="text-xl font-bold" style={{color: '#1447E6'}}>{service.stats.value}</div>
+                  <div className="text-xl font-bold" style={{ color: '#1447E6' }}>{service.stats.value}</div>
                   <p className="text-xs text-gray-600">{service.stats.label}</p>
                 </div>
-                <Button asChild className="text-white text-sm px-4 py-2" style={{backgroundColor: '#1447E6'}}>
+                <Button asChild className="text-white text-sm px-4 py-2" style={{ backgroundColor: '#1447E6' }}>
                   <Link href={service.href} className="flex items-center gap-2">
-                    <span>Learn More</span>
+                    <span>Discuss Your Needs</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </Button>

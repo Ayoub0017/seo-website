@@ -5,45 +5,81 @@ import Link from "next/link"
 
 const services = [
   {
-    icon: Search,
-    title: "Services SEO",
-    description: "Améliorez votre classement dans les moteurs de recherche et générez du trafic organique avec des stratégies SEO complètes.",
-    badge: "Le Plus Populaire",
+    icon: Target,
+    title: "Publicités & Paid Media",
+    description: "Augmentez votre acquisition de clients grâce à des campagnes publicitaires ciblées sur plusieurs canaux.",
+    badge: "Résultats Rapides",
     badgeVariant: "default" as const,
     features: [
+      "Gestion Google Ads",
+      "Publicités Meta (Facebook & Instagram)",
+      "Campagnes B2B LinkedIn",
+      "Stratégies de Retargeting",
+      "Optimisation RoAS & CPA",
+      "Copywriting & A/B Testing"
+    ],
+    stats: { value: "3x", label: "RoAS Cible Moyen" },
+    href: "#contact",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Search,
+    title: "Optimisation pour les Moteurs de Recherche",
+    description: "Générez une croissance organique durable et améliorez votre visibilité avec des stratégies SEO complètes.",
+    badge: "Croissance Durable",
+    badgeVariant: "secondary" as const,
+    features: [
       "Audits SEO Techniques",
-      "Recherche de Mots-Clés & Stratégie",
+      "Recherche & Stratégie de Mots-clés",
       "Optimisation On-Page",
       "Campagnes de Netlinking",
-      "SEO Local & Google My Business",
-      "SEO E-commerce",
       "Stratégie de Contenu SEO",
-      "Suivi des Performances & Reporting"
+      "SEO Local & E-commerce"
     ],
-    stats: { value: "300%", label: "Augmentation Moyenne du Trafic" },
-    href: "/fr/services/seo",
+    stats: { value: "200%", label: "Croissance Organique Moy." },
+    href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600"
   },
   {
     icon: TrendingUp,
-    title: "Marketing de Contenu",
-    description: "Créez un contenu captivant qui attire, engage et convertit votre audience cible.",
-    badge: "Construction de Marque",
+    title: "Optimisation des Conversions",
+    description: "Maximisez votre ROI marketing grâce à l'expérimentation continue et l'optimisation des tunnels.",
+    badge: "Maximisation ROI",
     badgeVariant: "secondary" as const,
     features: [
-      "Développement de Stratégie de Contenu",
-      "Création d'Articles de Blog",
-      "Articles Optimisés SEO",
-      "Gestion de Calendrier Éditorial",
-      "Distribution de Contenu",
-      "Analyse des Performances",
-      "Actualisation & Optimisation de Contenu",
-      "Engagement de l'Audience"
+      "A/B Testing Données",
+      "Analyse du Comportement Utilisateur",
+      "Optimisation de Landing Page",
+      "Audits Full-Funnel",
+      "Amélioration des Taux de Validation",
+      "Feuilles de Route Expérimentation"
     ],
-    stats: { value: "200%", label: "Augmentation Moyenne de l'Engagement" },
-    href: "/fr/services/marketing-de-contenu",
+    stats: { value: "+40%", label: "Hausse Taux de Conversion" },
+    href: "#contact",
+    gradient: "from-blue-500/10 to-purple-500/10",
+    iconBg: "bg-blue-500/10",
+    iconColor: "text-blue-600"
+  },
+  {
+    icon: Zap,
+    title: "Marketing Automation",
+    description: "Engagez votre audience et nourrissez vos prospects avec une automatisation marketing full-funnel.",
+    badge: "Rétention",
+    badgeVariant: "secondary" as const,
+    features: [
+      "Séquences d'Email Marketing",
+      "Configuration & Intégration CRM",
+      "Lead Scoring & Nurturing",
+      "Campagnes de Rétention",
+      "Automatisation de Workflows",
+      "Rapports Automatisés"
+    ],
+    stats: { value: "150%", label: "Hausse Génération Leads" },
+    href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
     iconColor: "text-blue-600"
@@ -52,14 +88,14 @@ const services = [
 
 export function ServicesSectionFR() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Services SEO & Marketing de Contenu
+            Services de Growth Marketing
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Solutions professionnelles de SEO et marketing de contenu pour développer votre présence en ligne et générer une croissance durable.
+            Solutions professionnelles de growth marketing pour développer votre présence en ligne et générer une croissance durable.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
@@ -91,12 +127,12 @@ export function ServicesSectionFR() {
               </ul>
               <div className="flex items-center justify-between">
                 <div className="text-center">
-                  <div className="text-xl font-bold" style={{color: '#1447E6'}}>{service.stats.value}</div>
+                  <div className="text-xl font-bold" style={{ color: '#1447E6' }}>{service.stats.value}</div>
                   <p className="text-xs text-gray-600">{service.stats.label}</p>
                 </div>
-                <Button asChild className="text-white text-sm px-4 py-2" style={{backgroundColor: '#1447E6'}}>
+                <Button asChild className="text-white text-sm px-4 py-2" style={{ backgroundColor: '#1447E6' }}>
                   <Link href={service.href} className="flex items-center gap-2">
-                    <span>En Savoir Plus</span>
+                    <span>Discutons de vos Besoins</span>
                     <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </Button>

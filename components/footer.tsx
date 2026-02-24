@@ -11,12 +11,12 @@ export function Footer() {
 
   const footerLinks = {
     services: [
-      { href: isFrench ? "/fr/services/seo" : "/services/seo", label: "SEO" },
-      { href: isFrench ? "/fr/services/marketing-de-contenu" : "/services/content-marketing", label: isFrench ? "Marketing de Contenu" : "Content Marketing" },
+      { href: isFrench ? "/fr#services" : "/#services", label: isFrench ? "Stratégie de Croissance" : "Growth Strategy" },
+      { href: isFrench ? "/fr#services" : "/#services", label: isFrench ? "Acquisition Client" : "Customer Acquisition" },
     ],
     company: [
-      { href: isFrench ? "/fr/a-propos" : "/about", label: isFrench ? "À Propos" : "About Me" },
-      { href: isFrench ? "/fr/contact" : "/contact", label: isFrench ? "Contact" : "Contact" },
+      { href: isFrench ? "/fr#about" : "/#about", label: isFrench ? "À Propos" : "About Me" },
+      { href: isFrench ? "/fr#contact" : "/#contact", label: "Contact" },
     ],
     contact: [
       { href: "mailto:contact@ayoubouarain.com", label: "contact@ayoubouarain.com", icon: Mail },
@@ -36,8 +36,8 @@ export function Footer() {
             </Link>
             <p className="text-gray-300 mb-4 leading-relaxed">
               {isFrench
-                ? "J'aide les entreprises à développer leur présence en ligne grâce à des services professionnels de SEO et de Marketing de Contenu qui génèrent du trafic organique et de l'engagement."
-                : "Helping businesses grow their online presence through professional SEO and Content Marketing services that drive organic traffic and engagement."
+                ? "J'aide les entreprises à développer leur présence en ligne grâce à des services professionnels de Growth Marketing qui génèrent de la croissance et de l'engagement."
+                : "Helping businesses grow their online presence through professional Growth Marketing services that drive sustainable growth and engagement."
               }
             </p>
             <div className="flex space-x-4">

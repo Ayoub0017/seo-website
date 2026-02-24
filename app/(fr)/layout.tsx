@@ -8,10 +8,10 @@ import "../globals.css"
 
 export const metadata: Metadata = {
     title: {
-        default: "Ayoub Ouraian - Consultant SEO & Marketing de Contenu",
+        default: "Ayoub Ouraian - Consultant en Growth Marketing",
         template: "%s | Ayoub Ouraian"
     },
-    description: "Services professionnels de SEO, Marketing de Contenu et Développement Web par Ayoub Ouraian pour développer votre activité en ligne.",
+    description: "Services professionnels de Growth Marketing et Développement Web par Ayoub Ouraian pour développer votre activité en ligne.",
     generator: "v0.app",
     icons: {
         icon: "/ayoub-ouarain-logo.png",
