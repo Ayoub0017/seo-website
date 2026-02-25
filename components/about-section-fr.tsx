@@ -8,26 +8,26 @@ import Image from "next/image"
 export function AboutSectionFR() {
     const skillCategories = [
         {
-            title: "Stratégie de Croissance",
+            title: "SEO & Acquisition Organique",
             skills: [
-                "Growth Marketing",
-                "Analyse Technique",
-                "Analyse de Données",
-                "Optimisation des Conversions",
-                "Acquisition d'Utilisateurs",
-                "Suivi des Performances",
-                "Stratégies de Rétention"
+                "SEO Technique",
+                "Stratégie de Mots-clés",
+                "Netlinking",
+                "SEO SaaS & B2B",
+                "SEO E-commerce",
+                "SEO Local",
+                "Analytics & Reporting"
             ]
         },
         {
-            title: "Acquisition Client",
+            title: "Contenu & Recherche IA (GEO)",
             skills: [
-                "Stratégie Marketing",
-                "Gestion de Campagnes",
-                "Publicité Réseaux Sociaux",
-                "Automatisation Email",
-                "Plans Go-To-Market",
-                "Développement de Marque"
+                "Generative Engine Optimization",
+                "Stratégie de Contenu",
+                "SEO ChatGPT & Perplexity",
+                "Google AI Overviews",
+                "Optimisation E-E-A-T",
+                "SEO d'Entité"
             ]
         }
     ]
@@ -41,12 +41,12 @@ export function AboutSectionFR() {
         {
             icon: Users,
             title: "Clients Satisfaits",
-            description: "Des entreprises transformées grâce au growth marketing stratégique",
+            description: "Des entreprises transformées grâce à la croissance organique et l'optimisation IA",
         },
         {
             icon: Award,
             title: "7+ Ans d'Expérience",
-            description: "Expertise prouvée en stratégies de growth marketing",
+            description: "Expertise prouvée en moteurs de recherche et IA",
         },
         {
             icon: Clock,
@@ -64,10 +64,10 @@ export function AboutSectionFR() {
                             Bonjour, je suis Ayoub
                         </h2>
                         <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                            Avec plus de 7 ans d'expérience en stratégie digitale, je me spécialise pour aider les entreprises à développer leur présence en ligne grâce à des stratégies de growth marketing axées sur les données.
+                            Je suis consultant SEO et Generative Engine Optimization (GEO) basé au Maroc. J'aide les entreprises à accroître leur visibilité sur les moteurs de recherche et les plateformes basées sur l'IA telles que ChatGPT, Google AI Overviews et Perplexity.
                         </p>
                         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                            Je crois en des stratégies de croissance qui donnent des résultats mesurables. Mon approche combine l'expertise technique avec des solutions créatives pour générer une croissance durable.
+                            Avec plus de 7 ans d'expérience en marketing digital, je suis spécialisé dans l'acquisition organique, la stratégie de contenu, le SEO technique et l'optimisation pour la recherche par IA. J'ai collaboré avec des startups, des PME et des marques bien établies dans les secteurs de l'e-commerce, du SaaS et du B2B.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button asChild size="lg" className="text-lg px-8 py-6 text-white" style={{ backgroundColor: '#1447E6' }}>
@@ -86,7 +86,7 @@ export function AboutSectionFR() {
                         <div className="aspect-square rounded-full overflow-hidden p-8">
                             <Image
                                 src="/ayoub-ouarain-profile.png"
-                                alt="Ayoub Ouraian - Consultant en Growth Marketing"
+                                alt="Ayoub Ouraian - Consultant SEO & GEO"
                                 width={400}
                                 height={400}
                                 className="w-full h-full object-cover rounded-full"

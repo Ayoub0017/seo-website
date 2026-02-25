@@ -9,8 +9,8 @@ import { SchemaMarkup, ayoubPersonData } from "@/components/schema-markup"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Consultant en Growth Marketing - Ayoub Ouraian",
-  description: "Services de conseil en Growth Marketing pour développer votre entreprise en ligne. Optimisation stratégique et solutions d'acquisition client.",
+  title: "Consultant SEO & GEO - Ayoub Ouraian",
+  description: "Solutions professionnelles de SEO et d'optimisation pour la recherche IA par Ayoub Ouraian. Acquisition organique stratégique et GEO.",
   robots: "index, follow",
   alternates: {
     canonical: "https://ayoubouarain.com/fr",
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Ayoub Ouraian - Consultant en Growth Marketing",
-    description: "Services de conseil en Growth Marketing pour développer votre entreprise en ligne. Optimisation stratégique et solutions d'acquisition client.",
+    title: "Ayoub Ouraian - Consultant SEO & GEO",
+    description: "Solutions professionnelles de SEO et d'optimisation pour la recherche IA par Ayoub Ouraian. Acquisition organique stratégique et GEO.",
     url: "https://ayoubouarain.com/fr",
     siteName: "Ayoub Ouraian",
     images: [
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "https://ayoubouarain.com/ayoub-ouarain-profile.png",
         width: 1200,
         height: 630,
-        alt: "Ayoub Ouraian - Consultant en Growth Marketing",
+        alt: "Ayoub Ouraian - Consultant SEO & GEO",
       },
     ],
     locale: "fr_FR",
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayoub Ouraian - Consultant en Growth Marketing",
-    description: "Consultant en Growth Marketing aidant les entreprises à développer leur présence en ligne grâce à des campagnes stratégiques et des solutions d'acquisition client.",
+    title: "Ayoub Ouraian - Consultant SEO & GEO",
+    description: "Solutions professionnelles de SEO et d'optimisation pour la recherche IA par Ayoub Ouraian. Acquisition organique stratégique et GEO.",
     images: ["https://ayoubouarain.com/ayoub-ouarain-profile.png"],
   },
 }
@@ -52,9 +52,9 @@ export default function HomePageFR() {
       <SchemaMarkup
         type="website"
         data={{
-          name: "Ayoub Ouraian - Consultant en Growth Marketing",
+          name: "Ayoub Ouraian - Consultant SEO & GEO",
           url: "https://ayoubouarain.com/fr",
-          description: "Services de conseil en Growth Marketing pour développer votre entreprise en ligne. Optimisation stratégique et solutions d'acquisition client."
+          description: "Solutions professionnelles de SEO et d'optimisation pour la recherche IA par Ayoub Ouraian. Acquisition organique stratégique et GEO."
         }}
       />
 

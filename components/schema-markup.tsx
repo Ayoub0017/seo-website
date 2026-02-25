@@ -218,8 +218,8 @@ export function SchemaMarkup({ type, data }: SchemaMarkupProps) {
 // Common person data for Ayoub Ouraian
 export const ayoubPersonData: PersonSchema = {
   name: "Ayoub Ouraian",
-  jobTitle: "Growth Marketing Consultant",
-  description: "Professional Growth Marketing consultant helping businesses grow their online presence through strategic campaigns, compelling customer acquisition, and modern web solutions.",
+  jobTitle: "SEO & GEO Consultant",
+  description: "Professional SEO and Generative Engine Optimization consultant helping businesses grow their online visibility on search engines and AI platforms.",
   image: "https://ayoubouarain.com/images/ayoub-ouraian.jpg",
   email: "ayoub@ayoubouarain.com",
   url: "https://ayoubouarain.com/",
@@ -232,7 +232,7 @@ export const ayoubPersonData: PersonSchema = {
     addressCountry: "Morocco"
   },
   worksFor: {
-    name: "Ayoub Ouraian Digital Marketing",
+    name: "Ayoub Ouraian SEO & GEO Consulting",
     url: "https://ayoubouarain.com/"
   }
 }

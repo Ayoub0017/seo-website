@@ -11,8 +11,8 @@ export function Footer() {
 
   const footerLinks = {
     services: [
-      { href: isFrench ? "/fr#services" : "/#services", label: isFrench ? "Stratégie de Croissance" : "Growth Strategy" },
-      { href: isFrench ? "/fr#services" : "/#services", label: isFrench ? "Acquisition Client" : "Customer Acquisition" },
+      { href: isFrench ? "/fr#services" : "/#services", label: isFrench ? "SEO Technique" : "Technical SEO" },
+      { href: isFrench ? "/fr#services" : "/#services", label: isFrench ? "Acquisition Organique" : "Organic Acquisition" },
     ],
     company: [
       { href: isFrench ? "/fr#about" : "/#about", label: isFrench ? "À Propos" : "About Me" },
@@ -36,8 +36,8 @@ export function Footer() {
             </Link>
             <p className="text-gray-300 mb-4 leading-relaxed">
               {isFrench
-                ? "J'aide les entreprises à développer leur présence en ligne grâce à des services professionnels de Growth Marketing qui génèrent de la croissance et de l'engagement."
-                : "Helping businesses grow their online presence through professional Growth Marketing services that drive sustainable growth and engagement."
+                ? "J'aide les entreprises à développer leur visibilité en ligne grâce à des services professionnels de SEO et d'optimisation IA (GEO)."
+                : "Helping businesses grow their online visibility through professional SEO and Generative Engine Optimization (GEO) services."
               }
             </p>
             <div className="flex space-x-4">

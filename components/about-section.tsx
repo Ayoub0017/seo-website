@@ -8,26 +8,26 @@ import Image from "next/image"
 export function AboutSection() {
     const skillCategories = [
         {
-            title: "Growth Strategy",
+            title: "SEO & Organic Acquisition",
             skills: [
-                "Growth Marketing",
-                "Technical Analysis",
-                "Data Analytics",
-                "Conversion Optimization",
-                "User Acquisition",
-                "Performance Tracking",
-                "Retention Strategies"
+                "Technical SEO",
+                "Keyword Strategy",
+                "Link Building",
+                "SaaS & B2B SEO",
+                "E-commerce SEO",
+                "Local SEO",
+                "Analytics & Reporting"
             ]
         },
         {
-            title: "Customer Acquisition",
+            title: "Content & AI Search (GEO)",
             skills: [
-                "Marketing Strategy",
-                "Campaign Management",
-                "Social Media Ads",
-                "Email Automation",
-                "Go-To-Market Plans",
-                "Brand Voice Development"
+                "Generative Engine Optimization",
+                "Content Strategy",
+                "ChatGPT & Perplexity SEO",
+                "Google AI Overviews",
+                "E-E-A-T Optimization",
+                "Entity SEO"
             ]
         }
     ]
@@ -41,12 +41,12 @@ export function AboutSection() {
         {
             icon: Users,
             title: "Happy Clients",
-            description: "Businesses transformed through strategic growth marketing",
+            description: "Businesses transformed through organic growth and AI optimization",
         },
         {
             icon: Award,
             title: "7+ Years Experience",
-            description: "Proven expertise in growth marketing strategies",
+            description: "Proven expertise in search engine and AI optimization",
         },
         {
             icon: Clock,
@@ -58,24 +58,24 @@ export function AboutSection() {
     const experience = [
         {
             period: "Jan 2024 - Present",
-            role: "Growth Marketing Consultant",
+            role: "SEO & GEO Consultant",
             company: "Freelance",
             description:
-                "Providing strategic growth consulting services to businesses, helping them improve their visibility and drive sustainable growth through results-driven strategies.",
+                "Providing strategic SEO and Generative Engine Optimization services, helping businesses increase their visibility on search engines and AI platforms like ChatGPT and Perplexity.",
         },
         {
             period: "Jan 2025 - Jul 2025",
-            role: "Growth Lead",
+            role: "SEO Lead",
             company: "Agency",
             description:
-                "Leading growth initiatives and developing comprehensive digital marketing strategies to drive client acquisition and revenue growth across multiple channels.",
+                "Leading organic acquisition initiatives and developing comprehensive SEO strategies to drive growth across multiple channels.",
         },
         {
             period: "May 2022 - Nov 2023",
-            role: "Content & Growth Manager",
+            role: "SEO & Content Manager",
             company: "Hostinger International",
             description:
-                "Managed content strategy and creation, overseeing growth marketing initiatives to enhance brand presence in target markets.",
+                "Managed content strategy and creation, overseeing SEO initiatives to enhance brand presence in target markets.",
         },
         {
             period: "Jul 2019 - May 2022",
@@ -95,12 +95,10 @@ export function AboutSection() {
                             Hi, I'm Ayoub
                         </h2>
                         <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                            With over 7 years of experience in digital strategy, I specialize in helping businesses grow their
-                            online presence through data-driven growth marketing strategies.
+                            I am an SEO and Generative Engine Optimization (GEO) consultant based in Morocco. I help businesses increase their visibility on search engines and AI-powered platforms like ChatGPT, Google AI Overviews, and Perplexity.
                         </p>
                         <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-                            I believe in growth strategies that deliver measurable results. My approach combines technical
-                            expertise with creative solutions to drive sustainable growth for your business.
+                            With over 7 years of experience in digital marketing, I specialize in organic acquisition, content strategy, technical SEO, and AI search optimization. I've worked with startups, SMBs, and established brands across e-commerce, SaaS, and B2B industries.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button asChild size="lg" className="text-lg px-8 py-6 text-white" style={{ backgroundColor: '#1447E6' }}>
@@ -119,7 +117,7 @@ export function AboutSection() {
                         <div className="aspect-square rounded-full overflow-hidden p-8">
                             <Image
                                 src="/ayoub-ouarain-profile.png"
-                                alt="Ayoub Ouraian - Growth Marketing Consultant"
+                                alt="Ayoub Ouraian - SEO & GEO Consultant"
                                 width={400}
                                 height={400}
                                 className="w-full h-full object-cover rounded-full"

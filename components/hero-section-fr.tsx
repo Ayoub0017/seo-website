@@ -10,15 +10,15 @@ export function HeroSectionFR() {
         <div className="text-center max-w-4xl mx-auto">
           <Badge variant="outline" className="mb-4">
             <Zap className="h-4 w-4 mr-2" />
-            Consultant en Growth Marketing
+            Consultant SEO & GEO
           </Badge>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Consultant en Growth Marketing
+            Consultant SEO & Generative Engine Optimization
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Générez du trafic et attirez des clients ciblés avec des stratégies de growth marketing
+            Augmentez votre visibilité sur les moteurs de recherche et les plateformes d'IA comme ChatGPT, Google AI Overviews et Perplexity.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">

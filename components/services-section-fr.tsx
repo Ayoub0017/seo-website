@@ -6,19 +6,19 @@ import Link from "next/link"
 const services = [
   {
     icon: Target,
-    title: "Publicités & Paid Media",
-    description: "Augmentez votre acquisition de clients grâce à des campagnes publicitaires ciblées sur plusieurs canaux.",
-    badge: "Résultats Rapides",
+    title: "SEO Technique",
+    description: "Construisez une base technique solide pour assurer une exploration, une indexation et des performances optimales sur les moteurs de recherche.",
+    badge: "Fondation",
     badgeVariant: "default" as const,
     features: [
-      "Gestion Google Ads",
-      "Publicités Meta (Facebook & Instagram)",
-      "Campagnes B2B LinkedIn",
-      "Stratégies de Retargeting",
-      "Optimisation RoAS & CPA",
-      "Copywriting & A/B Testing"
+      "Architecture & Taxonomie du Site",
+      "Optimisation des Core Web Vitals",
+      "Balisage Schema Markup Avancé",
+      "Analyse des Fichiers Logs",
+      "Structuration SEO pour JavaScript",
+      "Résolution des Problèmes d'Indexation"
     ],
-    stats: { value: "3x", label: "RoAS Cible Moyen" },
+    stats: { value: "100%", label: "Santé Technique" },
     href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
@@ -26,17 +26,17 @@ const services = [
   },
   {
     icon: Search,
-    title: "Optimisation pour les Moteurs de Recherche",
-    description: "Générez une croissance organique durable et améliorez votre visibilité avec des stratégies SEO complètes.",
+    title: "Acquisition Organique",
+    description: "Générez un trafic durable et de haute qualité grâce à des stratégies de croissance organique adaptées à votre secteur.",
     badge: "Croissance Durable",
     badgeVariant: "secondary" as const,
     features: [
-      "Audits SEO Techniques",
-      "Recherche & Stratégie de Mots-clés",
-      "Optimisation On-Page",
-      "Campagnes de Netlinking",
-      "Stratégie de Contenu SEO",
-      "SEO Local & E-commerce"
+      "Stratégie & Recherche de Mots-clés",
+      "Campagnes de Netlinking (Link Building)",
+      "Optimisation SEO E-commerce",
+      "Stratégies SEO pour SaaS",
+      "SEO Local & Google Maps",
+      "Analyse des Performances"
     ],
     stats: { value: "200%", label: "Croissance Organique Moy." },
     href: "#contact",
@@ -46,19 +46,19 @@ const services = [
   },
   {
     icon: TrendingUp,
-    title: "Optimisation des Conversions",
-    description: "Maximisez votre ROI marketing grâce à l'expérimentation continue et l'optimisation des tunnels.",
-    badge: "Maximisation ROI",
+    title: "Stratégie de Contenu",
+    description: "Créez un contenu percutant et optimisé pour la recherche qui engage votre audience et établit votre autorité thématique.",
+    badge: "Autorité",
     badgeVariant: "secondary" as const,
     features: [
-      "A/B Testing Données",
-      "Analyse du Comportement Utilisateur",
-      "Optimisation de Landing Page",
-      "Audits Full-Funnel",
-      "Amélioration des Taux de Validation",
-      "Feuilles de Route Expérimentation"
+      "Planification de Topic Clusters",
+      "Analyse des Lacunes de Contenu",
+      "Copywriting SEO & Conversion",
+      "Audits E-E-A-T",
+      "Stratégie de Contenu Blog",
+      "Actualisation de Contenu"
     ],
-    stats: { value: "+40%", label: "Hausse Taux de Conversion" },
+    stats: { value: "3x", label: "Meilleur Engagement" },
     href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
@@ -66,19 +66,19 @@ const services = [
   },
   {
     icon: Zap,
-    title: "Marketing Automation",
-    description: "Engagez votre audience et nourrissez vos prospects avec une automatisation marketing full-funnel.",
-    badge: "Rétention",
+    title: "Generative Engine Optimization (GEO)",
+    description: "Augmentez votre visibilité sur les moteurs de recherche basés sur l'IA et les LLM comme ChatGPT, Perplexity et AI Overviews.",
+    badge: "Future-proof",
     badgeVariant: "secondary" as const,
     features: [
-      "Séquences d'Email Marketing",
-      "Configuration & Intégration CRM",
-      "Lead Scoring & Nurturing",
-      "Campagnes de Rétention",
-      "Automatisation de Workflows",
-      "Rapports Automatisés"
+      "Audits des Plateformes IA",
+      "Optimisation de l'Entité de Marque",
+      "Génération de Citations",
+      "Stratégie de Mots-clés Conversationnels",
+      "Structuration adaptée aux LLM",
+      "Adaptations des Formats de Contenu"
     ],
-    stats: { value: "150%", label: "Hausse Génération Leads" },
+    stats: { value: "Top", label: "Apparitions IA" },
     href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
@@ -92,10 +92,10 @@ export function ServicesSectionFR() {
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Services de Growth Marketing
+            Services SEO & GEO
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Solutions professionnelles de growth marketing pour développer votre présence en ligne et générer une croissance durable.
+            Solutions professionnelles d'optimisation SEO et IA pour accroître votre visibilité et générer une croissance organique durable.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">

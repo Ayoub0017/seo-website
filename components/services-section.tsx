@@ -6,19 +6,19 @@ import Link from "next/link"
 const services = [
   {
     icon: Target,
-    title: "Paid Media & Advertising",
-    description: "Scale your customer acquisition with data-driven paid advertising campaigns across multiple channels.",
-    badge: "Fast Results",
+    title: "Technical SEO",
+    description: "Build a solid technical foundation to ensure optimal crawling, indexing, and performance on search engines.",
+    badge: "Foundation",
     badgeVariant: "default" as const,
     features: [
-      "Google Ads Management",
-      "Meta (Facebook & Instagram) Ads",
-      "LinkedIn B2B Campaigns",
-      "Retargeting Strategies",
-      "RoAS & CPA Optimization",
-      "Ad Copywriting & A/B Testing"
+      "Site Architecture & Taxonomy",
+      "Core Web Vitals Optimization",
+      "Advanced Schema Markup",
+      "Log File Analysis",
+      "JavaScript SEO Structuring",
+      "Indexation Troubleshooting"
     ],
-    stats: { value: "3x", label: "Avg. Target RoAS" },
+    stats: { value: "100%", label: "Crawlability Score" },
     href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
@@ -26,17 +26,17 @@ const services = [
   },
   {
     icon: Search,
-    title: "Search Engine Optimization",
-    description: "Drive sustainable organic growth and improve your visibility with comprehensive SEO strategies.",
+    title: "Organic Acquisition",
+    description: "Drive sustainable, high-quality traffic through comprehensive organic growth strategies tailored to your industry.",
     badge: "Sustainable Growth",
     badgeVariant: "secondary" as const,
     features: [
-      "Technical SEO Audits",
       "Keyword Strategy & Research",
-      "On-Page Optimization",
       "Link Building Campaigns",
-      "Content SEO Strategy",
-      "Local & E-commerce SEO"
+      "E-commerce SEO Optimization",
+      "SaaS SEO Strategies",
+      "Local SEO & Map Pack",
+      "Performance Analytics"
     ],
     stats: { value: "200%", label: "Avg. Organic Growth" },
     href: "#contact",
@@ -46,19 +46,19 @@ const services = [
   },
   {
     icon: TrendingUp,
-    title: "Conversion Optimization",
-    description: "Maximize your marketing ROI through continuous experimentation and funnel optimization.",
-    badge: "Maximize ROI",
+    title: "Content Strategy",
+    description: "Create compelling, search-optimized content that engages your audience and establishes topical authority.",
+    badge: "Authority",
     badgeVariant: "secondary" as const,
     features: [
-      "Data-driven A/B Testing",
-      "User Behavior Analysis",
-      "Landing Page Optimization",
-      "Full-Funnel Audits",
-      "Checkout Rate Improvement",
-      "Experimentation Roadmaps"
+      "Topic Cluster Planning",
+      "Content Gap Analysis",
+      "SEO & Conversion Copywriting",
+      "E-E-A-T Audits",
+      "Blog Content Strategy",
+      "Content Refreshing"
     ],
-    stats: { value: "+40%", label: "Conversion Rate Uplift" },
+    stats: { value: "3x", label: "Better Engagement" },
     href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
@@ -66,19 +66,19 @@ const services = [
   },
   {
     icon: Zap,
-    title: "Marketing Automation",
-    description: "Engage your audience and nurture leads with personalized full-funnel marketing automation.",
-    badge: "Retention",
+    title: "Generative Engine Optimization (GEO)",
+    description: "Increase your visibility on AI search engines and LLM platforms like ChatGPT, Perplexity, and AI Overviews.",
+    badge: "Future-proof",
     badgeVariant: "secondary" as const,
     features: [
-      "Email Marketing Sequences",
-      "CRM Setup & Integration",
-      "Lead Scoring & Nurturing",
-      "Customer Retention Campaigns",
-      "Workflow Automation",
-      "Automated Reporting"
+      "AI Platform Audits",
+      "Brand Entity Optimization",
+      "Citation Generation",
+      "Conversational Keyword Strategy",
+      "LLM-friendly Structuring",
+      "Content Format Adaptations"
     ],
-    stats: { value: "150%", label: "Increase in Lead Gen" },
+    stats: { value: "Top", label: "AI Search Placements" },
     href: "#contact",
     gradient: "from-blue-500/10 to-purple-500/10",
     iconBg: "bg-blue-500/10",
@@ -92,10 +92,10 @@ export function ServicesSection() {
       <div className="container mx-auto px-6 sm:px-8 lg:px-12">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Growth Marketing Services
+            SEO & GEO Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Professional growth marketing solutions to grow your online presence and drive sustainable business growth.
+            Professional SEO and AI search optimization solutions to increase your visibility and drive sustainable organic growth.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
